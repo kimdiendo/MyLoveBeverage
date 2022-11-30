@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Love Beverage</string>
+    <string name="warehouse">Manage Warehouse</string>
+    <string name="product">Manage Product</string>
+    <string name="Invoice">Manage Invoice</string>
+    <string name="Expense">Manage Expense</string>
+    <string name="Supplier">Manage Supplier</string>
+    <string name="Staff">Manage Staff</string>
+
+</resources>
