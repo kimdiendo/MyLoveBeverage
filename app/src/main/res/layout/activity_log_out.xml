@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/customborder">
+
+    <TextView
+        android:id="@+id/txtCustomDialogTitle"
+        android:layout_width="600dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Log Out"
+        android:drawableLeft="@drawable/checkout"
+        android:paddingRight="100dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtCustomDialogMessage"
+        android:layout_width="600dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="100dp"
+        android:text="Do you want to log out My Love Beverage app ?"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/btnCustomDialogNo"
+        android:layout_width="110dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="370dp"
+        android:text="No"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/red"/>
+
+    <Button
+        android:id="@+id/btnCustomDialogYes"
+        android:layout_width="110dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="120dp"
+        android:text="Yes"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#49AD30"/>
+
+</RelativeLayout>

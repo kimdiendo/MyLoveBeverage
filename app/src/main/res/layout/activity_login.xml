@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_lighter"
+    tools:context=".Login">
+
+    <TextView
+        android:layout_width="486dp"
+        android:layout_height="93dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="201dp"
+        android:layout_marginBottom="1067dp"
+        android:gravity="center"
+        android:text="My Love Beverage"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="237dp"
+        android:layout_marginBottom="762dp"
+        android:text="Let s’  take all with My Love Beverage"
+        android:textColor="@color/black"
+        android:textSize="25dp">
+
+    </TextView>
+
+    <ImageView
+        android:layout_width="228dp"
+        android:layout_height="213dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="322dp"
+        android:layout_marginBottom="841dp"
+        android:background="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/login_username"
+        android:layout_width="450dp"
+        android:layout_height="95dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="514dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="598dp"
+        android:drawableLeft="@drawable/user"
+        android:hint=" Enter your username"
+        android:textColorHint="@color/black"
+        android:textSize="35dp"
+        android:textStyle="normal"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="450dp"
+        android:layout_height="95dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="684dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="428dp"
+        android:drawableLeft="@drawable/password"
+        android:hint=" Enter your password"
+        android:textColorHint="@color/black"
+        android:textSize="35dp"
+        android:textStyle="normal"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="174dp"
+        android:layout_height="83dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="352dp"
+        android:layout_marginBottom="281dp"
+        android:background="@drawable/login_rbcircle_2"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_forgotpassword"
+        android:layout_width="497dp"
+        android:layout_height="98dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="144dp"
+        android:background="@drawable/forgotpassword_rbcircle"
+        android:text="You forgot password ? "
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:barrierMargin="15dp"
+    android:layout_margin="15dp"
+    app:cardBackgroundColor="@color/black"
+    android:layout_height="180dp">
+    <LinearLayout
+        android:layout_margin="4dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/pink_slighter"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/datetime_of_invoice"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:text="27/10/2022"
+            android:textColor="@color/black"
+            android:textSize="30dp"></TextView>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <ImageView
+                    android:layout_width="100dp"/>
+                <TextView
+                    android:id="@+id/edit1"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/edit2"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/edit3"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:background="@color/pink_plus"
+                android:layout_width="match_parent">
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                   />
+                <TextView
+                    android:id="@+id/ID"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:layout_width="300dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/salary"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:inputType="number"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+                <TextView
+                    android:id="@+id/Status"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+                <ImageButton
+                    android:id="@+id/see"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:background="@color/pink_plus"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_see" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
