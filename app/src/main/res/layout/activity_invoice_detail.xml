@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InvoiceDetail"
+    android:background="@color/pink_slight">
+
+    <TextView
+        android:id="@+id/txtInvoiceCodeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="50dp"
+        android:text="Invoice code:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtStaffCodeDetail"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="50dp"
+        android:text="Staff code:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInvoiceCodeDetail" />
+
+    <TextView
+        android:id="@+id/txtInvoiceDateDetail"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="50dp"
+        android:text="Time \u0026 Date:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStaffCodeDetail" />
+
+    <TextView
+        android:id="@+id/txtDisplayInvoiceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtInvoiceCodeDetail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDisplayStaffCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtStaffCodeDetail"
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplayInvoiceCode" />
+
+    <TextView
+        android:id="@+id/txtDisplayInvoiceDate"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="50dp"
+        android:minLines="2"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtInvoiceDateDetail"
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplayStaffCode" />
+
+    <TextView
+        android:id="@+id/txtProductName"
+        android:layout_width="210dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:background="@color/pink_lighter"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtProductAmount"
+        android:layout_width="210dp"
+        android:layout_height="120dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Amount"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtProductName" />
+
+    <TextView
+        android:id="@+id/txtProductUnit"
+        android:layout_width="210dp"
+        android:layout_height="120dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Unit"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtProductAmount" />
+
+    <TextView
+        android:id="@+id/txtProductPrice"
+        android:layout_width="210dp"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:background="@color/pink_lighter"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtProductUnit" />
+
+    <ListView
+        android:id="@+id/invoiceDetailListView"
+        android:layout_width="840dp"
+        android:layout_height="550dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/pink_lighter"
+        android:divider="@color/black"
+        android:dividerHeight="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="840dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invoiceDetailListView" />
+
+    <TextView
+        android:id="@+id/txtTotalprice"
+        android:layout_width="420dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Total:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineView" />
+
+    <TextView
+        android:id="@+id/txtDisplayTotalPrice"
+        android:layout_width="420dp"
+        android:layout_height="120dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTotalprice"
+        app:layout_constraintTop_toBottomOf="@+id/lineView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
