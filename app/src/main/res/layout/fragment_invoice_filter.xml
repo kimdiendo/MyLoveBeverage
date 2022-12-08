@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="#E1FBC4AD">
+
+    <TextView
+        android:id="@+id/txtFilterPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:gravity="center"
+        android:text="Price:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="60sp" />
+
+    <Button
+        android:id="@+id/btnFilterPrice1"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="0-100,000"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/login_rbcircle_1"/>
+
+    <Button
+        android:id="@+id/btnFilterPrice2"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="100,000-1,000,000"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/login_rbcircle_1"/>
+
+    <Button
+        android:id="@+id/btnFilterPrice3"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="1,000,000-..."
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="650dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/login_rbcircle_1"/>
+
+    <TextView
+        android:id="@+id/txtFilterDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:text="Date:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="60sp" />
+
+    <Button
+        android:id="@+id/btnFilterDate1"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/login_rbcircle_1"
+        android:text="Last Week"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnFilterDate2"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="Last Month"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/login_rbcircle_1"/>
+
+    <Button
+        android:id="@+id/btnFilterDate3"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="Last Year"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="650dp"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/login_rbcircle_1"/>
+
+</RelativeLayout>
