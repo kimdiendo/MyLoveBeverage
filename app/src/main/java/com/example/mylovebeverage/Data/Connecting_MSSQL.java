@@ -1,4 +1,4 @@
-package com.example.mylovebeverage;
+package com.example.mylovebeverage.Data;
 
 import android.os.StrictMode;
 import android.util.Log;

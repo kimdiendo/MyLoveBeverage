@@ -2,6 +2,7 @@ package com.example.mylovebeverage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
@@ -58,7 +59,7 @@ public class Manager extends AppCompatActivity {
     }
     protected void Manage_Product()
     {
-
+        binding.buttonProduct.setOnClickListener(v->startActivity(new Intent(getApplicationContext(), ManageProduct.class)));
     }
     protected void Manage_Invoice()
     {

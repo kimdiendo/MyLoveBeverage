@@ -1,4 +1,4 @@
-package com.example.mylovebeverage;
+package com.example.mylovebeverage.Models;
 
 public class Account {
     private String username ="";
@@ -10,7 +10,7 @@ public class Account {
         this.password = password;
         this.position = position;
     }
-    protected int AuthenticateLogin(String user  , String pass)
+    public int AuthenticateLogin(String user  , String pass)
     {
         if (user.equals(this.username))
         {
