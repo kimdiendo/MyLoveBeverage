@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pink_slighter"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layouttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/pink_plus"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/textfunction"
+            android:layout_width="371dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="25dp"
+            android:paddingTop="10dp"
+            android:text="Manage Product"
+            android:textColor="@color/black"
+            android:textSize="37dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp">
+
+      <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="24dp"
+          android:layout_marginRight="24dp"
+          android:layout_marginBottom="20dp"
+          android:layout_marginTop="0dp">
+
+        <Button
+            android:id="@+id/allCategoryBtn"
+            android:layout_width="210dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_1"
+            android:onClick="showAllProducts"
+            android:text="All"
+            android:textAllCaps="false"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/coffeeBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showCoffeeProducts"
+            android:text="Coffee"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/milkteaBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showMilkteaProducts"
+            android:text="Milk tea"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/teaBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showTeaProducts"
+            android:text="Tea"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/freezeBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showFreezeProducts"
+            android:text="Freeze"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/othersBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showOthersProducts"
+            android:text="Others"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/cakeBtn"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_rbcircle_4"
+            android:onClick="showCakeProducts"
+            android:text="Cake"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ListView
+        android:id="@+id/productsListView"
+        android:layout_width="860dp"
+        android:layout_height="1010dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:divider="@color/pink_slighter"
+        android:dividerHeight="10dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addProduct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="top"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/add_product" />
+
+</RelativeLayout>
