@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pink_slighter"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layouttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/pink_plus"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/textfunction"
+            android:layout_width="371dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="25dp"
+            android:paddingTop="10dp"
+            android:text="Manage Supplier"
+            android:textColor="@color/black"
+            android:textSize="37dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/suppliersListView"
+        android:layout_width="860dp"
+        android:layout_height="1100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="19dp"
+        android:divider="@color/pink_slighter"
+        android:dividerHeight="10dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addSupplier"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="top"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/add_product" />
+
+</RelativeLayout>
