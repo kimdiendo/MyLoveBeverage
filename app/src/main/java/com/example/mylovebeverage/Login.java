@@ -76,6 +76,7 @@ public class Login extends AppCompatActivity {
                                 break;
                             }else if(check_key == 3)
                             {
+                                Toast.makeText(getApplicationContext() , "welcome to my boss" ,Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), Manager.class);
                                 startActivity(intent);
                                 break;

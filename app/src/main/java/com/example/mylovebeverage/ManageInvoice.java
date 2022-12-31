@@ -13,11 +13,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.InvoiceAdapter;
-//import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Fragments.FragmentFilterInvoice;
 import com.example.mylovebeverage.Models.Invoice;
 
@@ -43,6 +44,7 @@ public class ManageInvoice extends FragmentActivity
     Button btnResetFilter;
     FragmentFilterInvoice fragmentFilterInvoice;
     String getDataFromFragment = null;
+    ImageView arrback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,14 @@ public class ManageInvoice extends FragmentActivity
                 getAllInvoices();
                 setUpList();
                 btnResetFilter.setVisibility(View.GONE);
+            }
+        });
+
+        arrback = findViewById(R.id.arrow_back);
+        arrback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

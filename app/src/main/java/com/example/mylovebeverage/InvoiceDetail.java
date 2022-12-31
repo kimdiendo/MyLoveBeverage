@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.InvoiceAdapter;
 import com.example.mylovebeverage.Adapters.InvoiceDetailAdapter;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.DetailOfInvoice;
 import com.example.mylovebeverage.Models.Invoice;
 
@@ -28,6 +31,7 @@ public class InvoiceDetail extends AppCompatActivity {
     private static Connection connection_invoiceDetail = null;
     Invoice selectedInvoice;
     DetailOfInvoice detailOfInvoice;
+    ImageView arrback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,14 @@ public class InvoiceDetail extends AppCompatActivity {
 
         getInvoiceDetails();
         setUpList();
+
+        arrback = findViewById(R.id.arrow_back);
+        arrback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void getInvoiceDetails() {

@@ -14,17 +14,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
-import com.example.mylovebeverage.databinding.ActivityAddNewProductBinding;
-import com.example.mylovebeverage.databinding.ActivityLoginBinding;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 public class AddNewProduct extends AppCompatActivity {
     ImageView arrback;
     Spinner spinnerCategory;
