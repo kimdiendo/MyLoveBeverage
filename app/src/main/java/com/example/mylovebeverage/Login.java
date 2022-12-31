@@ -1,6 +1,8 @@
 package com.example.mylovebeverage;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -72,6 +74,8 @@ public class Login extends AppCompatActivity {
                             }else if(check_key == 3)
                             {
                                 Toast.makeText(getApplicationContext() , "welcome to my boss" ,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),Manager.class);
+                                startActivity(intent);
                                 break;
                             }else if(check_key ==4)
                             {
