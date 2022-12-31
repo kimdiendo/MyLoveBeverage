@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="pink_plus">#f08080</color>
+    <color name="pink_plus2">#AC6C6C</color>
     <color name="pink_light">#f4978e</color>
     <color name="pink_lighter">#f8ad9d</color>
-    <color name="pink_slight">#fbc4ad</color>
+    <color name="pink_slight">#fbc4ab</color>
     <color name="pink_slighter">#ffdab9</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#555555</color>
+
 </resources>

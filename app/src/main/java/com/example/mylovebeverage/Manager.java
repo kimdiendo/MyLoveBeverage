@@ -55,11 +55,11 @@ public class Manager extends AppCompatActivity {
     }
     protected void Manage_Supplier()
     {
-
+        binding.buttonSupplier.setOnClickListener(v->startActivity(new Intent(getApplicationContext(), ManageSupplier.class)));
     }
     protected void Manage_Product()
     {
-
+        binding.buttonProduct.setOnClickListener(v->startActivity(new Intent(getApplicationContext(), ManageProduct.class)));
     }
     protected void Manage_Invoice()
     {
