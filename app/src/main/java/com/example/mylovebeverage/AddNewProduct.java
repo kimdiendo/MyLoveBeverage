@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

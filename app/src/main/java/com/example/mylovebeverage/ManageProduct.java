@@ -1,17 +1,12 @@
 package com.example.mylovebeverage;
 
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.example.mylovebeverage.Adapters.ProductAdapter;
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

@@ -4,17 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mylovebeverage.Adapters.InvoiceAdapter;
 import com.example.mylovebeverage.Adapters.InvoiceDetailAdapter;
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.DetailOfInvoice;
 import com.example.mylovebeverage.Models.Invoice;
 

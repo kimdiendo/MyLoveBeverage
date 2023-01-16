@@ -1,6 +1,5 @@
 package com.example.mylovebeverage;
 
-import androidx.appcompat.app.AppCompatActivity;
 //import androidx.datastore.core.Data;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -12,13 +11,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+        import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.InvoiceAdapter;
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Fragments.FragmentFilterInvoice;
 import com.example.mylovebeverage.Models.Invoice;
 
@@ -27,9 +25,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjuster;
-import java.util.ArrayList;
-import java.util.Date;
+        import java.util.ArrayList;
 
 public class ManageInvoice extends FragmentActivity
         implements FragmentFilterInvoice.FragmentFilterInvoiceListener

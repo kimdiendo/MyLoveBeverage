@@ -1,4 +1,4 @@
-package com.example.mylovebeverage.Data;
+package com.example.mylovebeverage.Models.Data;
 
 import android.os.StrictMode;
 import android.util.Log;

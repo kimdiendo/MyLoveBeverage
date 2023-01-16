@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Account;
 import com.example.mylovebeverage.databinding.ActivityLoginBinding;
 import java.sql.SQLException;
