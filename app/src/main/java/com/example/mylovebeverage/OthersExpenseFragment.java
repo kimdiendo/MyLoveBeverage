@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Adapters.OtherExpenseAdapter;
-import com.example.mylovebeverage.Models.Invoice_Other;
+import com.example.mylovebeverage.Models.Other_Expense_Invoice;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -73,7 +73,7 @@ public class OthersExpenseFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    private void ShowInformation(ArrayList<Invoice_Other> invoice_otherArrayList , int icon)
+    private void ShowInformation(ArrayList<Other_Expense_Invoice> _otherExpenseInvoiceArrayList, int icon)
     {
         try {
             Statement statement1 = connection_others_expense.createStatement();
@@ -84,7 +84,7 @@ public class OthersExpenseFragment extends Fragment {
                         "WHERE Kind_of_Invoice = "+"'"+type+"'"+ " AND Month_Invoice BETWEEN " + fmonth + " AND " + tmonth + "\n"+
                         "ORDER BY Month_Invoice");
                 while (resultSet.next()) {
-                    invoice_otherArrayList.add(new Invoice_Other(resultSet.getString(1).trim(), resultSet.getInt(3), resultSet.getString(4).trim(),resultSet.getString(5).trim(), resultSet.getString(6).trim(),resultSet.getString(9).trim() , resultSet.getString(2).trim(), String.valueOf(resultSet.getInt(7)), String.valueOf(resultSet.getInt(8)), icon));
+                    _otherExpenseInvoiceArrayList.add(new Other_Expense_Invoice(resultSet.getString(1).trim(), resultSet.getInt(3), resultSet.getString(4).trim(),resultSet.getString(5).trim(), resultSet.getString(6).trim(),resultSet.getString(9).trim() , resultSet.getString(2).trim(), String.valueOf(resultSet.getInt(7)), String.valueOf(resultSet.getInt(8)), icon));
                 }
                 resultSet.close();
             } else
@@ -98,10 +98,10 @@ public class OthersExpenseFragment extends Fragment {
                         "WHERE  Kind_of_Invoice = "+ "'"+type+"'" +" and (Month_Invoice BETWEEN 1 AND "+tmonth+ ") AND (Year_Invoice BETWEEN " + fyear + " AND " + tyear + ")\n" +
                         "ORDER BY Year_Invoice , Month_Invoice");
                 while (resultSet1.next()) {
-                    invoice_otherArrayList.add(new Invoice_Other(resultSet1.getString(1).trim(), resultSet1.getInt(3), resultSet1.getString(4).trim(),resultSet1.getString(5).trim(), resultSet1.getString(6).trim(),resultSet1.getString(9).trim() , resultSet1.getString(2).trim(), String.valueOf(resultSet1.getInt(7)), String.valueOf(resultSet1.getInt(8)), icon));
+                    _otherExpenseInvoiceArrayList.add(new Other_Expense_Invoice(resultSet1.getString(1).trim(), resultSet1.getInt(3), resultSet1.getString(4).trim(),resultSet1.getString(5).trim(), resultSet1.getString(6).trim(),resultSet1.getString(9).trim() , resultSet1.getString(2).trim(), String.valueOf(resultSet1.getInt(7)), String.valueOf(resultSet1.getInt(8)), icon));
                 }
                 while (resultSet2.next()) {
-                    invoice_otherArrayList.add(new Invoice_Other(resultSet2.getString(1).trim(), resultSet2.getInt(3), resultSet2.getString(4).trim(),resultSet2.getString(5).trim(), resultSet2.getString(6).trim(),resultSet2.getString(9).trim() , resultSet2.getString(2).trim(), String.valueOf(resultSet2.getInt(7)), String.valueOf(resultSet2.getInt(8)), icon));
+                    _otherExpenseInvoiceArrayList.add(new Other_Expense_Invoice(resultSet2.getString(1).trim(), resultSet2.getInt(3), resultSet2.getString(4).trim(),resultSet2.getString(5).trim(), resultSet2.getString(6).trim(),resultSet2.getString(9).trim() , resultSet2.getString(2).trim(), String.valueOf(resultSet2.getInt(7)), String.valueOf(resultSet2.getInt(8)), icon));
                 }
                 resultSet1.close();
                 resultSet2.close();
@@ -130,23 +130,23 @@ public class OthersExpenseFragment extends Fragment {
             type  = getArguments().getString("Type");
             connection_others_expense = new Connecting_MSSQL(connection_others_expense).Connecting();
             ListView listView = view.findViewById(R.id.listview_other_expense);
-            ArrayList<Invoice_Other> invoice_otherArrayList = new ArrayList<>();
+            ArrayList<Other_Expense_Invoice> _otherExpenseInvoiceArrayList = new ArrayList<>();
             if (connection_others_expense != null)
             {
                 OtherExpenseAdapter otherExpenseAdapter = null;
                 switch (type)
                 {
                     case "Electricity":
-                         ShowInformation(invoice_otherArrayList , R.drawable.electricity);
+                         ShowInformation(_otherExpenseInvoiceArrayList, R.drawable.electricity);
                          break;
                     case "Water":
-                         ShowInformation(invoice_otherArrayList , R.drawable.water);
+                         ShowInformation(_otherExpenseInvoiceArrayList, R.drawable.water);
                          break;
                     case "Wifi":
-                         ShowInformation(invoice_otherArrayList , R.drawable.wifi);
+                         ShowInformation(_otherExpenseInvoiceArrayList, R.drawable.wifi);
                          break;
                 }
-                otherExpenseAdapter = new OtherExpenseAdapter(invoice_otherArrayList);
+                otherExpenseAdapter = new OtherExpenseAdapter(_otherExpenseInvoiceArrayList);
                 otherExpenseAdapter.notifyDataSetChanged();
                 if(otherExpenseAdapter.getCount() ==0)
                 {

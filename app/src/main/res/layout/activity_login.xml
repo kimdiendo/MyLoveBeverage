@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink_lighter"
-    tools:context=".Login">
+    tools:context=".Login_check">
 
     <TextView
         android:layout_width="486dp"

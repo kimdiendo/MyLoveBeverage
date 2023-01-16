@@ -1,12 +1,12 @@
 package com.example.mylovebeverage.Models;
 
-public class Invoice_Other extends Invoice {
+public class Other_Expense_Invoice extends Expense_Invoice {
        String Kind_of_invoice = "";
        String month ="";
        String year ="";
        int icon;
 
-    public Invoice_Other(String ID_invoice, int price, String ID_staff, String payment_method, String paydate, String status, String kind_of_invoice, String month, String year, int icon) {
+    public Other_Expense_Invoice(String ID_invoice, int price, String ID_staff, String payment_method, String paydate, String status, String kind_of_invoice, String month, String year, int icon) {
         super(ID_invoice, price, ID_staff, payment_method, paydate, status);
         Kind_of_invoice = kind_of_invoice;
         this.month = month;

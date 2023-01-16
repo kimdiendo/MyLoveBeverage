@@ -6,24 +6,24 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mylovebeverage.Models.Invoice_Other;
+import com.example.mylovebeverage.Models.Other_Expense_Invoice;
 import com.example.mylovebeverage.R;
 
 import java.util.ArrayList;
 
 public class OtherExpenseAdapter extends BaseAdapter {
-    final ArrayList<Invoice_Other> invoice_otherArrayList;
-    public OtherExpenseAdapter(ArrayList<Invoice_Other>invoice_otherArrayList) {
-           this.invoice_otherArrayList = invoice_otherArrayList;
+    final ArrayList<Other_Expense_Invoice> _otherExpenseInvoiceArrayList;
+    public OtherExpenseAdapter(ArrayList<Other_Expense_Invoice> _otherExpenseInvoiceArrayList) {
+           this._otherExpenseInvoiceArrayList = _otherExpenseInvoiceArrayList;
     }
     @Override
     public int getCount() {
-        return invoice_otherArrayList.size();
+        return _otherExpenseInvoiceArrayList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return  invoice_otherArrayList.get(position);
+        return  _otherExpenseInvoiceArrayList.get(position);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class OtherExpenseAdapter extends BaseAdapter {
             viewproduct = view;
             viewHolder = (OtherExpenseAdapter.ViewHolder) viewproduct.getTag();
         }
-        Invoice_Other product = (Invoice_Other) getItem(position);
+        Other_Expense_Invoice product = (Other_Expense_Invoice) getItem(position);
         viewHolder.img.setImageResource(product.getIcon());
         viewHolder.edt1.setText("ID");
         viewHolder.edt2.setText("Price");

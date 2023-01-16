@@ -24,7 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Manager extends AppCompatActivity {
+public class Manager_check extends AppCompatActivity {
     private ActivityManagerBinding binding;
     private static Connection connection_manager;
     private String username ="";
@@ -116,7 +116,7 @@ public class Manager extends AppCompatActivity {
                 }
                 else if (item.getTitle().toString().trim().equals("Log Out"))
                 {
-                    Dialog dialog = new Dialog(Manager.this);
+                    Dialog dialog = new Dialog(Manager_check.this);
                     dialog.setContentView(R.layout.activity_log_out);
                     Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
                     Button btnNo  = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
@@ -138,7 +138,7 @@ public class Manager extends AppCompatActivity {
                                         "WHERE Account_name ="+"'"+username+"'");
                                 dialog.dismiss();
                                 finish();
-                                startActivity(new Intent(getApplicationContext() , Login.class));
+                                startActivity(new Intent(getApplicationContext() , Login_check.class));
                             }catch (SQLException e)
                             {
                                 e.printStackTrace();

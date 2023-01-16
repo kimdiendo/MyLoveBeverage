@@ -53,14 +53,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Manager"
+            android:name=".Manager_check"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Login_check"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

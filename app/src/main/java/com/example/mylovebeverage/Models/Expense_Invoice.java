@@ -1,5 +1,5 @@
 package com.example.mylovebeverage.Models;
-public class Invoice {
+public class Expense_Invoice {
        String ID_invoice = "";
        int Price;
        String ID_staff = "";
@@ -7,7 +7,7 @@ public class Invoice {
        String Paydate ="";
        String status ="";
 
-    public Invoice(String ID_invoice, int price, String ID_staff, String payment_method, String paydate, String status) {
+    public Expense_Invoice(String ID_invoice, int price, String ID_staff, String payment_method, String paydate, String status) {
         this.ID_invoice = ID_invoice;
         Price = price;
         this.ID_staff = ID_staff;

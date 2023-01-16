@@ -6,14 +6,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mylovebeverage.Models.Invoice_Salary_Staff;
+import com.example.mylovebeverage.Models.Salary_Staff_Expense_Invoice;
 import com.example.mylovebeverage.R;
 import java.util.ArrayList;
 
 public class StaffSalaryAdapter extends BaseAdapter
 {
-    final ArrayList<Invoice_Salary_Staff> invoiceSalaryStaffArrayList;
-    public StaffSalaryAdapter(ArrayList<Invoice_Salary_Staff> invoiceSalaryStaffArrayList) {
+    final ArrayList<Salary_Staff_Expense_Invoice> invoiceSalaryStaffArrayList;
+    public StaffSalaryAdapter(ArrayList<Salary_Staff_Expense_Invoice> invoiceSalaryStaffArrayList) {
            this.invoiceSalaryStaffArrayList = invoiceSalaryStaffArrayList;
     }
     @Override
@@ -62,7 +62,7 @@ public class StaffSalaryAdapter extends BaseAdapter
             viewproduct = view;
             viewHolder = (StaffSalaryAdapter.ViewHolder) viewproduct.getTag();
         }
-        Invoice_Salary_Staff product = (Invoice_Salary_Staff) getItem(position);
+        Salary_Staff_Expense_Invoice product = (Salary_Staff_Expense_Invoice) getItem(position);
         viewHolder.img.setImageResource(R.drawable.salary_icon);
         viewHolder.edt1.setText("ID");
         viewHolder.edt2.setText("Salary");

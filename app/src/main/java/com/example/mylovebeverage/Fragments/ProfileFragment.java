@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mylovebeverage.Adapters.InformationAdapter;
-import com.example.mylovebeverage.Models.detail_profile;
+import com.example.mylovebeverage.Models.Detail_Profile;
 import com.example.mylovebeverage.R;
 import com.squareup.picasso.Picasso;
 
@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ArrayList<detail_profile> arrayList;
+    private ArrayList<Detail_Profile> arrayList;
     private String Account_name="";
     private String Password="";
     private String Position="";
@@ -85,12 +85,12 @@ public class ProfileFragment extends Fragment {
         PhoneNumber = getArguments().getString("PhoneNumber" );
         EmailAddress = getArguments().getString("Email");
         arrayList = new ArrayList<>();
-        arrayList.add(new detail_profile(R.drawable.accountname,"Account name:", Account_name));
-        arrayList.add(new detail_profile(R.drawable.padlockpassword,"Password:", Password));
-        arrayList.add(new detail_profile(R.drawable.role,"Position:",Position));
-        arrayList.add(new detail_profile(R.drawable.gender,"Gender:",Gender));
-        arrayList.add(new detail_profile(R.drawable.phonenumber,"Phone Number:",PhoneNumber));
-        arrayList.add(new detail_profile(R.drawable.email,"Email Address:",EmailAddress));
+        arrayList.add(new Detail_Profile(R.drawable.accountname,"Account name:", Account_name));
+        arrayList.add(new Detail_Profile(R.drawable.padlockpassword,"Password:", Password));
+        arrayList.add(new Detail_Profile(R.drawable.role,"Position:",Position));
+        arrayList.add(new Detail_Profile(R.drawable.gender,"Gender:",Gender));
+        arrayList.add(new Detail_Profile(R.drawable.phonenumber,"Phone Number:",PhoneNumber));
+        arrayList.add(new Detail_Profile(R.drawable.email,"Email Address:",EmailAddress));
         ListView listView = view.findViewById(R.id.list_item);
         InformationAdapter informationAdapter = new InformationAdapter(arrayList);
         informationAdapter.notifyDataSetChanged();

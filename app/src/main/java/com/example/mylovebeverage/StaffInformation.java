@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Detail_Human_Resource;
 import com.example.mylovebeverage.Adapters.InformationAdapter;
-import com.example.mylovebeverage.Models.detail_profile;
+import com.example.mylovebeverage.Models.Detail_Profile;
 import com.example.mylovebeverage.databinding.ActivityStaffInformationBinding;
 import com.squareup.picasso.Picasso;
 import java.sql.Connection;
@@ -27,7 +27,7 @@ public class StaffInformation extends AppCompatActivity {
     Connection connection_staff_information;
     Detail_Human_Resource selectedItem;
     InformationAdapter informationAdapter;
-    private ArrayList<detail_profile> arrayList;
+    private ArrayList<Detail_Profile> arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -401,13 +401,13 @@ public class StaffInformation extends AppCompatActivity {
         binding.textView2.setText(selectedItem.getName());
         Picasso.get().load(selectedItem.getImageview()).fit().into(binding.roundedImageViewpersonal);
         arrayList = new ArrayList<>();
-        arrayList.add(new detail_profile(R.drawable.accountname, "ID:", selectedItem.getID()));
-        arrayList.add(new detail_profile(R.drawable.role, "Position:", selectedItem.getPosition()));
-        arrayList.add(new detail_profile(R.drawable.gender, "Gender:", selectedItem.getGender()));
-        arrayList.add(new detail_profile(R.drawable.phonenumber, "Phone Number:", selectedItem.getPhoneNumber()));
-        arrayList.add(new detail_profile(R.drawable.salary, "Salary:", String.valueOf(selectedItem.getSalary())));
-        arrayList.add(new detail_profile(R.drawable.email, "Email:", selectedItem.getEmail()));
-        arrayList.add(new detail_profile(R.drawable.status , "Status:", selectedItem.getStatus()));
+        arrayList.add(new Detail_Profile(R.drawable.accountname, "ID:", selectedItem.getID()));
+        arrayList.add(new Detail_Profile(R.drawable.role, "Position:", selectedItem.getPosition()));
+        arrayList.add(new Detail_Profile(R.drawable.gender, "Gender:", selectedItem.getGender()));
+        arrayList.add(new Detail_Profile(R.drawable.phonenumber, "Phone Number:", selectedItem.getPhoneNumber()));
+        arrayList.add(new Detail_Profile(R.drawable.salary, "Salary:", String.valueOf(selectedItem.getSalary())));
+        arrayList.add(new Detail_Profile(R.drawable.email, "Email:", selectedItem.getEmail()));
+        arrayList.add(new Detail_Profile(R.drawable.status , "Status:", selectedItem.getStatus()));
         informationAdapter = new InformationAdapter(arrayList);
         informationAdapter.notifyDataSetChanged();
         binding.listItem.setAdapter(informationAdapter);

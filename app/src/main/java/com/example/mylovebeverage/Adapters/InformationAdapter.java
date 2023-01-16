@@ -6,13 +6,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mylovebeverage.Models.detail_profile;
+import com.example.mylovebeverage.Models.Detail_Profile;
 import com.example.mylovebeverage.R;
 import java.util.ArrayList;
 
 public class InformationAdapter extends BaseAdapter {
-    final ArrayList<detail_profile> arrayList ;
-    public InformationAdapter(ArrayList<detail_profile> arrayList) {
+    final ArrayList<Detail_Profile> arrayList ;
+    public InformationAdapter(ArrayList<Detail_Profile> arrayList) {
         this.arrayList = arrayList;
     }
     @Override
@@ -54,7 +54,7 @@ public class InformationAdapter extends BaseAdapter {
             viewproduct = view;
             viewHolder = (ViewHolder) viewproduct.getTag();
         }
-        detail_profile product = (detail_profile) getItem(position);
+        Detail_Profile product = (Detail_Profile) getItem(position);
         viewHolder.txt1.setText(product.getName1());
         viewHolder.txt2.setText(product.getName2());
         viewHolder.img.setImageResource(product.getImageView());

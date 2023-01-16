@@ -1,10 +1,10 @@
 package com.example.mylovebeverage.Models;
-public class detail_profile {
+public class Detail_Profile {
      private String name1 ="";
      private String name2 ="";
      private int imageView;
 
-    public detail_profile(int imageView , String name1, String name2) {
+    public Detail_Profile(int imageView , String name1, String name2) {
         this.name1 = name1;
         this.name2 = name2;
         this.imageView = imageView;

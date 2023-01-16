@@ -16,7 +16,7 @@ import com.example.mylovebeverage.databinding.ActivityLoginBinding;
 
 import java.sql.SQLException;
 
-public class Login extends AppCompatActivity {
+public class Login_check extends AppCompatActivity {
     private ActivityLoginBinding binding;
     Account account ;
     private static Connection connection;
@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
                                 statement1.execute("UPDATE ACCOUNT\n" +
                                         "SET Status ='active'\n" +
                                         "WHERE Account_name ="+"'"+username+"'");
-                                Intent intent = new Intent(getApplicationContext() , Manager.class);
+                                Intent intent = new Intent(getApplicationContext() , Manager_check.class);
                                 intent.putExtra("username" , username);
                                 intent.putExtra("password", password);
                                 startActivity(intent);

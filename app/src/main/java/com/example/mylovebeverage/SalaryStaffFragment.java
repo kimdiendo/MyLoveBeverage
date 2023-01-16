@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
-import com.example.mylovebeverage.Models.Invoice_Salary_Staff;
+import com.example.mylovebeverage.Models.Salary_Staff_Expense_Invoice;
 import com.example.mylovebeverage.Adapters.StaffSalaryAdapter;
 
 import java.sql.Connection;
@@ -88,7 +88,7 @@ public class SalaryStaffFragment extends Fragment {
             listView = view.findViewById(R.id.listviewsalary);
             connection_staff_salary = new Connecting_MSSQL(connection_staff_salary).Connecting();
             //truy xuất thông tin từ nếu năm bằng nhau từ csdl\
-            ArrayList<Invoice_Salary_Staff> invoiceSalaryStaffArrayList = new ArrayList<>();//khởi tạo list luu thong tin doi tuong
+            ArrayList<Salary_Staff_Expense_Invoice> invoiceSalaryStaffArrayList = new ArrayList<>();//khởi tạo list luu thong tin doi tuong
             if (connection_staff_salary != null) {
                 StaffSalaryAdapter expenseAdapter = null;
                 try {
@@ -101,7 +101,7 @@ public class SalaryStaffFragment extends Fragment {
                                 "WHERE Month_Invoice BETWEEN " + fmonth + " AND " + tmonth + "\n" +
                                 "ORDER BY Month_Invoice");
                         while (resultSet.next()) {
-                            invoiceSalaryStaffArrayList.add(new Invoice_Salary_Staff(resultSet.getString(1).trim(), resultSet.getInt(2), resultSet.getString(3).trim(), resultSet.getString(6).trim(), resultSet.getString(7).trim(), resultSet.getString(4).trim(), resultSet.getString(5).trim(), String.valueOf(resultSet.getInt(8)), String.valueOf(resultSet.getInt(9))));
+                            invoiceSalaryStaffArrayList.add(new Salary_Staff_Expense_Invoice(resultSet.getString(1).trim(), resultSet.getInt(2), resultSet.getString(3).trim(), resultSet.getString(6).trim(), resultSet.getString(7).trim(), resultSet.getString(4).trim(), resultSet.getString(5).trim(), String.valueOf(resultSet.getInt(8)), String.valueOf(resultSet.getInt(9))));
                         }
                         resultSet.close();
                         expenseAdapter = new StaffSalaryAdapter(invoiceSalaryStaffArrayList);
@@ -116,10 +116,10 @@ public class SalaryStaffFragment extends Fragment {
                                 "WHERE (Month_Invoice BETWEEN 1 AND " + tmonth + ") AND (Year_Invoice BETWEEN " + fyear + " AND " + tyear + ") \n" +
                                 "ORDER BY Year_Invoice , Month_Invoice\n");
                         while (resultSet1.next()) {
-                            invoiceSalaryStaffArrayList.add(new Invoice_Salary_Staff(resultSet1.getString(1).trim(), resultSet1.getInt(2), resultSet1.getString(3).trim(), resultSet1.getString(6).trim(), resultSet1.getString(7).trim(), resultSet1.getString(4).trim(), resultSet1.getString(5).trim(), String.valueOf(resultSet1.getInt(8)), String.valueOf(resultSet1.getInt(9))));
+                            invoiceSalaryStaffArrayList.add(new Salary_Staff_Expense_Invoice(resultSet1.getString(1).trim(), resultSet1.getInt(2), resultSet1.getString(3).trim(), resultSet1.getString(6).trim(), resultSet1.getString(7).trim(), resultSet1.getString(4).trim(), resultSet1.getString(5).trim(), String.valueOf(resultSet1.getInt(8)), String.valueOf(resultSet1.getInt(9))));
                         }
                         while (resultSet2.next()) {
-                            invoiceSalaryStaffArrayList.add(new Invoice_Salary_Staff(resultSet2.getString(1).trim(), resultSet2.getInt(2), resultSet2.getString(3).trim(), resultSet2.getString(6).trim(), resultSet2.getString(7).trim(), resultSet2.getString(4).trim(), resultSet2.getString(5).trim(), String.valueOf(resultSet2.getInt(8)), String.valueOf(resultSet2.getInt(9))));
+                            invoiceSalaryStaffArrayList.add(new Salary_Staff_Expense_Invoice(resultSet2.getString(1).trim(), resultSet2.getInt(2), resultSet2.getString(3).trim(), resultSet2.getString(6).trim(), resultSet2.getString(7).trim(), resultSet2.getString(4).trim(), resultSet2.getString(5).trim(), String.valueOf(resultSet2.getInt(8)), String.valueOf(resultSet2.getInt(9))));
                         }
                         resultSet1.close();
                         resultSet2.close();
