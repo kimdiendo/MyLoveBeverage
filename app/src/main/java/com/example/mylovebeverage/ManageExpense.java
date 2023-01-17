@@ -18,6 +18,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Fragments.OthersExpenseFragment;
+import com.example.mylovebeverage.Fragments.SalaryStaffFragment;
 import com.example.mylovebeverage.databinding.ActivityManageExpenseBinding;
 
 import java.sql.Connection;

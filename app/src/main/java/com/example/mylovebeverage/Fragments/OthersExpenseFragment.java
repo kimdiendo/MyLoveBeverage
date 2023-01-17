@@ -1,4 +1,4 @@
-package com.example.mylovebeverage;
+package com.example.mylovebeverage.Fragments;
 
 import android.os.Bundle;
 
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Adapters.OtherExpenseAdapter;
 import com.example.mylovebeverage.Models.Other_Expense_Invoice;
+import com.example.mylovebeverage.R;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

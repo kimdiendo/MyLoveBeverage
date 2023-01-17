@@ -1,6 +1,5 @@
 package com.example.mylovebeverage;
 
-//import androidx.datastore.core.Data;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
