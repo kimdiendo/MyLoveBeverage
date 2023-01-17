@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="800dp"
+    android:layout_height="1000dp"
+    android:orientation="vertical"
+    android:background="@color/pink_slight">
+    <LinearLayout
+        android:id="@+id/layouttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/pink_plus"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_weight="0.01"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_close" />
+        <TextView
+            android:id="@+id/textfunction"
+            android:layout_width="475dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="25dp"
+            android:paddingTop="15dp"
+            android:text="Edit Staff Information"
+            android:textColor="@color/black"
+            android:textSize="37dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/scrollView"
+                android:layout_width="802dp"
+                android:layout_height="857dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="695dp"
+                    android:layout_marginBottom="637dp"
+                    android:text="ID:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ID"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:drawableLeft="@drawable/accountname"
+                    android:drawablePadding="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="274dp"
+                    android:layout_marginBottom="634dp" />
+
+                <TextView
+                    android:layout_width="153dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="588dp"
+                    android:layout_marginBottom="356dp"
+                    android:text="Gender:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/status"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="204dp"
+                    android:layout_marginBottom="728dp"
+                    android:drawableLeft="@drawable/status_quo"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="134dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="608dp"
+                    android:layout_marginBottom="540dp"
+                    android:text="Name:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/Name"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="206dp"
+                    android:layout_marginBottom="537dp"
+                    android:drawableLeft="@drawable/accountname"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="581dp"
+                    android:layout_marginBottom="449dp"
+                    android:text="Position:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/position"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="177dp"
+                    android:layout_marginBottom="449dp"
+                    android:drawableLeft="@drawable/role"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="144dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="600dp"
+                    android:layout_marginBottom="730dp"
+                    android:text="Status:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/gender"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="178dp"
+                    android:layout_marginBottom="357dp"
+                    android:drawableLeft="@drawable/gender"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="450dp"
+                    android:layout_marginBottom="262dp"
+                    android:text="Phone Number:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/PhoneNumber"
+                    android:layout_width="341dp"
+                    android:layout_height="62dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="88dp"
+                    android:layout_marginBottom="256dp"
+                    android:drawableLeft="@drawable/phonenumber"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="600dp"
+                    android:layout_marginBottom="168dp"
+                    android:text="Salary:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/Salary"
+                    android:layout_width="376dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="204dp"
+                    android:layout_marginBottom="166dp"
+                    android:drawableLeft="@drawable/salary"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="600dp"
+                    android:layout_marginBottom="83dp"
+                    android:text="Image:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/image"
+                    android:layout_width="552dp"
+                    android:layout_height="89dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_marginBottom="78dp"
+                    android:drawableLeft="@drawable/accountname"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="627dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="Email:"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="554dp"
+                    android:layout_height="61dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="27dp"
+                    android:layout_marginBottom="3dp"
+                    android:drawableLeft="@drawable/email"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="128dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="20dp"
+                android:background="#49AD30"
+                android:text="Save"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView">
+            </Button>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</LinearLayout>

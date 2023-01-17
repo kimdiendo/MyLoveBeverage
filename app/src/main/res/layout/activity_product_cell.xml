@@ -8,8 +8,6 @@
     tools:context=".ManageProduct"
     android:orientation="vertical"
     android:descendantFocusability="blocksDescendants">
-
-
     <TextView
         android:id="@+id/product_productNameItem"
         android:layout_width="wrap_content"

@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.SupplierAdapter;
-import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Supplier;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

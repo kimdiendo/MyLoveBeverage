@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="600dp"
+    android:layout_height="600dp"
+    android:orientation="vertical"
+    android:background="@color/pink_slight">
+    <LinearLayout
+        android:id="@+id/layouttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/pink_plus"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_weight="0.01"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/textfunction"
+            android:layout_width="151dp"
+            android:layout_height="75dp"
+            android:paddingTop="15dp"
+            android:text="Account"
+            android:layout_margin="25dp"
+            android:textColor="@color/black"
+            android:textSize="37dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="288dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="24dp"
+                android:text="Account Name:"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/ID"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/accountname"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="288dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="16dp"
+                android:text="Password:"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/ID"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="@+id/ID"
+                app:layout_constraintTop_toBottomOf="@+id/ID" />
+
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/padlockpassword"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="Position:"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/pass"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/pass"
+                app:layout_constraintTop_toBottomOf="@+id/pass" />
+
+            <EditText
+                android:id="@+id/role"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/role"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="128dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="28dp"
+                android:background="#49AD30"
+                android:text="Save"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/role"
+                app:layout_constraintHorizontal_bias="0.514"
+                app:layout_constraintStart_toStartOf="@+id/role"
+                app:layout_constraintTop_toBottomOf="@+id/role"></Button>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</LinearLayout>

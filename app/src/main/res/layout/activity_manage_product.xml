@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/pink_slighter"
-    tools:context=".MainActivity">
+    tools:context=".ManageProduct">
 
     <LinearLayout
         android:id="@+id/layouttoolbar"

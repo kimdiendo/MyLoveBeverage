@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.example.mylovebeverage.Adapters.ProductAdapter;
-import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

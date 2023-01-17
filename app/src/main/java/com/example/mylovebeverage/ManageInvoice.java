@@ -16,7 +16,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.InvoiceAdapter;
-import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
+
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Fragments.FragmentFilterInvoice;
 import com.example.mylovebeverage.Models.Invoice;
 

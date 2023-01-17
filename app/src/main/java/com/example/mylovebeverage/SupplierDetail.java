@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Supplier;
 import com.squareup.picasso.Picasso;
 

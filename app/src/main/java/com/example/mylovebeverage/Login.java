@@ -10,23 +10,22 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Account;
 import com.example.mylovebeverage.databinding.ActivityLoginBinding;
+
 import java.sql.SQLException;
 
 public class Login extends AppCompatActivity {
     private ActivityLoginBinding binding;
-    Connecting_MSSQL connecting_mssql;
     Account account ;
-    private static Connection connection_login = null;
+    private static Connection connection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        connecting_mssql = new Connecting_MSSQL(connection_login);
-        connection_login = connecting_mssql.Connecting();
+        connection = new Connecting_MSSQL(connection).Connecting();
     }
     @Override
     protected void onDestroy() {
@@ -60,10 +59,10 @@ public class Login extends AppCompatActivity {
             {
                 String username = binding.loginUsername.getText().toString().trim();
                 String password = binding.loginPassword.getText().toString().trim();
-                if (connection_login!=null)
+                if (connection!=null)
                 {
                     try {
-                        Statement statement = connection_login.createStatement();
+                        Statement statement = connection.createStatement();
                         ResultSet resultSet = statement.executeQuery("SELECT * FROM ACCOUNT;");
                         int check_key = 1;
                         while(resultSet.next())
@@ -76,8 +75,13 @@ public class Login extends AppCompatActivity {
                                 break;
                             }else if(check_key == 3)
                             {
-                                Toast.makeText(getApplicationContext() , "welcome to my boss" ,Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), Manager.class);
+                                Statement statement1 = connection.createStatement();
+                                statement1.execute("UPDATE ACCOUNT\n" +
+                                        "SET Status ='active'\n" +
+                                        "WHERE Account_name ="+"'"+username+"'");
+                                Intent intent = new Intent(getApplicationContext() , Manager.class);
+                                intent.putExtra("username" , username);
+                                intent.putExtra("password", password);
                                 startActivity(intent);
                                 break;
                             }else if(check_key ==4)
