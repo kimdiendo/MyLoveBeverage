@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
         img_expense = view.findViewById(R.id.button_expense);
         img_product = view.findViewById(R.id.button_product);
         img_invoice = view.findViewById(R.id.button_invoice);
-        img_supplier = view.findViewById(R.id.button_invoice);
+        img_supplier = view.findViewById(R.id.button_supplier);
         //staff_id = getArguments().getString("AccountName").trim();
         Manage_Staff();
         Manage_Expense();
