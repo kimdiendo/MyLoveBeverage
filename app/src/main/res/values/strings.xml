@@ -6,4 +6,10 @@
     <string name="Expense">Manage Expense</string>
     <string name="Supplier">Manage Supplier</string>
     <string name="Staff">Manage Staff</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="statistic">Statistic</string>
+    <string name="hotline">Hotline</string>
+    <string name="logout">Log Out</string>
+    <string name="aboutus">About Us</string>
 </resources>
