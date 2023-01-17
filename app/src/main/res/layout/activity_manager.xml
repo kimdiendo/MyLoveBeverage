@@ -1,197 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawlayoutlayer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink_slight"
     tools:context=".Manager">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/layouttoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/pink_plus"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
 
+            <ImageView
+                android:id="@+id/imageslidebar"
+                android:layout_width="50dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_slide_bar" />
 
-    <ImageButton
-        android:id="@+id/button_warehouse"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="528dp"
-        android:layout_marginBottom="798dp"
-        android:background="@drawable/function_rbcircle" />
+            <TextView
+                android:id="@+id/textApp"
+                android:layout_width="290dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="25dp"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navigationHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/layouttoolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost ="true"
+            app:navGraph="@navigation/main">
+        </androidx.fragment.app.FragmentContainerView>
 
-    <TextView
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="542dp"
-        android:layout_marginBottom="807dp"
-        android:text="@string/warehouse"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:background="@color/pink_slight"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/activity_layout_navigation_header"
+        app:itemTextColor="@color/black"
+        app:itemVerticalPadding="55dp"
+        app:itemTextAppearance="@style/menu_text_style"
+        app:itemIconSize="50dp"
+        app:drawerLayoutCornerSize="40dp"
+        android:layout_gravity="start">
 
-    <ImageView
-        android:layout_width="237dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="540dp"
-        android:layout_marginBottom="849dp"
-        android:background="@drawable/warehouse_image" />
+    </com.google.android.material.navigation.NavigationView>
 
-    <ImageButton
-        android:id="@+id/button_supplier"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="795dp"
-        android:background="@drawable/function_rbcircle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="127dp"
-        android:layout_marginBottom="803dp"
-        android:text="@string/Supplier"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="236dp"
-        android:layout_height="207dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="837dp"
-        android:background="@drawable/supplier_image" />
-
-    <ImageButton
-        android:id="@+id/button_staff"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="89dp"
-        android:layout_marginBottom="173dp"
-        android:background="@drawable/function_rbcircle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="180dp"
-        android:text="@string/Staff"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <ImageButton
-        android:id="@+id/button_product"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="525dp"
-        android:layout_marginBottom="178dp"
-        android:background="@drawable/function_rbcircle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="562dp"
-        android:layout_marginBottom="185dp"
-        android:text="@string/product"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <ImageButton
-        android:id="@+id/button_invoice"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="478dp"
-        android:background="@drawable/function_rbcircle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="486dp"
-        android:text="@string/Invoice"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <ImageButton
-        android:id="@+id/button_expense"
-        android:layout_width="260dp"
-        android:layout_height="259dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="527dp"
-        android:layout_marginBottom="480dp"
-        android:background="@drawable/function_rbcircle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="555dp"
-        android:layout_marginBottom="489dp"
-        android:text="@string/Expense"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="237dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="538dp"
-        android:layout_marginBottom="534dp"
-        android:background="@drawable/invoice_image" />
-
-    <ImageView
-        android:layout_width="237dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="228dp"
-        android:background="@drawable/staff_image" />
-
-    <ImageView
-        android:layout_width="237dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="528dp"
-        android:background="@drawable/invoice_image" />
-
-    <ImageView
-        android:layout_width="237dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="535dp"
-        android:layout_marginBottom="230dp"
-        android:background="@drawable/warehouse_image" />
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
