@@ -12,5 +12,28 @@
     <string name="hotline">Hotline</string>
     <string name="logout">Log Out</string>
     <string name="aboutus">About Us</string>
-
+    <string-array name="other_expense">
+        <item>Electricity</item>
+        <item>Water</item>
+        <item>Wifi</item>
+    </string-array>
+    <string-array name="status">
+        <item>Verified</item>
+        <item>Pending</item>
+    </string-array>
+    <string-array name="paymentmethod">
+        <item>Cash</item>
+        <item>Credit Card</item>
+        <item>Momo</item>
+        <item>VN PAY</item>
+    </string-array>
+    <string-array name="type_statistic">
+        <item>Electricity</item>
+        <item>Water</item>
+        <item>Wifi</item>
+        <item>Salary</item>
+        <item>Warehouse</item>
+        <item>Revenue</item>
+        <item>Profit</item>
+    </string-array>
 </resources>
