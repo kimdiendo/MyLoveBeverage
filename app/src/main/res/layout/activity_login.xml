@@ -12,22 +12,35 @@
         android:layout_height="93dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="1064dp"
+        android:layout_marginEnd="201dp"
+        android:layout_marginBottom="1067dp"
         android:gravity="center"
         android:text="My Love Beverage"
         android:textColor="@color/black"
         android:textSize="50dp"
         android:textStyle="bold" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="278dp"
-        android:layout_marginBottom="768dp"
-        android:background="@drawable/logo"/>
+        android:layout_marginEnd="237dp"
+        android:layout_marginBottom="762dp"
+        android:text="Let s’  take all with My Love Beverage"
+        android:textColor="@color/black"
+        android:textSize="25dp">
+
+    </TextView>
+
+    <ImageView
+        android:layout_width="228dp"
+        android:layout_height="213dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="322dp"
+        android:layout_marginBottom="841dp"
+        android:background="@drawable/logo" />
 
     <EditText
         android:id="@+id/login_username"
