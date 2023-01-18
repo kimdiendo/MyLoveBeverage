@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -14,6 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLoveBeverage"
         tools:targetApi="31">
+        <activity
+            android:name=".ProductDeleteDialog"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProductCell"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SupplierCell"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".AddNewSupplier"
             android:exported="false">
@@ -29,13 +51,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SupplierCell"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ManageSupplier"
             android:exported="false">
             <meta-data
@@ -44,20 +59,6 @@
         </activity>
         <activity
             android:name=".AddNewProduct"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ProductDeleteDialog"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ProductCell"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -92,6 +93,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -110,27 +112,30 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ManageStaff"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-        </activity>
-        <activity android:name=".StaffInformation"
+        <activity
+            android:name=".ManageStaff"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ManageExpense"
-            android:screenOrientation="reverseLandscape"
+        <activity
+            android:name=".StaffInformation"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".layout_navigation_header"
+        <activity
+            android:name=".ManageExpense"
+            android:exported="false"
+            android:screenOrientation="reverseLandscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".layout_navigation_header"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

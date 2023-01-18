@@ -171,8 +171,17 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="102dp"
-            android:layout_marginBottom="528dp"
+            android:layout_marginBottom="531dp"
             android:background="@drawable/invoice_image" />
+
+        <ImageView
+            android:layout_width="237dp"
+            android:layout_height="196dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="530dp"
+            android:layout_marginBottom="233dp"
+            android:background="@drawable/product_image" />
 
         <ImageView
             android:layout_width="237dp"
@@ -180,17 +189,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="535dp"
-            android:layout_marginBottom="230dp"
-            android:background="@drawable/warehouse_image" />
-        <ImageView
-            android:layout_width="237dp"
-            android:layout_height="196dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="538dp"
             android:layout_marginBottom="534dp"
-            android:background="@drawable/invoice_image" />
-
-
+            android:background="@drawable/expense_image" />
     </RelativeLayout>
 </FrameLayout>

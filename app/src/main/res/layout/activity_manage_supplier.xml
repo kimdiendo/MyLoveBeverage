@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/pink_slighter"
+    android:background="@color/pink_slight"
     tools:context=".ManageSupplier">
 
     <LinearLayout
@@ -67,6 +67,10 @@
         android:layout_marginEnd="67dp"
         android:layout_marginBottom="60dp"
         android:clickable="true"
-        app:srcCompat="@drawable/add_product" />
+        app:srcCompat="@drawable/add_product"
+        app:fabCustomSize="90dp"
+        app:fabSize="auto"
+        app:maxImageSize="50dp"
+        app:rippleColor="@color/black"/>
 
 </RelativeLayout>

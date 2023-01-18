@@ -199,14 +199,15 @@
             android:layout_weight="0"
             android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/See"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:background="@color/green"
-            android:text="Check"
-            android:textColor="@color/black"></Button>
+            <Button
+                android:id="@+id/See"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/green"
+                android:textSize="20dp"
+                android:text="Check"
+                android:textColor="@color/black"></Button>
             <Button
                 android:id="@+id/Delete"
                 android:layout_width="140dp"
@@ -214,24 +215,25 @@
                 android:layout_marginLeft="970dp"
                 android:background="@color/green"
                 android:text="Clear"
+                android:textSize="20dp"
                 android:textColor="@color/black"></Button>
         </LinearLayout>
 
-    <FrameLayout
-                android:id="@+id/frame"
-                android:layout_weight="2"
-                android:layout_margin="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/pink_slighter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.573">
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_weight="2"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/pink_slighter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.573">
 
-            </FrameLayout>
+        </FrameLayout>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -241,8 +243,7 @@
             android:layout_weight="0.001"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/green"
+            android:src="@drawable/add_product"
             app:fabCustomSize="70dp"
             app:maxImageSize="50dp"
             app:rippleColor="@color/black"></com.google.android.material.floatingactionbutton.FloatingActionButton>

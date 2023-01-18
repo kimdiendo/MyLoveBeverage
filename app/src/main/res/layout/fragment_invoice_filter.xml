@@ -19,12 +19,12 @@
         android:id="@+id/btnFilterPrice1"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:text="0-100,000"
-        android:textSize="24sp"
-        android:textColor="@color/black"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="120dp"
-        android:background="@drawable/login_rbcircle_1"/>
+        android:background="@drawable/login_rbcircle_3"
+        android:text="0-100,000"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btnFilterPrice2"
@@ -35,7 +35,7 @@
         android:textColor="@color/black"
         android:layout_marginLeft="350dp"
         android:layout_marginTop="120dp"
-        android:background="@drawable/login_rbcircle_1"/>
+        android:background="@drawable/login_rbcircle_3"/>
 
     <Button
         android:id="@+id/btnFilterPrice3"
@@ -46,7 +46,7 @@
         android:textColor="@color/black"
         android:layout_marginLeft="650dp"
         android:layout_marginTop="120dp"
-        android:background="@drawable/login_rbcircle_1"/>
+        android:background="@drawable/login_rbcircle_3"/>
 
     <TextView
         android:id="@+id/txtFilterDate"
@@ -66,7 +66,7 @@
         android:layout_height="80dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="370dp"
-        android:background="@drawable/login_rbcircle_1"
+        android:background="@drawable/login_rbcircle_3"
         android:text="Last Week"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -82,7 +82,7 @@
         android:textColor="@color/black"
         android:layout_marginLeft="350dp"
         android:layout_marginTop="370dp"
-        android:background="@drawable/login_rbcircle_1"/>
+        android:background="@drawable/login_rbcircle_3"/>
 
     <Button
         android:id="@+id/btnFilterDate3"
@@ -94,6 +94,6 @@
         android:textColor="@color/black"
         android:layout_marginLeft="650dp"
         android:layout_marginTop="370dp"
-        android:background="@drawable/login_rbcircle_1"/>
+        android:background="@drawable/login_rbcircle_3"/>
 
 </RelativeLayout>

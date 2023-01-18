@@ -112,7 +112,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textColor="@color/black"
-        android:textSize="30sp"></Spinner>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/product_lbproductBrand"

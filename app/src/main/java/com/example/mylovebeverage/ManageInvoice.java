@@ -1,5 +1,7 @@
 package com.example.mylovebeverage;
 
+import androidx.appcompat.app.AppCompatActivity;
+//import androidx.datastore.core.Data;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -10,14 +12,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-        import android.widget.ImageView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.InvoiceAdapter;
-
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+//import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Fragments.FragmentFilterInvoice;
+import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Invoice;
 
 import java.sql.Connection;
@@ -25,7 +28,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-        import java.util.ArrayList;
+import java.time.temporal.TemporalAdjuster;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ManageInvoice extends FragmentActivity
         implements FragmentFilterInvoice.FragmentFilterInvoiceListener
@@ -41,7 +46,6 @@ public class ManageInvoice extends FragmentActivity
     FragmentFilterInvoice fragmentFilterInvoice;
     String getDataFromFragment = null;
     ImageView arrback;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +88,6 @@ public class ManageInvoice extends FragmentActivity
                 btnResetFilter.setVisibility(View.GONE);
             }
         });
-
         arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +96,6 @@ public class ManageInvoice extends FragmentActivity
             }
         });
     }
-
     private void FilterInvoiceList(String getDataFromFragment) {
         if (getDataFromFragment!=null){
             hideFragment(fragmentFilterInvoice);
@@ -107,7 +109,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice <= 100000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -129,7 +131,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice > 100000 AND Price_of_Invoice <= 1000000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -151,7 +153,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice > 1000000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -175,7 +177,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastWeek.getYear() + "-" + lastWeek.getMonth() + "-" + lastWeek.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -199,7 +201,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastMonth.getYear() + "-" + lastMonth.getMonth() + "-" + lastMonth.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -223,7 +225,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastYear.getYear() + "-" + lastYear.getMonth() + "-" + lastYear.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -281,7 +283,7 @@ public class ManageInvoice extends FragmentActivity
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE;");
                 invoiceList.removeAll(invoiceList);
                 while (resultSet.next()) {
-                    invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                    invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                     invoiceList.add(invoice);
                 }
 
@@ -300,6 +302,7 @@ public class ManageInvoice extends FragmentActivity
         listView = (ListView) findViewById(R.id.invoiceListView);
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(),0,invoiceList);
         listView.setAdapter(invoiceAdapter);
+        invoiceAdapter.notifyDataSetChanged();
     }
 
     private void setUpOnClickListener()

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WarehouseDetail"
+    android:background="@color/pink_slight">
+    <LinearLayout
+        android:id="@+id/layouttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/pink_plus"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/textfunction"
+            android:layout_width="371dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="25dp"
+            android:paddingTop="10dp"
+            android:text="Warehouse Detail"
+            android:textColor="@color/black"
+            android:textSize="37dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtInvoiceCodeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="460dp"
+        android:layout_marginBottom="1040dp"
+        android:text="Warehouse code:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtSupplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="460dp"
+        android:layout_marginBottom="945dp"
+        android:text="Supplier:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInvoiceCodeDetail" />
+
+    <TextView
+        android:id="@+id/txtWHDateDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="460dp"
+        android:layout_marginBottom="850dp"
+        android:text="Date:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="42dp" />
+
+
+    <TextView
+        android:id="@+id/txtDisplayWHcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-405dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="1040dp"
+        android:layout_toEndOf="@+id/txtInvoiceCodeDetail"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtInvoiceCodeDetail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDisplaySupplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-405dp"
+        android:layout_marginBottom="950dp"
+        android:layout_toEndOf="@+id/txtSupplier"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDisplayWHDate"
+        android:layout_width="wrap_content"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-405dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="840dp"
+        android:layout_toEndOf="@+id/txtWHDateDetail"
+        android:minLines="2"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtProductName"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="655dp"
+        android:layout_marginBottom="742dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtProductAmount"
+        android:layout_width="208dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="742dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Profit"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtProductName" />
+
+    <TextView
+        android:id="@+id/txtProductUnit"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="238dp"
+        android:layout_marginBottom="742dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="InPrice"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtProductAmount" />
+
+    <TextView
+        android:id="@+id/txtProductPrice"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="447dp"
+        android:layout_marginBottom="742dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Quantity"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtProductUnit" />
+
+    <ListView
+        android:id="@+id/whDetailListView"
+        android:layout_width="840dp"
+        android:layout_height="500dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="242dp"
+        android:background="@color/pink_lighter"
+        android:divider="@color/black"
+        android:dividerHeight="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTotalprice"
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="470dp"
+        android:layout_marginBottom="110dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Total:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineView"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/txtDisplayTotalPrice"
+        android:layout_width="436dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="110dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTotalprice"
+        app:layout_constraintTop_toBottomOf="@+id/lineView" />
+
+</RelativeLayout>

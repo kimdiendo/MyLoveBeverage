@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="1230dp"
+    android:layout_height="80dp"
+    android:paddingBottom="10dp"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ManageProduct"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="1210dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        tools:context=".AddNewWarehouse">
+
+        <AutoCompleteTextView
+            android:id="@+id/warehouse_ProductName"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/customborder"
+            android:completionThreshold="1"
+            android:hint="Coca cola"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/warehouse_quantity"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="265dp"
+            android:background="@drawable/customborder"
+            android:gravity="center_vertical"
+            android:hint="100"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/warehouse_unit"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="452dp"
+            android:background="@drawable/customborder"
+            android:gravity="center_vertical"
+            android:hint="Bottle"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/warehouse_inprice"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="644dp"
+            android:background="@drawable/customborder"
+            android:gravity="center_vertical"
+            android:hint="40000"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/warehouse_profit"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="835dp"
+            android:background="@drawable/customborder"
+            android:gravity="center_vertical"
+            android:hint="30"
+            android:inputType="number"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/warehouse_outprice"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="1030dp"
+            android:background="@drawable/customborder"
+            android:gravity="center_vertical"
+            android:hint="50000"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

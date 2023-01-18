@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import com.example.mylovebeverage.ManageInvoice;
 import com.example.mylovebeverage.ManageProduct;
 import com.example.mylovebeverage.ManageSupplier;
+import com.example.mylovebeverage.ManageWareHouse;
 import com.example.mylovebeverage.R;
 import com.example.mylovebeverage.ManageExpense;
 import com.example.mylovebeverage.ManageStaff;
@@ -37,6 +38,8 @@ public class HomeFragment extends Fragment {
     private ImageButton img_product;
     private ImageButton img_invoice;
     private ImageButton img_supplier;
+    private ImageButton img_warehouse;
+
     //private String staff_id="";
     public HomeFragment() {
         // Required empty public constructor
@@ -80,13 +83,24 @@ public class HomeFragment extends Fragment {
         img_product = view.findViewById(R.id.button_product);
         img_invoice = view.findViewById(R.id.button_invoice);
         img_supplier = view.findViewById(R.id.button_supplier);
+        img_warehouse = view.findViewById(R.id.button_warehouse);
         //staff_id = getArguments().getString("AccountName").trim();
         Manage_Staff();
         Manage_Expense();
         Manage_Product();
         Manage_Invoice();
         Manage_Supplier();
+        Manage_Warehouse();
         return view;
+    }
+    protected void Manage_Warehouse()
+    {
+        img_warehouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    startActivity(new Intent(getContext() , ManageWareHouse.class));
+            }
+        });
     }
     protected  void Manage_Staff()
     {

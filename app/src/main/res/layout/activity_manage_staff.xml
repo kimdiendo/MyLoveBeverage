@@ -141,7 +141,6 @@
             android:numColumns="2"
             android:scrollbars="none"
             android:verticalSpacing="100dp" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingactionbutton"
             android:layout_width="102dp"
@@ -152,8 +151,7 @@
             android:layout_marginTop="1025dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="28dp"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/pink_plus"
+            android:src="@drawable/add_product"
             app:fabCustomSize="90dp"
             app:fabSize="auto"
             app:maxImageSize="50dp"

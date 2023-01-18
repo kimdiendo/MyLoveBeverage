@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
@@ -65,9 +66,11 @@ public class ProductDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(ProductDetail.this);
-                dialog.setContentView(R.layout.activity_product_delete_dialog);
-                Button btnYes = (Button) dialog.findViewById(R.id.yesDeleteBtn);
-                Button btnNo = (Button) dialog.findViewById(R.id.noDeleteBtn);
+                dialog.setContentView(R.layout.activity_custom_dialog);
+                Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
+                Button btnNo = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
+                TextView msgDialog  = (TextView) dialog.findViewById(R.id.txtCustomDialogMessage);
+                msgDialog.setText("Do you want to completely delete this product?");
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

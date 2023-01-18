@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="840dp"
     android:layout_height="120dp"
-    android:background="@drawable/login_rbcircle_1"
+    android:background="@drawable/login_rbcircle_3"
     android:orientation="horizontal">
 
     <TextView

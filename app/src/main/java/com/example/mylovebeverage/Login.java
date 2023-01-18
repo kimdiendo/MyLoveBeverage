@@ -86,7 +86,10 @@ public class Login extends AppCompatActivity {
                                 break;
                             }else if(check_key ==4)
                             {
-                                //se chuyen tiep qua man hinh order tu login.
+                                Intent intent = new Intent(getApplicationContext(),Order.class);
+                                intent.putExtra("Staff Id", account.getUsername());
+                                startActivity(intent);
+                                break;
                             }
 
                         }
