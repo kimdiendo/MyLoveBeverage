@@ -51,6 +51,7 @@ public class Manager extends AppCompatActivity {
     }
     protected void Manage_Warehouse()
     {
+        binding.buttonWarehouse.setOnClickListener(v->startActivity(new Intent(getApplicationContext(), ManageWareHouse.class)));
 
     }
     protected void Manage_Supplier()
@@ -63,6 +64,7 @@ public class Manager extends AppCompatActivity {
     }
     protected void Manage_Invoice()
     {
+        binding.buttonInvoice.setOnClickListener(v->startActivity(new Intent(getApplicationContext(), ManageInvoice.class)));
 
     }
     protected void Manage_Expense()

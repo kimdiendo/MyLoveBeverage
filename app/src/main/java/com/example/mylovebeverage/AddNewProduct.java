@@ -16,8 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
-import com.example.mylovebeverage.databinding.ActivityAddNewProductBinding;
-import com.example.mylovebeverage.databinding.ActivityLoginBinding;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_slight"
+    tools:context=".PostOrder">
+
+    <TextView
+        android:id="@+id/txtPostOrderInvoiceCodeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Invoice code:"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductPrice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPostOrderStaffCodeDetail"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Staff code:"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductPrice"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayInvoiceCode" />
+
+    <TextView
+        android:id="@+id/txtPostOrderInvoiceDateDetail"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Time \u0026 Date:"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="42dp"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductPrice"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayStaffCode" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayInvoiceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderInvoiceCodeDetail" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayStaffCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderStaffCodeDetail" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayInvoiceDate"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:minLines="2"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderInvoiceDateDetail" />
+
+    <TextView
+        android:id="@+id/txtPostOrderProductName"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPostOrderProductAmount"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Amount"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductName" />
+
+    <TextView
+        android:id="@+id/txtPostOrderProductUnit"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Unit"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductAmount" />
+
+    <TextView
+        android:id="@+id/txtPostOrderProductPrice"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="Unit Price"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderProductUnit" />
+
+    <ListView
+        android:id="@+id/invoicePostOrderDetailListView"
+        android:layout_width="840dp"
+        android:layout_height="530dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="210dp"
+        android:background="@color/pink_lighter"
+        android:divider="@color/black"
+        android:dividerHeight="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/lineViewPostOrderInvoiceDetail"
+        android:layout_width="840dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invoicePostOrderDetailListView" />
+
+    <TextView
+        android:id="@+id/txtPostOrderTotalprice"
+        android:layout_width="420dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/pink_lighter"
+        android:text="Total:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineViewPostOrderInvoiceDetail" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayTotalPrice"
+        android:layout_width="420dp"
+        android:layout_height="80dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderTotalprice"
+        app:layout_constraintTop_toBottomOf="@+id/lineViewPostOrderInvoiceDetail"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtPostOrderMoneyReceived"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/pink_lighter"
+        android:text="Money received:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderTotalprice" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayMoneyReceived"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderMoneyReceived"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayTotalPrice"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtPostOrderMoneyReturned"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/pink_lighter"
+        android:text="Money returned:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderMoneyReceived" />
+
+    <TextView
+        android:id="@+id/txtPostOrderDisplayMoneyReturned"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtPostOrderMoneyReturned"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayMoneyReceived"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnPostOrderComplete"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_positive_button"
+        android:text="Complete The Order"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayInvoiceDate" />
+
+    <Button
+        android:id="@+id/btnPostOrderReprint"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="20dp"
+        android:text="Reprint The Invoice"
+        android:background="@drawable/custom_negative_button"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/invoicePostOrderDetailListView"
+        app:layout_constraintTop_toBottomOf="@+id/btnPostOrderComplete" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

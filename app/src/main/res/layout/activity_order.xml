@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_slight"
+    tools:context=".Order">
+
+    <android.widget.SearchView
+        android:id="@+id/searchViewOrder"
+        android:layout_width="500dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="390dp"
+        android:layout_marginTop="6dp"
+        android:background="#000000"
+        android:iconifiedByDefault="false"
+        android:queryHint="Product Name..."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="1280dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/orderFilterContainer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/orderFilterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="75dp"
+        android:background="@color/pink_slight"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnOrderFilterAll"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="All"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOrderFilterCoffee"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Coffee"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOrderFilterMilktea"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Milktea"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnOrderFilterTea"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Tea"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOrderFilterFreeze"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Freeze"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOrderFilterOthers"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Others"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOrderFilterCake"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_order_filter_button"
+            android:text="Cake"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/orderProductContainer"
+        android:layout_width="876dp"
+        android:layout_height="647dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/pink_slighter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <GridView
+            android:id="@+id/gridViewOrderProduct"
+            android:layout_width="856dp"
+            android:layout_height="627dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:horizontalSpacing="20dp"
+            android:numColumns="3"
+            android:verticalSpacing="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/orderDetailContainer"
+        android:layout_width="374dp"
+        android:layout_height="647dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/pink_slighter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/orderProductContainer">
+
+        <ListView
+            android:id="@+id/orderDetailListView"
+            android:layout_width="354dp"
+            android:layout_height="320dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/pink_slight"
+            android:transcriptMode="alwaysScroll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrderDate" />
+
+        <TextView
+            android:id="@+id/txtOrderStaffId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="10dp"
+            android:text="Staff ID:"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="15dp"
+            android:text="Date:"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrderStaffId" />
+
+        <View
+            android:id="@+id/viewLine2"
+            android:layout_width="320dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:translationZ="1dp"
+            app:layout_constraintStart_toStartOf="@+id/orderDetailListView"
+            app:layout_constraintTop_toBottomOf="@+id/orderDetailListView" />
+
+        <Button
+            android:id="@+id/btnOrderCancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="9dp"
+            android:background="@drawable/custom_negative_button"
+            android:text="Cancel"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnOrderConfirm"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="9dp"
+            android:background="@drawable/custom_positive_button"
+            android:text="Confirm"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderDetailTotal"
+            android:layout_width="177dp"
+            android:layout_height="70dp"
+            android:text="Total:"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:background="@color/pink_slight"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/orderDetailListView"
+            app:layout_constraintTop_toBottomOf="@+id/orderDetailListView" />
+
+        <TextView
+            android:id="@+id/txtOrderDetailTotalDisplay"
+            android:layout_width="177dp"
+            android:layout_height="70dp"
+            android:background="@color/pink_slight"
+            android:gravity="center"
+            android:text="0 VND"
+            android:textColor="#FF0000"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@+id/txtOrderDetailTotal"
+            app:layout_constraintTop_toBottomOf="@+id/orderDetailListView"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/editTextOrderDetailMoneyReceived"
+            android:layout_width="354dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="Money Received..."
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrderDetailTotal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

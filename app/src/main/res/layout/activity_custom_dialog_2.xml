@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/custom_border">
+
+    <TextView
+        android:id="@+id/txtCustomDialog2Title"
+        android:layout_width="600dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Notification!"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtCustomDialog2Message"
+        android:layout_width="600dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="100dp"
+        android:text="Message"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/btnCustomDialog2Ok"
+        android:layout_width="110dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="245dp"
+        android:text="Ok"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#49AD30"/>
+
+</RelativeLayout>

@@ -14,12 +14,32 @@ public class Invoice {
     private String Staff_ID;
     private Date DateTime_Invoice;
     private Integer Price_of_Invoice;
+    private Integer Money_Received;
+    private Integer Money_Returned;
 
-    public Invoice(String invoice_ID, String staff_ID, Date dateTime_Invoice, Integer price_of_Invoice) {
+    public Invoice(String invoice_ID, String staff_ID, Date dateTime_Invoice, Integer price_of_Invoice, Integer money_Received, Integer money_Returned) {
         Invoice_ID = invoice_ID;
         Staff_ID = staff_ID;
         DateTime_Invoice = dateTime_Invoice;
         Price_of_Invoice = price_of_Invoice;
+        Money_Received = money_Received;
+        Money_Returned = money_Returned;
+    }
+
+    public Integer getMoney_Received() {
+        return Money_Received;
+    }
+
+    public void setMoney_Received(Integer money_Received) {
+        Money_Received = money_Received;
+    }
+
+    public Integer getMoney_Returned() {
+        return Money_Returned;
+    }
+
+    public void setMoney_Returned(Integer money_Returned) {
+        Money_Returned = money_Returned;
     }
 
     public String getInvoice_ID() {
@@ -65,6 +85,22 @@ public class Invoice {
         NumberFormat en = NumberFormat.getInstance(localeEN);
 
         String a = en.format(Price_of_Invoice);
+        return a;
+    }
+
+    public String getMoneyReceivedCustom(){
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+
+        String a = en.format(Money_Received);
+        return a;
+    }
+
+    public String getMoneyReturnedCustom(){
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+
+        String a = en.format(Money_Returned);
         return a;
     }
 }

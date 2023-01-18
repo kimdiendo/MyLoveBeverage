@@ -3,4 +3,13 @@
     <style name="Theme.MyLoveBeverage" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
     </style>
+
+    <style name="Theme.MyLoveBeverage.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyLoveBeverage.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyLoveBeverage.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

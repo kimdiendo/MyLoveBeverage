@@ -1,5 +1,8 @@
 package com.example.mylovebeverage.Models;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Product {
     private String Product_ID ="";
     private String Category_ID ="";
@@ -9,6 +12,7 @@ public class Product {
     private String Unit ="";
     private int Quantity =0;
     private String Image_Product ="";
+    private Integer OrderAmount = 1;
 
     public Product(String product_ID, String category_ID, String name_of_Product, String branding, int price, String unit, int quantity, String image_Product) {
         Product_ID = product_ID;
@@ -19,6 +23,14 @@ public class Product {
         Unit = unit;
         Quantity = quantity;
         Image_Product = image_Product;
+    }
+
+    public Integer getOrderAmount() {
+        return OrderAmount;
+    }
+
+    public void setOrderAmount(Integer orderAmount) {
+        OrderAmount = orderAmount;
     }
 
     public String getProduct_ID() {
@@ -83,6 +95,14 @@ public class Product {
 
     public void setImage_Product(String image_Product) {
         Image_Product = image_Product;
+    }
+
+    public String getPriceCustom(){
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+
+        String a = en.format(Price);
+        return a;
     }
 
 }
