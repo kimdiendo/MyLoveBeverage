@@ -101,10 +101,14 @@ public class InvoiceDetail extends AppCompatActivity {
         TextView tv2 = (TextView) findViewById(R.id.txtDisplayStaffCode);
         TextView tv3 = (TextView) findViewById(R.id.txtDisplayInvoiceDate);
         TextView tv4 = (TextView) findViewById(R.id.txtDisplayTotalPrice);
+        TextView tv5 = (TextView) findViewById(R.id.txtDisplayMoneyReceived);
+        TextView tv6 = (TextView) findViewById(R.id.txtDisplayMoneyReturned);
 
         tv1.setText(selectedInvoice.getInvoice_ID());
         tv2.setText(selectedInvoice.getStaff_ID());
         tv3.setText(selectedInvoice.getDateTime_Invoice().toString());
         tv4.setText(selectedInvoice.getPriceCustom() + " VND");
+        tv5.setText(selectedInvoice.getMoneyReceivedCustom() + " VND");
+        tv6.setText(selectedInvoice.getMoneyReturnedCustom() + " VND");
     }
 }
