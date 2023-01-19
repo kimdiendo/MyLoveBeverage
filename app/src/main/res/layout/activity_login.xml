@@ -27,7 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="237dp"
         android:layout_marginBottom="762dp"
-        android:text="Let s’  take all with My Love Beverage"
+        android:text="Let's take all with My Love Beverage"
         android:textColor="@color/black"
         android:textSize="25dp">
 
