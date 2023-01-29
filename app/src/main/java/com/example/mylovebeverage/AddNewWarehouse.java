@@ -19,6 +19,7 @@ import com.example.mylovebeverage.Adapters.AddWarehouseAdapter;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Product;
 import com.example.mylovebeverage.Models.ProductDataHolder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -37,6 +38,8 @@ public class AddNewWarehouse extends AppCompatActivity {
     private static Connection connection_warehouse = null;
     private static Connection connection_detailWarehouse = null;
     private static Connection connection_supplier = null;
+    private static Connection connection_supplier_2 = null;
+
     Product product;
     String selectedSupplier;
     public static ArrayList<String> productNameList = new ArrayList<>();
@@ -59,6 +62,9 @@ public class AddNewWarehouse extends AppCompatActivity {
 
         connecting_mssql = new Connecting_MSSQL(connection_supplier);
         connection_supplier = connecting_mssql.Connecting();
+
+        connecting_mssql = new Connecting_MSSQL(connection_supplier_2);
+        connection_supplier_2 = connecting_mssql.Connecting();
 
         setContentView(R.layout.activity_add_new_warehouse);
         supSpinner = (Spinner) findViewById(R.id.warehouse_addNewWH_supplier);
@@ -103,6 +109,8 @@ public class AddNewWarehouse extends AppCompatActivity {
             public void onClick(View view) {
                 String supID = "SP1";
                 String WH_ID = "";
+                int TotalBill = 0;
+                int TotalMoney = 0;
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
                 Integer numberOfWarehouse = 0;
@@ -159,6 +167,29 @@ public class AddNewWarehouse extends AppCompatActivity {
                         }
                     }
                 }
+                if (connection_supplier_2 != null) {
+                    try {
+                        Statement statement = connection_supplier_2.createStatement();
+                        ResultSet resultSet = statement.executeQuery("select * from [dbo].[SUPPLIER] where Supplier_ID = '"+supID+"'");
+                        while (resultSet.next()) {
+                            TotalBill = resultSet.getInt(8) + 1;
+                            TotalMoney = resultSet.getInt(9) + TotalWH;
+                        }
+                        Statement statement1 = connection_supplier_2.createStatement();
+                        ResultSet resultSet1 = statement1.executeQuery("update [dbo].[SUPPLIER]\n" +
+                                "set TotalBill = "+TotalBill+"\n" +
+                                "where Supplier_ID = '"+supID+"'");
+                        Statement statement2 = connection_warehouse.createStatement();
+                        ResultSet resultSet2 = statement2.executeQuery("update [dbo].[SUPPLIER]\n" +
+                                "set TotalMoney = "+TotalMoney+"\n" +
+                                "where Supplier_ID = '"+supID+"'");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Connect to SupplierDB makes error.", Toast.LENGTH_SHORT).show();
+                }
+
                 Intent intent = new Intent();
                 intent.putExtra("editTextValue", "value_here");
                 setResult(RESULT_OK, intent);
@@ -203,3 +234,4 @@ public class AddNewWarehouse extends AppCompatActivity {
     }
 
 }
+

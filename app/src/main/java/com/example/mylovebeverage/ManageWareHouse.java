@@ -66,14 +66,7 @@ public class ManageWareHouse extends AppCompatActivity {
 
             }
         });
-        addWHBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Add Warehouse ", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),AddNewWarehouse.class);
-                startActivityForResult(intent, 1);
-            }
-        });
+
         getAllWarehouse();
         setUpList();
         setUpOnClickListener();
@@ -85,6 +78,16 @@ public class ManageWareHouse extends AppCompatActivity {
                 finish();
             }
         });
+
+        addWHBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Add Warehouse ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),AddNewWarehouse.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+
     }
     protected void getAllSuppliers(){
         if (connection_supplier!=null)
