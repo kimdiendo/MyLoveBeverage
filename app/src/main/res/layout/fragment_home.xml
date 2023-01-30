@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageButton
             android:id="@+id/button_warehouse"
             android:layout_width="260dp"
@@ -18,7 +19,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="528dp"
-            android:layout_marginBottom="798dp"
+            android:layout_marginBottom="758dp"
             android:background="@drawable/function_rbcircle" />
 
         <TextView
@@ -27,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="542dp"
-            android:layout_marginBottom="807dp"
+            android:layout_marginBottom="767dp"
             android:text="@string/warehouse"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -39,8 +40,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="540dp"
-            android:layout_marginBottom="849dp"
+            android:layout_marginBottom="809dp"
             android:background="@drawable/warehouse_image" />
+
         <ImageButton
             android:id="@+id/button_supplier"
             android:layout_width="260dp"
@@ -48,7 +50,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="96dp"
-            android:layout_marginBottom="795dp"
+            android:layout_marginBottom="755dp"
             android:background="@drawable/function_rbcircle" />
 
         <TextView
@@ -57,7 +59,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="127dp"
-            android:layout_marginBottom="803dp"
+            android:layout_marginBottom="763dp"
             android:text="@string/Supplier"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -69,8 +71,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="110dp"
-            android:layout_marginBottom="837dp"
+            android:layout_marginBottom="797dp"
             android:src="@drawable/supplier_image" />
+
         <ImageButton
             android:id="@+id/button_staff"
             android:layout_width="260dp"
@@ -78,15 +81,16 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="89dp"
-            android:layout_marginBottom="173dp"
-            android:background="@drawable/function_rbcircle"/>
+            android:layout_marginBottom="133dp"
+            android:background="@drawable/function_rbcircle" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="132dp"
-            android:layout_marginBottom="180dp"
+            android:layout_marginBottom="140dp"
             android:text="@string/Staff"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -99,7 +103,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="525dp"
-            android:layout_marginBottom="178dp"
+            android:layout_marginBottom="138dp"
             android:background="@drawable/function_rbcircle" />
 
         <TextView
@@ -108,7 +112,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="562dp"
-            android:layout_marginBottom="185dp"
+            android:layout_marginBottom="145dp"
             android:text="@string/product"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -121,7 +125,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="93dp"
-            android:layout_marginBottom="478dp"
+            android:layout_marginBottom="438dp"
             android:background="@drawable/function_rbcircle" />
 
         <TextView
@@ -130,11 +134,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="132dp"
-            android:layout_marginBottom="486dp"
+            android:layout_marginBottom="446dp"
             android:text="@string/Invoice"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
+
         <ImageButton
             android:id="@+id/button_expense"
             android:layout_width="260dp"
@@ -142,7 +147,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="527dp"
-            android:layout_marginBottom="480dp"
+            android:layout_marginBottom="440dp"
             android:background="@drawable/function_rbcircle" />
 
         <TextView
@@ -151,18 +156,19 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="555dp"
-            android:layout_marginBottom="489dp"
+            android:layout_marginBottom="449dp"
             android:text="@string/Expense"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
+
         <ImageView
             android:layout_width="237dp"
             android:layout_height="196dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="102dp"
-            android:layout_marginBottom="228dp"
+            android:layout_marginBottom="188dp"
             android:background="@drawable/staff_image" />
 
         <ImageView
@@ -171,7 +177,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="102dp"
-            android:layout_marginBottom="531dp"
+            android:layout_marginBottom="491dp"
             android:background="@drawable/invoice_image" />
 
         <ImageView
@@ -180,7 +186,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="530dp"
-            android:layout_marginBottom="233dp"
+            android:layout_marginBottom="193dp"
             android:background="@drawable/product_image" />
 
         <ImageView
@@ -189,7 +195,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="535dp"
-            android:layout_marginBottom="534dp"
+            android:layout_marginBottom="494dp"
             android:background="@drawable/expense_image" />
     </RelativeLayout>
 </FrameLayout>
