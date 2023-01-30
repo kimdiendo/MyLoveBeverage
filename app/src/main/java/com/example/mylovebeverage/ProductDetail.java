@@ -204,7 +204,7 @@ public class ProductDetail extends AppCompatActivity {
         tv1.setText(selectedProduct.getName_of_Product());
         tv2.setText(selectedProduct.getCategory_ID());
         tv3.setText(selectedProduct.getBranding());
-        tv4.setText(String.valueOf(selectedProduct.getPrice()));
+        tv4.setText(selectedProduct.getPriceCustom());
         tv6.setText(selectedProduct.getUnit());
         tv8.setText(String.valueOf(selectedProduct.getQuantity()));
         Picasso.get().load(selectedProduct.getImage_Product()).into(iv);
