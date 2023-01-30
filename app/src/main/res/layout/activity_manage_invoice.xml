@@ -46,8 +46,8 @@
         android:layout_marginTop="255dp"
         android:layout_marginEnd="30dp"
         android:divider="@color/pink_slight"
+        android:dividerHeight="10dp"
         android:scrollbars="none"
-        android:dividerHeight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

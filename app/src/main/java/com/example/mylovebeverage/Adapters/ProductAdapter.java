@@ -37,7 +37,7 @@ public class ProductAdapter extends ArrayAdapter<Product>{
 
 
         tv1.setText(product.getName_of_Product());
-        tv2.setText(String.valueOf(product.getPrice()));
+        tv2.setText(product.getPriceCustom() + " VND");
         Picasso.get().load(product.getImage_Product()).into(iv);
         return convertView;
     }
