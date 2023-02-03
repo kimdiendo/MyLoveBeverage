@@ -54,7 +54,7 @@ public class AddNewProduct extends AppCompatActivity {
             }
         });
 
-        spinnerCategory = (Spinner) findViewById(R.id.product_addCategoryName);
+        spinnerCategory = findViewById(R.id.product_addCategoryName);
         arrCategory = new ArrayList<String>();
         arrCategory.add("Coffee");
         arrCategory.add("Milktea");
@@ -63,15 +63,15 @@ public class AddNewProduct extends AppCompatActivity {
         arrCategory.add("Others");
         arrCategory.add("Cake");
 
-        edt1 = (EditText) findViewById(R.id.product_addProductName);
-        edt2 = (EditText) findViewById(R.id.product_addProductImage);
-        edt3 = (EditText) findViewById(R.id.product_addProductBrand);
-        edt4 = (EditText) findViewById(R.id.product_addProductPrice);
-        edt5 = (EditText) findViewById(R.id.product_addProductUnit);
-        edt6 = (EditText) findViewById(R.id.product_addProductQuantity);
+        edt1 = findViewById(R.id.product_addProductName);
+        edt2 = findViewById(R.id.product_addProductImage);
+        edt3 = findViewById(R.id.product_addProductBrand);
+        edt4 = findViewById(R.id.product_addProductPrice);
+        edt5 = findViewById(R.id.product_addProductUnit);
+        edt6 = findViewById(R.id.product_addProductQuantity);
 
-        btn1 = (Button) findViewById(R.id.addNewProduct);
-        btn2 = (Button) findViewById(R.id.cancelNewProduct);
+        btn1 = findViewById(R.id.addNewProduct);
+        btn2 = findViewById(R.id.cancelNewProduct);
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arrCategory);
         arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);

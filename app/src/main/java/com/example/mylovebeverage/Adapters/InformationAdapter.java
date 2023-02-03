@@ -42,11 +42,11 @@ public class InformationAdapter extends BaseAdapter {
         if(view == null)
         {
             //viewproduct= View.inflate(viewGroup.getContext() , R.layout.actionn jj njn , null);
-            viewproduct = View.inflate(viewGroup.getContext(), R.layout.detail_profile , null );
+            viewproduct = View.inflate(viewGroup.getContext(), R.layout.detail_profile, null);
             viewHolder = new ViewHolder();
-            viewHolder.txt1 = (TextView) viewproduct.findViewById(R.id.text1);
-            viewHolder.txt2 = (TextView) viewproduct.findViewById(R.id.text2);
-            viewHolder.img =(ImageView) viewproduct.findViewById(R.id.image);
+            viewHolder.txt1 = viewproduct.findViewById(R.id.text1);
+            viewHolder.txt2 = viewproduct.findViewById(R.id.text2);
+            viewHolder.img = viewproduct.findViewById(R.id.image);
             viewproduct.setTag(viewHolder); // Tạo tag để nắm viewholder mà lưu trữ các thông tin ánh xạ để dùng cho lần sau.
 
         }else

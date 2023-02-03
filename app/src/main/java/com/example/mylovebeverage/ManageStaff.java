@@ -150,24 +150,24 @@ public class ManageStaff extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(ManageStaff.this);
                 dialog.setContentView(R.layout.activity_staff_edit_dialog);
-                TextView title = (TextView) dialog.findViewById(R.id.textfunction);
-                ImageView btnClose =(ImageView) dialog.findViewById(R.id.close);
-                Button btnSave =(Button)dialog.findViewById(R.id.save);
-                EditText txt_ID = (EditText) dialog.findViewById(R.id.ID);
-                EditText txt_name = (EditText)dialog.findViewById(R.id.Name);
-                EditText txt_status = (EditText) dialog.findViewById(R.id.status);
-                EditText txt_position = (EditText) dialog.findViewById(R.id.position);
-                EditText txt_gender = (EditText) dialog.findViewById(R.id.gender);
-                EditText txt_phonenumber = (EditText) dialog.findViewById(R.id.PhoneNumber);
-                EditText txt_email = (EditText) dialog.findViewById(R.id.email);
-                EditText txt_salary =(EditText) dialog.findViewById(R.id.Salary);
-                EditText txt_image = (EditText) dialog.findViewById(R.id.image);
+                TextView title = dialog.findViewById(R.id.textfunction);
+                ImageView btnClose = dialog.findViewById(R.id.close);
+                Button btnSave = dialog.findViewById(R.id.save);
+                EditText txt_ID = dialog.findViewById(R.id.ID);
+                EditText txt_name = dialog.findViewById(R.id.Name);
+                EditText txt_status = dialog.findViewById(R.id.status);
+                EditText txt_position = dialog.findViewById(R.id.position);
+                EditText txt_gender = dialog.findViewById(R.id.gender);
+                EditText txt_phonenumber = dialog.findViewById(R.id.PhoneNumber);
+                EditText txt_email = dialog.findViewById(R.id.email);
+                EditText txt_salary = dialog.findViewById(R.id.Salary);
+                EditText txt_image = dialog.findViewById(R.id.image);
                 title.setText("Fill Staff Information");
                 dialog.setCanceledOnTouchOutside(false);
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                          dialog.dismiss();
+                        dialog.dismiss();
                     }
                 });
                 btnSave.setOnClickListener(new View.OnClickListener() {

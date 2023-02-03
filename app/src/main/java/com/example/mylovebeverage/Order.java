@@ -76,27 +76,27 @@ public class Order extends AppCompatActivity {
         connection_invoice_detail = connecting_mssql.Connecting();
 
 
-        btnOrderFilterAll = (Button) findViewById(R.id.btnOrderFilterAll);
-        btnOrderFilterCoffee = (Button) findViewById(R.id.btnOrderFilterCoffee);
-        btnOrderFilterMilktea = (Button) findViewById(R.id.btnOrderFilterMilktea);
-        btnOrderFilterTea = (Button) findViewById(R.id.btnOrderFilterTea);
-        btnOrderFilterFreeze = (Button) findViewById(R.id.btnOrderFilterFreeze);
-        btnOrderFilterOthers = (Button) findViewById(R.id.btnOrderFilterOthers);
-        btnOrderFilterCake = (Button) findViewById(R.id.btnOrderFilterCake);
-        btnOrderCancel = (Button) findViewById(R.id.btnOrderCancel);
-        btnOrderConfirm = (Button) findViewById(R.id.btnOrderConfirm);
-        txtOrderStaffId = (TextView) findViewById(R.id.txtOrderStaffId);
-        txtOrderDate = (TextView) findViewById(R.id.txtOrderDate);
-        txtTotalOrder = (TextView) findViewById(R.id.txtOrderDetailTotalDisplay);
+        btnOrderFilterAll = findViewById(R.id.btnOrderFilterAll);
+        btnOrderFilterCoffee = findViewById(R.id.btnOrderFilterCoffee);
+        btnOrderFilterMilktea = findViewById(R.id.btnOrderFilterMilktea);
+        btnOrderFilterTea = findViewById(R.id.btnOrderFilterTea);
+        btnOrderFilterFreeze = findViewById(R.id.btnOrderFilterFreeze);
+        btnOrderFilterOthers = findViewById(R.id.btnOrderFilterOthers);
+        btnOrderFilterCake = findViewById(R.id.btnOrderFilterCake);
+        btnOrderCancel = findViewById(R.id.btnOrderCancel);
+        btnOrderConfirm = findViewById(R.id.btnOrderConfirm);
+        txtOrderStaffId = findViewById(R.id.txtOrderStaffId);
+        txtOrderDate = findViewById(R.id.txtOrderDate);
+        txtTotalOrder = findViewById(R.id.txtOrderDetailTotalDisplay);
 
-        editTextOrderDetailMoneyReceived = (EditText) findViewById(R.id.editTextOrderDetailMoneyReceived);
+        editTextOrderDetailMoneyReceived = findViewById(R.id.editTextOrderDetailMoneyReceived);
         editTextOrderDetailMoneyReceived.addTextChangedListener(onTextChangedListener());
 
-        searchView = (SearchView) findViewById(R.id.searchViewOrder);
+        searchView = findViewById(R.id.searchViewOrder);
         searchView.setFocusable(false);
 
         txtTotalOrder.setText(totalOrderBill.toString() + " VND");
-        img_logout = (Button)findViewById(R.id.logout);
+        img_logout = findViewById(R.id.logout);
         Intent getIntent = getIntent();
         getStaffId = getIntent.getStringExtra("Staff Id");
         Date date = new Date();
@@ -184,10 +184,10 @@ public class Order extends AppCompatActivity {
                 if (productArrayList2.isEmpty()){
                     Dialog dialog = new Dialog(Order.this);
                     dialog.setContentView(R.layout.activity_custom_dialog_2);
-                    TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+                    TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
                     txtMessage.setText("The current order is empty!");
                     dialog.show();
-                    Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+                    Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
                     btnOk.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -198,11 +198,11 @@ public class Order extends AppCompatActivity {
                 else {
                     Dialog dialog = new Dialog(Order.this);
                     dialog.setContentView(R.layout.activity_custom_dialog);
-                    TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialogMessage);
+                    TextView txtMessage = dialog.findViewById(R.id.txtCustomDialogMessage);
                     txtMessage.setText("Do you want to completely delete the current order?");
                     dialog.show();
-                    Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                    Button btnNo = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
+                    Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                    Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
                     btnYes.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -210,7 +210,7 @@ public class Order extends AppCompatActivity {
                             orderDetailAdapter.notifyDataSetChanged();
                             dialog.dismiss();
                             totalOrderBill = 0;
-                            txtTotalOrder.setText(totalOrderBill.toString() + " VND");
+                            txtTotalOrder.setText(totalOrderBill + " VND");
                             editTextOrderDetailMoneyReceived.setText("");
                         }
                     });
@@ -230,10 +230,10 @@ public class Order extends AppCompatActivity {
                 if (productArrayList2.isEmpty()){
                     Dialog dialog = new Dialog(Order.this);
                     dialog.setContentView(R.layout.activity_custom_dialog_2);
-                    TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+                    TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
                     txtMessage.setText("The current order is empty!");
                     dialog.show();
-                    Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+                    Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
                     btnOk.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -245,10 +245,10 @@ public class Order extends AppCompatActivity {
                     if (editTextOrderDetailMoneyReceived.getText().toString().matches("")){
                         Dialog dialog = new Dialog(Order.this);
                         dialog.setContentView(R.layout.activity_custom_dialog_2);
-                        TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+                        TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
                         txtMessage.setText("You must enter the amount of money the customer gives!");
                         dialog.show();
-                        Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+                        Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
                         btnOk.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -260,10 +260,10 @@ public class Order extends AppCompatActivity {
                         if(Integer.parseInt(editTextOrderDetailMoneyReceived.getText().toString().replaceAll(",","")) < totalOrderBill){
                             Dialog dialog = new Dialog(Order.this);
                             dialog.setContentView(R.layout.activity_custom_dialog_2);
-                            TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+                            TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
                             txtMessage.setText("The amount of money received must be equal to or greater than the total amount of the order!");
                             dialog.show();
-                            Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+                            Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
                             btnOk.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -274,17 +274,16 @@ public class Order extends AppCompatActivity {
                         else {
                             Dialog dialog = new Dialog(Order.this);
                             dialog.setContentView(R.layout.activity_custom_dialog);
-                            TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialogMessage);
+                            TextView txtMessage = dialog.findViewById(R.id.txtCustomDialogMessage);
                             txtMessage.setText("Do you want to complete the current order?");
                             dialog.show();
-                            Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                            Button btnNo = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
+                            Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                            Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
                             btnYes.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     String numberOfInvoiceFormat = "";
-                                    if (connection_invoice!=null)
-                                    {
+                                    if (connection_invoice != null) {
                                         try {
                                             Integer numberOfInvoice = 0;
                                             Date curentTime = new Date();
@@ -338,7 +337,7 @@ public class Order extends AppCompatActivity {
                                     productArrayList2.removeAll(productArrayList2);
                                     orderDetailAdapter.notifyDataSetChanged();
                                     totalOrderBill = 0;
-                                    txtTotalOrder.setText(totalOrderBill.toString() + " VND");
+                                    txtTotalOrder.setText(totalOrderBill + " VND");
                                     editTextOrderDetailMoneyReceived.setText("");
                                     Intent intent = new Intent(getApplicationContext(), PostOrder.class);
                                     intent.putExtra("invoiceId","I" + numberOfInvoiceFormat);
@@ -366,8 +365,8 @@ public class Order extends AppCompatActivity {
                 connection_staff = new Connecting_MSSQL(connection_staff).Connecting();
                 Dialog dialog = new Dialog(Order.this);
                 dialog.setContentView(R.layout.activity_log_out);
-                Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                Button btnNo  = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
+                Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
                 btnNo.setOnClickListener(new View.OnClickListener() {
@@ -556,7 +555,7 @@ public class Order extends AppCompatActivity {
     }
 
     public void setUpList() {
-        listView = (ListView) findViewById(R.id.orderDetailListView);
+        listView = findViewById(R.id.orderDetailListView);
         listView.setAdapter(orderDetailAdapter);
         orderDetailAdapter.notifyDataSetChanged();
     }

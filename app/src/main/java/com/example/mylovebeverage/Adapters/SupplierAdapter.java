@@ -27,13 +27,13 @@ public class SupplierAdapter extends ArrayAdapter<Supplier>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Supplier supplier = getItem(position);
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_supplier_cell, parent, false);
         }
-        TextView tv1 = (TextView) convertView.findViewById(R.id.supplier_supplierNameItem);
-        TextView tv2 = (TextView) convertView.findViewById(R.id.supplier_supplierAddress);
+        TextView tv1 = convertView.findViewById(R.id.supplier_supplierNameItem);
+        TextView tv2 = convertView.findViewById(R.id.supplier_supplierAddress);
 
-        ImageView iv = (ImageView) convertView.findViewById(R.id.supplier_supplierLogo);
+        ImageView iv = convertView.findViewById(R.id.supplier_supplierLogo);
 
 
         tv1.setText(supplier.getName_of_supplier());

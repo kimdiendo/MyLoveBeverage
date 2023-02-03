@@ -51,10 +51,10 @@ public class ManageInvoice extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_invoice);
 
-        btnFilter = (Button) findViewById(R.id.btnFilterInvoice);
+        btnFilter = findViewById(R.id.btnFilterInvoice);
         fragmentFilterInvoice = new FragmentFilterInvoice();
 
-        btnResetFilter = (Button) findViewById(R.id.btnResetFilter);
+        btnResetFilter = findViewById(R.id.btnResetFilter);
         btnResetFilter.setVisibility(View.GONE);
 
         connecting_mssql = new Connecting_MSSQL(connection_invoice);
@@ -299,7 +299,7 @@ public class ManageInvoice extends FragmentActivity
 
     private void setUpList()
     {
-        listView = (ListView) findViewById(R.id.invoiceListView);
+        listView = findViewById(R.id.invoiceListView);
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(),0,invoiceList);
         listView.setAdapter(invoiceAdapter);
         invoiceAdapter.notifyDataSetChanged();

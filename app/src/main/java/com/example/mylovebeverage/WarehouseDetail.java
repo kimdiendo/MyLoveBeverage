@@ -44,7 +44,7 @@ public class WarehouseDetail extends AppCompatActivity {
     }
     private void Back_previous_activity()
     {
-        arrow_back = (ImageView)findViewById(R.id.arrow_back);
+        arrow_back = findViewById(R.id.arrow_back);
         arrow_back.setOnClickListener(view -> finish());
     }
     private void getwhDetail() {
@@ -72,7 +72,7 @@ public class WarehouseDetail extends AppCompatActivity {
     }
 
     void setUpList() {
-        listView = (ListView) findViewById(R.id.whDetailListView);
+        listView = findViewById(R.id.whDetailListView);
         WarehouseDetailAdapter warehouseDetailAdapter = new WarehouseDetailAdapter(getApplicationContext(), 0, whDetailList);
         listView.setAdapter(warehouseDetailAdapter);
         warehouseDetailAdapter.notifyDataSetChanged();
@@ -113,13 +113,13 @@ public class WarehouseDetail extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Connect to Supplier makes error.", Toast.LENGTH_SHORT).show();
         }
-        TextView tv1 = (TextView) findViewById(R.id.txtDisplayWHcode);
-        TextView tv2 = (TextView) findViewById(R.id.txtDisplaySupplier);
-        TextView tv3 = (TextView) findViewById(R.id.txtDisplayWHDate);
-        TextView tv4 = (TextView) findViewById(R.id.txtDisplayTotalPrice);
+        TextView tv1 = findViewById(R.id.txtDisplayWHcode);
+        TextView tv2 = findViewById(R.id.txtDisplaySupplier);
+        TextView tv3 = findViewById(R.id.txtDisplayWHDate);
+        TextView tv4 = findViewById(R.id.txtDisplayTotalPrice);
         tv1.setText(selectedWH.getWarehouse_ID());
         tv2.setText(SupplierName);
         tv3.setText(selectedWH.getDateTime().toString());
-        tv4.setText(selectedWH.getPriceCustom()+" VND");
+        tv4.setText(selectedWH.getPriceCustom() + " VND");
     }
 }

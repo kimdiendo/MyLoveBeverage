@@ -39,7 +39,7 @@ public class ManageSupplier extends AppCompatActivity {
         getAllSuppliers();
         setUpList();
         setUpOnClickListener();
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +78,7 @@ public class ManageSupplier extends AppCompatActivity {
         }
     }
     private void setUpList() {
-        listView = (ListView) findViewById(R.id.suppliersListView);
+        listView = findViewById(R.id.suppliersListView);
         SupplierAdapter adapter = new SupplierAdapter(getApplicationContext(), 0, suppliersList);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

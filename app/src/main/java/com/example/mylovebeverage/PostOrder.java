@@ -39,10 +39,10 @@ public class PostOrder extends AppCompatActivity {
 
         Dialog dialog = new Dialog(PostOrder.this);
         dialog.setContentView(R.layout.activity_custom_dialog_2);
-        TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+        TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
         txtMessage.setText("The invoice has just been printed!");
         dialog.show();
-        Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+        Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,8 +53,8 @@ public class PostOrder extends AppCompatActivity {
         connecting_mssql = new Connecting_MSSQL(connection_invoiceDetail);
         connection_invoiceDetail = connecting_mssql.Connecting();
 
-        btnComplete = (Button) findViewById(R.id.btnPostOrderComplete);
-        btnReprint = (Button) findViewById(R.id.btnPostOrderReprint);
+        btnComplete = findViewById(R.id.btnPostOrderComplete);
+        btnReprint = findViewById(R.id.btnPostOrderReprint);
 
         getCurrentInvoice();
         setValue();
@@ -80,10 +80,10 @@ public class PostOrder extends AppCompatActivity {
     private void NotifyReprint(){
         Dialog dialog = new Dialog(PostOrder.this);
         dialog.setContentView(R.layout.activity_custom_dialog_2);
-        TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+        TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
         txtMessage.setText("The invoice has just been reprinted!");
         dialog.show();
-        Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+        Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +119,7 @@ public class PostOrder extends AppCompatActivity {
     }
 
     private void setUpList() {
-        listView = (ListView) findViewById(R.id.invoicePostOrderDetailListView);
+        listView = findViewById(R.id.invoicePostOrderDetailListView);
         InvoiceDetailAdapter invoiceDetailAdapter = new InvoiceDetailAdapter(getApplicationContext(),0,invoicePostOrderDetailList);
         listView.setAdapter(invoiceDetailAdapter);
     }
@@ -147,16 +147,16 @@ public class PostOrder extends AppCompatActivity {
     }
 
     private void setValue() {
-        TextView tv1 = (TextView) findViewById(R.id.txtPostOrderDisplayInvoiceCode);
-        TextView tv2 = (TextView) findViewById(R.id.txtPostOrderDisplayStaffCode);
-        TextView tv3 = (TextView) findViewById(R.id.txtPostOrderDisplayInvoiceDate);
-        TextView tv4 = (TextView) findViewById(R.id.txtPostOrderDisplayTotalPrice);
-        TextView tv5 = (TextView) findViewById(R.id.txtPostOrderDisplayMoneyReceived);
-        TextView tv6 = (TextView) findViewById(R.id.txtPostOrderDisplayMoneyReturned);
+        TextView tv1 = findViewById(R.id.txtPostOrderDisplayInvoiceCode);
+        TextView tv2 = findViewById(R.id.txtPostOrderDisplayStaffCode);
+        TextView tv3 = findViewById(R.id.txtPostOrderDisplayInvoiceDate);
+        TextView tv4 = findViewById(R.id.txtPostOrderDisplayTotalPrice);
+        TextView tv5 = findViewById(R.id.txtPostOrderDisplayMoneyReceived);
+        TextView tv6 = findViewById(R.id.txtPostOrderDisplayMoneyReturned);
 
         tv1.setText(selectedInvoice.getInvoice_ID());
         tv2.setText(selectedInvoice.getStaff_ID());
-        tv3.setText(selectedInvoice.getDateTime_Invoice().toString());
+        tv3.setText(selectedInvoice.getDateTime_Invoice());
         tv4.setText(selectedInvoice.getPriceCustom() + " VND");
         tv5.setText(selectedInvoice.getMoneyReceivedCustom() + " VND");
         tv6.setText(selectedInvoice.getMoneyReturnedCustom() + " VND");

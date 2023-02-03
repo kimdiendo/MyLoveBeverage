@@ -23,7 +23,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class AddWarehouseAdapter extends ArrayAdapter<ProductDataHolder>{
-    private Activity mContext;
+    private final Activity mContext;
     private static Connection connection_productID = null;
     Connecting_MSSQL connecting_mssql= new Connecting_MSSQL(connection_productID);
 
@@ -56,7 +56,7 @@ public class AddWarehouseAdapter extends ArrayAdapter<ProductDataHolder>{
             view = inflater.inflate(R.layout.activity_add_new_warehouse_cell, null);
 
             final ViewHolder viewHolder = new ViewHolder();
-            viewHolder.edt1 = (EditText) view.findViewById(R.id.warehouse_quantity);
+            viewHolder.edt1 = view.findViewById(R.id.warehouse_quantity);
             viewHolder.edt1.setText("0");
             viewHolder.edt1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
@@ -64,11 +64,11 @@ public class AddWarehouseAdapter extends ArrayAdapter<ProductDataHolder>{
                     if (!b) {
                         productDataHolder.setQuantity(Integer.parseInt(viewHolder.edt1.getText().toString()));
                         setTotalWH();
-                        AddNewWarehouse.totalWh.setText(AddNewWarehouse.TotalWH+"");
+                        AddNewWarehouse.totalWh.setText(AddNewWarehouse.TotalWH + "");
                     }
                 }
             });
-            viewHolder.edt2 = (EditText) view.findViewById(R.id.warehouse_unit);
+            viewHolder.edt2 = view.findViewById(R.id.warehouse_unit);
             viewHolder.edt2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View view, boolean b) {
@@ -77,33 +77,33 @@ public class AddWarehouseAdapter extends ArrayAdapter<ProductDataHolder>{
                     }
                 }
             });
-            viewHolder.edt3 = (EditText) view.findViewById(R.id.warehouse_inprice);
+            viewHolder.edt3 = view.findViewById(R.id.warehouse_inprice);
             viewHolder.edt3.setText("0");
             viewHolder.edt3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View view, boolean b) {
                     if (!b) {
                         productDataHolder.setIncome(Integer.parseInt(viewHolder.edt3.getText().toString()));
-                        viewHolder.edt5.setText(String.valueOf(productDataHolder.getIncome()+ productDataHolder.getIncome()* productDataHolder.getProfit()/100));
+                        viewHolder.edt5.setText(String.valueOf(productDataHolder.getIncome() + productDataHolder.getIncome() * productDataHolder.getProfit() / 100));
                         productDataHolder.setOutcome(Integer.parseInt(viewHolder.edt5.getText().toString()));
                         setTotalWH();
-                        AddNewWarehouse.totalWh.setText(AddNewWarehouse.TotalWH+"");
+                        AddNewWarehouse.totalWh.setText(AddNewWarehouse.TotalWH + "");
                     }
                 }
             });
-            viewHolder.edt4 = (EditText) view.findViewById(R.id.warehouse_profit);
+            viewHolder.edt4 = view.findViewById(R.id.warehouse_profit);
             viewHolder.edt4.setText("0");
             viewHolder.edt4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View view, boolean b) {
                     if (!b) {
                         productDataHolder.setProfit(Integer.parseInt(viewHolder.edt4.getText().toString()));
-                        viewHolder.edt5.setText(String.valueOf(productDataHolder.getIncome()+ productDataHolder.getIncome()* productDataHolder.getProfit()/100));
+                        viewHolder.edt5.setText(String.valueOf(productDataHolder.getIncome() + productDataHolder.getIncome() * productDataHolder.getProfit() / 100));
                         productDataHolder.setOutcome(Integer.parseInt(viewHolder.edt5.getText().toString()));
                     }
                 }
             });
-            viewHolder.edt5 = (TextView) view.findViewById(R.id.warehouse_outprice);
+            viewHolder.edt5 = view.findViewById(R.id.warehouse_outprice);
             viewHolder.edt5.setText("0");
             viewHolder.data = new ProductDataHolder(mContext,"WH1", "PD01","Coca",Integer.parseInt(viewHolder.edt1.getText().toString()),Integer.parseInt(viewHolder.edt3.getText().toString()),0,Integer.parseInt(viewHolder.edt4.getText().toString()),viewHolder.edt2.getText().toString());
             viewHolder.atctv = view.findViewById(R.id.warehouse_ProductName);

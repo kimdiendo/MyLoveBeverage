@@ -23,7 +23,7 @@ public class FragmentFilterInvoice extends Fragment
 
     FragmentFilterInvoiceListener activityCallback;
     public interface FragmentFilterInvoiceListener {
-        public void onButtonClick(String text);
+        void onButtonClick(String text);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class FragmentFilterInvoice extends Fragment
         try {
             activityCallback = (FragmentFilterInvoiceListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
+            throw new ClassCastException(context
                     + " You must implement FragmentFilterInvoiceListener");
         }
     }
@@ -42,12 +42,12 @@ public class FragmentFilterInvoice extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_invoice_filter, container, false);
-        btnFilterPrice1 = (Button) view.findViewById(R.id.btnFilterPrice1);
-        btnFilterPrice2 = (Button) view.findViewById(R.id.btnFilterPrice2);
-        btnFilterPrice3 = (Button) view.findViewById(R.id.btnFilterPrice3);
-        btnFilterDate1= (Button) view.findViewById(R.id.btnFilterDate1);
-        btnFilterDate2 = (Button) view.findViewById(R.id.btnFilterDate2);
-        btnFilterDate3 = (Button) view.findViewById(R.id.btnFilterDate3);
+        btnFilterPrice1 = view.findViewById(R.id.btnFilterPrice1);
+        btnFilterPrice2 = view.findViewById(R.id.btnFilterPrice2);
+        btnFilterPrice3 = view.findViewById(R.id.btnFilterPrice3);
+        btnFilterDate1 = view.findViewById(R.id.btnFilterDate1);
+        btnFilterDate2 = view.findViewById(R.id.btnFilterDate2);
+        btnFilterDate3 = view.findViewById(R.id.btnFilterDate3);
 
         btnFilterPrice1.setOnClickListener(new View.OnClickListener() {
             @Override

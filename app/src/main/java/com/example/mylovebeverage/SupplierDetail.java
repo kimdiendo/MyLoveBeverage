@@ -42,28 +42,28 @@ public class SupplierDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_detail);
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-        tv1 = (EditText) findViewById(R.id.supplier_supplierName);
-        tv2 = (EditText) findViewById(R.id.supplier_supplierAddress);
-        tv3 = (EditText) findViewById(R.id.supplier_supplierEmail);
-        tv4 = (EditText) findViewById(R.id.supplier_supplierPhoneNumber);
-        tv5 = (EditText) findViewById(R.id.supplier_supplierBill);
-        tv6 = (EditText) findViewById(R.id.supplier_supplierMoney);
+        tv1 = findViewById(R.id.supplier_supplierName);
+        tv2 = findViewById(R.id.supplier_supplierAddress);
+        tv3 = findViewById(R.id.supplier_supplierEmail);
+        tv4 = findViewById(R.id.supplier_supplierPhoneNumber);
+        tv5 = findViewById(R.id.supplier_supplierBill);
+        tv6 = findViewById(R.id.supplier_supplierMoney);
 
         getSelectedSupplier();
         setValues();
 
-        btn1 = (Button) findViewById(R.id.deleteSupplier);
-        btn2 = (Button) findViewById(R.id.updateSupplier);
-        btn3 = (Button) findViewById(R.id.saveChangeSupplier);
-        btn4 = (Button) findViewById(R.id.cancelChangeSupplier);
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        btn1 = findViewById(R.id.deleteSupplier);
+        btn2 = findViewById(R.id.updateSupplier);
+        btn3 = findViewById(R.id.saveChangeSupplier);
+        btn4 = findViewById(R.id.cancelChangeSupplier);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,9 +75,9 @@ public class SupplierDetail extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(SupplierDetail.this);
                 dialog.setContentView(R.layout.activity_custom_dialog);
-                Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                Button btnNo = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
-                TextView msgDialog = (TextView) dialog.findViewById(R.id.txtCustomDialogMessage);
+                Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
+                TextView msgDialog = dialog.findViewById(R.id.txtCustomDialogMessage);
                 msgDialog.setText("Do you want to completely delete this supplier?");
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -85,8 +85,7 @@ public class SupplierDetail extends AppCompatActivity {
                         connecting_mssql = new Connecting_MSSQL(connection_deleteSupplier);
                         connection_deleteSupplier = connecting_mssql.Connecting();
 
-                        if (connection_deleteSupplier!=null)
-                        {
+                        if (connection_deleteSupplier != null) {
                             try {
                                 Statement statement = connection_deleteSupplier.createStatement();
                                 ResultSet resultSet = statement.executeQuery("update [dbo].[Supplier]\n" +
@@ -205,7 +204,7 @@ public class SupplierDetail extends AppCompatActivity {
         }
     }
     private void setValues() {
-        ImageView iv = (ImageView) findViewById(R.id.supplier_supplierImg);
+        ImageView iv = findViewById(R.id.supplier_supplierImg);
         tv1.setText(selectedSupplier.getName_of_supplier());
         tv2.setText(selectedSupplier.getAddress());
         tv3.setText(selectedSupplier.getEmail());

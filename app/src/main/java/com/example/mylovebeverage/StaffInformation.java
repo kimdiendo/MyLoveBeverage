@@ -64,7 +64,7 @@ public class StaffInformation extends AppCompatActivity {
             ResultSet resultSet = statement.executeQuery("SELECT Status FROM ACCOUNT WHERE Account_name ="+"'"+selectedItem.getID()+"';");
             while(resultSet.next())
             {
-                status = resultSet.getString(1).toString().trim();
+                status = resultSet.getString(1).trim();
             }
             if(status.equals("active"))
             {
@@ -97,23 +97,22 @@ public class StaffInformation extends AppCompatActivity {
                         binding.accountCheck.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                   Dialog dialog = new Dialog(StaffInformation.this);
-                                   dialog.setContentView(R.layout.activity_account_management_dialog);
-                                   EditText txt_ID =(EditText) dialog.findViewById(R.id.ID);
-                                   EditText txt_pass = (EditText) dialog.findViewById(R.id.pass);
-                                   EditText txt_role = (EditText) dialog.findViewById(R.id.role);
-                                   ImageView btnClose = (ImageView) dialog.findViewById(R.id.close);
-                                   Button btnSave = (Button) dialog.findViewById(R.id.save);
-                                   btnSave.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View view) {
-                                              try
-                                              {
-                                                  Statement statement1 = connection_staff_information.createStatement();
-                                                  statement1.execute("UPDATE ACCOUNT\n" +
-                                                          "SET Account_name ="+"'"+txt_ID.getText().toString().trim()+"'"+","+"Pass="+"'"+txt_pass.getText().toString().trim()+"'"+","+"Position="+"'"+txt_role.getText().toString().trim()+"'"+"\n" +
-                                                          "WHERE Account_name="+"'"+selectedItem.getID()+"'");
-                                                  dialog.dismiss();
+                                Dialog dialog = new Dialog(StaffInformation.this);
+                                dialog.setContentView(R.layout.activity_account_management_dialog);
+                                EditText txt_ID = dialog.findViewById(R.id.ID);
+                                EditText txt_pass = dialog.findViewById(R.id.pass);
+                                EditText txt_role = dialog.findViewById(R.id.role);
+                                ImageView btnClose = dialog.findViewById(R.id.close);
+                                Button btnSave = dialog.findViewById(R.id.save);
+                                btnSave.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        try {
+                                            Statement statement1 = connection_staff_information.createStatement();
+                                            statement1.execute("UPDATE ACCOUNT\n" +
+                                                    "SET Account_name =" + "'" + txt_ID.getText().toString().trim() + "'" + "," + "Pass=" + "'" + txt_pass.getText().toString().trim() + "'" + "," + "Position=" + "'" + txt_role.getText().toString().trim() + "'" + "\n" +
+                                                    "WHERE Account_name=" + "'" + selectedItem.getID() + "'");
+                                            dialog.dismiss();
                                                   Toast.makeText(getApplicationContext(), "Update successfully" , Toast.LENGTH_LONG).show();
                                                   onStart();
 
@@ -134,11 +133,10 @@ public class StaffInformation extends AppCompatActivity {
                                    try {
                                        Statement statement1 = connection_staff_information.createStatement();
                                        ResultSet resultSet = statement1.executeQuery("SELECT *FROM ACCOUNT WHERE Account_name ="+"'"+selectedItem.getID()+"';");
-                                       while(resultSet.next())
-                                       {
-                                           txt_ID.setText(resultSet.getString(1).toString().trim());
-                                           txt_pass.setText(resultSet.getString(2).toString().trim());
-                                           txt_role.setText(resultSet.getString(3).toString().trim());
+                                       while(resultSet.next()) {
+                                           txt_ID.setText(resultSet.getString(1).trim());
+                                           txt_pass.setText(resultSet.getString(2).trim());
+                                           txt_role.setText(resultSet.getString(3).trim());
                                        }
                                        resultSet.close();
                                        statement1.close();
@@ -159,25 +157,25 @@ public class StaffInformation extends AppCompatActivity {
                         binding.accountAdding.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                   Dialog dialog = new Dialog(StaffInformation.this);
-                                   dialog.setContentView(R.layout.activity_account_management_dialog);
-                                   EditText txt_ID =(EditText) dialog.findViewById(R.id.ID);
-                                   EditText txt_pass = (EditText) dialog.findViewById(R.id.pass);
-                                   EditText txt_role = (EditText) dialog.findViewById(R.id.role);
-                                   txt_ID.setText(selectedItem.getID());
-                                   txt_role.setText(selectedItem.getPosition().toUpperCase());
-                                   ImageView btnClose = (ImageView) dialog.findViewById(R.id.close);
-                                   Button btnSave = (Button)dialog.findViewById(R.id.save);
-                                   dialog.setCanceledOnTouchOutside(false);
-                                   dialog.show();
-                                   btnClose.setOnClickListener(new View.OnClickListener() {
+                                Dialog dialog = new Dialog(StaffInformation.this);
+                                dialog.setContentView(R.layout.activity_account_management_dialog);
+                                EditText txt_ID = dialog.findViewById(R.id.ID);
+                                EditText txt_pass = dialog.findViewById(R.id.pass);
+                                EditText txt_role = dialog.findViewById(R.id.role);
+                                txt_ID.setText(selectedItem.getID());
+                                txt_role.setText(selectedItem.getPosition().toUpperCase());
+                                ImageView btnClose = dialog.findViewById(R.id.close);
+                                Button btnSave = dialog.findViewById(R.id.save);
+                                dialog.setCanceledOnTouchOutside(false);
+                                dialog.show();
+                                btnClose.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
                                     }
                                 });
-                                   btnSave.setOnClickListener(new View.OnClickListener() {
-                                       @Override
+                                btnSave.setOnClickListener(new View.OnClickListener() {
+                                    @Override
                                        public void onClick(View view) {
                                            if (CheckFormAccount(txt_ID.getText().toString().trim(), txt_pass.getText().toString().trim(), txt_role.getText().toString().trim()))
                                            {
@@ -246,18 +244,16 @@ public class StaffInformation extends AppCompatActivity {
             dialog.setContentView(R.layout.activity_staff_delete_dialog);
             dialog.show();
             dialog.setCanceledOnTouchOutside(false);
-            Button btnYes = (Button) dialog.findViewById(R.id.yesDeleteBtn);
-            Button btnNo = (Button) dialog.findViewById(R.id.noDeleteBtn);
+            Button btnYes = dialog.findViewById(R.id.yesDeleteBtn);
+            Button btnNo = dialog.findViewById(R.id.noDeleteBtn);
             btnYes.setOnClickListener(view1 -> {
-                if (connection_staff_information!=null)
-                {
+                if (connection_staff_information != null) {
                     try {
                         Statement statement = connection_staff_information.createStatement();
                         boolean check = statement.execute("update STAFF\n" +
                                 "set Status = 'inactive'\n" +
-                                "where Staff_ID = '"+selectedItem.getID()+"'");
-                        if (check)
-                        {
+                                "where Staff_ID = '" + selectedItem.getID() + "'");
+                        if (check) {
                             Toast.makeText(getApplicationContext(), "Delete unsuccessfully" , Toast.LENGTH_LONG).show();
                             dialog.dismiss();
                         }else
@@ -288,17 +284,17 @@ public class StaffInformation extends AppCompatActivity {
             dialog.setContentView(R.layout.activity_staff_edit_dialog);
             dialog.show();
             dialog.setCanceledOnTouchOutside(false);
-            ImageView btnClose = (ImageView) dialog.findViewById(R.id.close);
-            Button btnSave = (Button)dialog.findViewById(R.id.save);
-            EditText txt_ID = (EditText) dialog.findViewById(R.id.ID);
-            EditText txt_name = (EditText)dialog.findViewById(R.id.Name);
-            EditText txt_status = (EditText) dialog.findViewById(R.id.status);
-            EditText txt_position = (EditText) dialog.findViewById(R.id.position);
-            EditText txt_gender = (EditText) dialog.findViewById(R.id.gender);
-            EditText txt_phonenumber = (EditText) dialog.findViewById(R.id.PhoneNumber);
-            EditText txt_email = (EditText) dialog.findViewById(R.id.email);
-            EditText txt_salary =(EditText) dialog.findViewById(R.id.Salary);
-            EditText txt_image = (EditText) dialog.findViewById(R.id.image);
+            ImageView btnClose = dialog.findViewById(R.id.close);
+            Button btnSave = dialog.findViewById(R.id.save);
+            EditText txt_ID = dialog.findViewById(R.id.ID);
+            EditText txt_name = dialog.findViewById(R.id.Name);
+            EditText txt_status = dialog.findViewById(R.id.status);
+            EditText txt_position = dialog.findViewById(R.id.position);
+            EditText txt_gender = dialog.findViewById(R.id.gender);
+            EditText txt_phonenumber = dialog.findViewById(R.id.PhoneNumber);
+            EditText txt_email = dialog.findViewById(R.id.email);
+            EditText txt_salary = dialog.findViewById(R.id.Salary);
+            EditText txt_image = dialog.findViewById(R.id.image);
             txt_ID.setText(selectedItem.getID());
             txt_name.setText(selectedItem.getName());
             txt_status.setText(selectedItem.getStatus());

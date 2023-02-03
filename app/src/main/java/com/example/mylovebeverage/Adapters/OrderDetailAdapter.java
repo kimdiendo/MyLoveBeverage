@@ -36,16 +36,15 @@ public class OrderDetailAdapter extends ArrayAdapter<Product>
     {
         Product product = getItem(position);
 
-        if(convertView == null)
-        {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_order_detail_cell, parent, false);
         }
 
-        TextView tv1 = (TextView) convertView.findViewById(R.id.txtOrderDetailProductName);
-        Button btn1 = (Button) convertView.findViewById(R.id.btnOrderDetailDecreaseAmount);
-        EditText editText = (EditText) convertView.findViewById(R.id.editTextOrderDetailProductAmount);
-        Button btn2 = (Button) convertView.findViewById(R.id.btnOrderDetailIncreaseAmount);
-        TextView tv3 = (TextView) convertView.findViewById(R.id.txtOrderDetailProductTotalPrice);
+        TextView tv1 = convertView.findViewById(R.id.txtOrderDetailProductName);
+        Button btn1 = convertView.findViewById(R.id.btnOrderDetailDecreaseAmount);
+        EditText editText = convertView.findViewById(R.id.editTextOrderDetailProductAmount);
+        Button btn2 = convertView.findViewById(R.id.btnOrderDetailIncreaseAmount);
+        TextView tv3 = convertView.findViewById(R.id.txtOrderDetailProductTotalPrice);
 
         tv1.setText(product.getName_of_Product());
         editText.setText(product.getOrderAmount().toString());

@@ -24,20 +24,19 @@ public class InvoiceDetailAdapter extends ArrayAdapter<DetailOfInvoice>
     {
         DetailOfInvoice invoiceDetail = getItem(position);
 
-        if(convertView == null)
-        {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_invoice_detail_cell, parent, false);
         }
 
-        TextView tv1 = (TextView) convertView.findViewById(R.id.txtProductName);
-        TextView tv3 = (TextView) convertView.findViewById(R.id.txtProductAmount);
-        TextView tv4 = (TextView) convertView.findViewById(R.id.txtProductUnit);
-        TextView tv5 = (TextView) convertView.findViewById(R.id.txtProductPrice);
+        TextView tv1 = convertView.findViewById(R.id.txtProductName);
+        TextView tv3 = convertView.findViewById(R.id.txtProductAmount);
+        TextView tv4 = convertView.findViewById(R.id.txtProductUnit);
+        TextView tv5 = convertView.findViewById(R.id.txtProductPrice);
 
         tv1.setText(invoiceDetail.getProductName());
         tv3.setText("x" + invoiceDetail.getQuantity().toString());
         tv4.setText(invoiceDetail.getUnit());
-        tv5.setText(invoiceDetail.getPrice().toString());
+        tv5.setText(invoiceDetail.getPrice());
 
         return convertView;
     }

@@ -70,14 +70,14 @@ public class Manager extends AppCompatActivity {
                         "WHERE Staff_ID ="+"'"+username+"'"+";");
                 while (resultSet.next())
                 {
-                    bundle.putString("AccountName" ,resultSet.getString(1).toString().trim());
-                    bundle.putString("Password" ,password);
-                    bundle.putString("Name" , resultSet.getString(2).toString().trim());
-                    bundle.putString("Position" , resultSet.getString(3).toString().trim());
-                    bundle.putString("Gender" , resultSet.getString(4).toString().trim());
-                    bundle.putString("PhoneNumber" , resultSet.getString(5).toString().trim());
-                    bundle.putString("Email" , resultSet.getString(6).toString().trim());
-                    bundle.putString("Image", resultSet.getString(7).toString().trim());
+                    bundle.putString("AccountName", resultSet.getString(1).trim());
+                    bundle.putString("Password", password);
+                    bundle.putString("Name", resultSet.getString(2).trim());
+                    bundle.putString("Position", resultSet.getString(3).trim());
+                    bundle.putString("Gender", resultSet.getString(4).trim());
+                    bundle.putString("PhoneNumber", resultSet.getString(5).trim());
+                    bundle.putString("Email", resultSet.getString(6).trim());
+                    bundle.putString("Image", resultSet.getString(7).trim());
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -114,18 +114,17 @@ public class Manager extends AppCompatActivity {
                 {
                     navController.navigate(R.id.statistic);
                 }
-                else if (item.getTitle().toString().trim().equals("Log Out"))
-                {
+                else if (item.getTitle().toString().trim().equals("Log Out")) {
                     Dialog dialog = new Dialog(Manager.this);
                     dialog.setContentView(R.layout.activity_log_out);
-                    Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                    Button btnNo  = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
+                    Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                    Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
                     dialog.setCanceledOnTouchOutside(false);
                     dialog.show();
                     btnNo.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                               dialog.dismiss();
+                            dialog.dismiss();
                         }
                     });
                     btnYes.setOnClickListener(new View.OnClickListener() {

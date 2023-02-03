@@ -47,11 +47,11 @@ public class HumanResourceAdapter extends BaseAdapter {
         if(view == null)
         {
             //viewproduct= View.inflate(viewGroup.getContext() , R.layout.actionn jj njn , null);
-            viewproduct = View.inflate(viewGroup.getContext(), R.layout.detail_human_resource, null );
+            viewproduct = View.inflate(viewGroup.getContext(), R.layout.detail_human_resource, null);
             viewHolder = new HumanResourceAdapter.ViewHolder();
-            viewHolder.txt1 = (TextView) viewproduct.findViewById(R.id.text_ID);
-            viewHolder.txt2 = (TextView) viewproduct.findViewById(R.id.text_position);
-            viewHolder.img =(ImageView) viewproduct.findViewById(R.id.imageview_human);
+            viewHolder.txt1 = viewproduct.findViewById(R.id.text_ID);
+            viewHolder.txt2 = viewproduct.findViewById(R.id.text_position);
+            viewHolder.img = viewproduct.findViewById(R.id.imageview_human);
             viewproduct.setTag(viewHolder); // Tạo tag để nắm viewholder mà lưu trữ các thông tin ánh xạ để dùng cho lần sau.
 
         }else

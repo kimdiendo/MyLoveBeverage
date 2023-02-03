@@ -174,18 +174,18 @@ public class ManageExpense extends AppCompatActivity {
                     "WHERE Kind_of_Invoice ="+"'"+type+"'");
             while (resultSet1.next())
             {
-                Quantity = resultSet1.getString(1).toString().trim();
+                Quantity = resultSet1.getString(1).trim();
             }
             resultSet1.close();
             if(Integer.parseInt(Quantity) + 1 >= 100)
             {
-                ID = icon +String.valueOf(Integer.parseInt(Quantity) + 1);
+                ID = icon + (Integer.parseInt(Quantity) + 1);
             }else if (Integer.parseInt(Quantity) + 1 >= 10)
             {
-                ID = icon+"0"+String.valueOf(Integer.parseInt(Quantity) + 1);
+                ID = icon + "0" + (Integer.parseInt(Quantity) + 1);
             }else
             {
-                ID = icon+"00"+String.valueOf(Integer.parseInt(Quantity) + 1);
+                ID = icon + "00" + (Integer.parseInt(Quantity) + 1);
             }
         }catch (SQLException e)
         {
@@ -208,15 +208,15 @@ public class ManageExpense extends AppCompatActivity {
                             "FROM EXPENSESTAFFSALARY;");
                     while (resultSet1.next())
                     {
-                        Quantity = resultSet1.getString(1).toString().trim();
+                        Quantity = resultSet1.getString(1).trim();
                     }
                     resultSet1.close();
                     if(Integer.parseInt(Quantity) + 1 >= 10)
                     {
-                        ID = "SA"+String.valueOf(Integer.parseInt(Quantity) + 1);
+                        ID = "SA" + (Integer.parseInt(Quantity) + 1);
                     }else
                     {
-                        ID = "SA0"+String.valueOf(Integer.parseInt(Quantity) + 1);
+                        ID = "SA0" + (Integer.parseInt(Quantity) + 1);
                     }
                     Statement statement2 = connection_manage_expense.createStatement();
                     statement2.execute("INSERT INTO EXPENSESTAFFSALARY\n" +
@@ -262,48 +262,46 @@ public class ManageExpense extends AppCompatActivity {
         Dialog dialog = new Dialog(ManageExpense.this);
         dialog.setContentView(R.layout.staff_salary_invoice_adding);
         dialog.setCanceledOnTouchOutside(false);
-        ImageView btnClose =(ImageView) dialog.findViewById(R.id.close);//nút close
+        ImageView btnClose = dialog.findViewById(R.id.close);//nút close
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         });//đóng màn hình thêm lương nhân viên
-        EditText edt_staff_id = (EditText) dialog.findViewById(R.id.staff_id);//staff ID
+        EditText edt_staff_id = dialog.findViewById(R.id.staff_id);//staff ID
         //edt_staff_id.setText(staff_i);// set staff ID
-        EditText edt_sum_salary = (EditText) dialog.findViewById(R.id.salary_sum);//lương nhân viên
-        EditText edt_date =(EditText)dialog.findViewById(R.id.date);//ngày nhập hoá đơn
-        ImageButton img_calendar = (ImageButton) dialog.findViewById(R.id.calendar);//calendar , img
-        SetUpDate(edt_date , img_calendar);//hàm giúp nhập calendar
-        EditText edt_month = (EditText) dialog.findViewById(R.id.month);//nhập month
-        EditText edt_year  =(EditText) dialog.findViewById(R.id.year);//nhập year
-        EditText edt_link_excel = (EditText) dialog.findViewById(R.id.link_excel);//nhập link excel
+        EditText edt_sum_salary = dialog.findViewById(R.id.salary_sum);//lương nhân viên
+        EditText edt_date = dialog.findViewById(R.id.date);//ngày nhập hoá đơn
+        ImageButton img_calendar = dialog.findViewById(R.id.calendar);//calendar , img
+        SetUpDate(edt_date, img_calendar);//hàm giúp nhập calendar
+        EditText edt_month = dialog.findViewById(R.id.month);//nhập month
+        EditText edt_year = dialog.findViewById(R.id.year);//nhập year
+        EditText edt_link_excel = dialog.findViewById(R.id.link_excel);//nhập link excel
         //Khởi tạo spinner
-        Spinner spinner_status = (Spinner)dialog.findViewById(R.id.spinner_status);
-        ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(ManageExpense.this , R.array.status ,android.R.layout.simple_spinner_item);
+        Spinner spinner_status = dialog.findViewById(R.id.spinner_status);
+        ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(ManageExpense.this, R.array.status, android.R.layout.simple_spinner_item);
         adapter_status.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_status.setAdapter(adapter_status);
-        EditText edt_status = (EditText)dialog.findViewById(R.id.status_invoice);
-        ProcessSpinner(edt_status , spinner_status);
+        EditText edt_status = dialog.findViewById(R.id.status_invoice);
+        ProcessSpinner(edt_status, spinner_status);
         //khởi tạo spinner
-        Spinner spinner_payment_method =(Spinner)dialog.findViewById(R.id.spinner_payment);
-        ArrayAdapter<CharSequence> adapter_payment = ArrayAdapter.createFromResource(ManageExpense.this , R.array.paymentmethod , android.R.layout.simple_spinner_item);
+        Spinner spinner_payment_method = dialog.findViewById(R.id.spinner_payment);
+        ArrayAdapter<CharSequence> adapter_payment = ArrayAdapter.createFromResource(ManageExpense.this, R.array.paymentmethod, android.R.layout.simple_spinner_item);
         adapter_payment.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_payment_method.setAdapter(adapter_payment);
-        EditText edt_payment = (EditText) dialog.findViewById(R.id.payment_method);
-        ProcessSpinner(edt_payment ,spinner_payment_method);
-        Button btnSave = (Button)dialog.findViewById(R.id.save);//tạo button save
-        ProgressBar progressBar = (ProgressBar)dialog.findViewById(R.id.progress_bar);
+        EditText edt_payment = dialog.findViewById(R.id.payment_method);
+        ProcessSpinner(edt_payment, spinner_payment_method);
+        Button btnSave = dialog.findViewById(R.id.save);//tạo button save
+        ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 while (true)
-                 {
-                     btnSave.setVisibility(View.INVISIBLE);
-                     progressBar.setVisibility(View.VISIBLE);
-                     if (CheckFormValidation(edt_staff_id.getText().toString().trim() , edt_sum_salary.getText().toString().trim(),edt_date.getText().toString().trim() , edt_month.getText().toString().trim(), edt_year.getText().toString().trim(), edt_link_excel.getText().toString().trim() , edt_status.getText().toString().trim() , edt_payment.getText().toString().trim()))
-                     {
-                         ArrayList<String> arrayListStaffSalaryInvoice = new ArrayList<>();
+                while (true) {
+                    btnSave.setVisibility(View.INVISIBLE);
+                    progressBar.setVisibility(View.VISIBLE);
+                    if (CheckFormValidation(edt_staff_id.getText().toString().trim(), edt_sum_salary.getText().toString().trim(), edt_date.getText().toString().trim(), edt_month.getText().toString().trim(), edt_year.getText().toString().trim(), edt_link_excel.getText().toString().trim(), edt_status.getText().toString().trim(), edt_payment.getText().toString().trim())) {
+                        ArrayList<String> arrayListStaffSalaryInvoice = new ArrayList<>();
                          arrayListStaffSalaryInvoice.add(edt_staff_id.getText().toString().trim()); //0
                          arrayListStaffSalaryInvoice.add(edt_sum_salary.getText().toString().trim());//1
                          arrayListStaffSalaryInvoice.add(edt_date.getText().toString().trim());//2
@@ -338,53 +336,51 @@ public class ManageExpense extends AppCompatActivity {
         Dialog dialog = new Dialog(ManageExpense.this);
         dialog.setContentView(R.layout.others_invoice_adding);
         dialog.setCanceledOnTouchOutside(false);
-        ImageView btnClose =(ImageView) dialog.findViewById(R.id.close);
+        ImageView btnClose = dialog.findViewById(R.id.close);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         }); //xử lý đóng khối lệnh
-        EditText edt_staff_id = (EditText) dialog.findViewById(R.id.staff_id);//staff ID
-        EditText edt_month = (EditText) dialog.findViewById(R.id.month);//nhập month
-        EditText edt_year  =(EditText) dialog.findViewById(R.id.year);//nhập year
-        EditText edt_price = (EditText) dialog.findViewById(R.id.salary_sum);//tổng tiền hoá đơn
-        EditText edt_date =(EditText)dialog.findViewById(R.id.date);//ngày nhập hoá đơn
-        ImageButton img_calendar = (ImageButton) dialog.findViewById(R.id.calendar);//calendar , img
-        SetUpDate(edt_date , img_calendar);//hàm giúp nhập calendar
+        EditText edt_staff_id = dialog.findViewById(R.id.staff_id);//staff ID
+        EditText edt_month = dialog.findViewById(R.id.month);//nhập month
+        EditText edt_year = dialog.findViewById(R.id.year);//nhập year
+        EditText edt_price = dialog.findViewById(R.id.salary_sum);//tổng tiền hoá đơn
+        EditText edt_date = dialog.findViewById(R.id.date);//ngày nhập hoá đơn
+        ImageButton img_calendar = dialog.findViewById(R.id.calendar);//calendar , img
+        SetUpDate(edt_date, img_calendar);//hàm giúp nhập calendar
         //khởi tạo spinner
-        Spinner spinner_status = (Spinner)dialog.findViewById(R.id.spinner_status);
-        ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(ManageExpense.this , R.array.status ,android.R.layout.simple_spinner_item);
+        Spinner spinner_status = dialog.findViewById(R.id.spinner_status);
+        ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(ManageExpense.this, R.array.status, android.R.layout.simple_spinner_item);
         adapter_status.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_status.setAdapter(adapter_status);
-        EditText edt_status = (EditText)dialog.findViewById(R.id.status_invoice);
-        ProcessSpinner(edt_status , spinner_status);
+        EditText edt_status = dialog.findViewById(R.id.status_invoice);
+        ProcessSpinner(edt_status, spinner_status);
         //khởi tạo spinner
-        Spinner spinner_payment_method =(Spinner)dialog.findViewById(R.id.spinner_payment);
-        ArrayAdapter<CharSequence> adapter_payment = ArrayAdapter.createFromResource(ManageExpense.this , R.array.paymentmethod , android.R.layout.simple_spinner_item);
+        Spinner spinner_payment_method = dialog.findViewById(R.id.spinner_payment);
+        ArrayAdapter<CharSequence> adapter_payment = ArrayAdapter.createFromResource(ManageExpense.this, R.array.paymentmethod, android.R.layout.simple_spinner_item);
         adapter_payment.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_payment_method.setAdapter(adapter_payment);
-        EditText edt_payment = (EditText) dialog.findViewById(R.id.payment_method);
-        ProcessSpinner(edt_payment ,spinner_payment_method);
+        EditText edt_payment = dialog.findViewById(R.id.payment_method);
+        ProcessSpinner(edt_payment, spinner_payment_method);
         //Khởi tạo spinner
-        Spinner spinner_type_invoice = (Spinner)dialog.findViewById(R.id.spinner_type_invoice);
-        ArrayAdapter<CharSequence>adapter_type_invoice = ArrayAdapter.createFromResource(ManageExpense.this , R.array.other_expense , android.R.layout.simple_spinner_item);
+        Spinner spinner_type_invoice = dialog.findViewById(R.id.spinner_type_invoice);
+        ArrayAdapter<CharSequence> adapter_type_invoice = ArrayAdapter.createFromResource(ManageExpense.this, R.array.other_expense, android.R.layout.simple_spinner_item);
         adapter_type_invoice.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type_invoice.setAdapter(adapter_type_invoice);
-        EditText edt_type_invoice = (EditText)dialog.findViewById(R.id.type_invoice);
-        ProcessSpinner(edt_type_invoice , spinner_type_invoice);
+        EditText edt_type_invoice = dialog.findViewById(R.id.type_invoice);
+        ProcessSpinner(edt_type_invoice, spinner_type_invoice);
         //Save
-        Button btnSave = (Button)dialog.findViewById(R.id.save);
-        ProgressBar progressBar = (ProgressBar)dialog.findViewById(R.id.progress_bar);
+        Button btnSave = dialog.findViewById(R.id.save);
+        ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                while (true)
-                {
+                while (true) {
                     btnSave.setVisibility(View.INVISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
-                    if (CheckFormValidation(edt_staff_id.getText().toString().trim() , edt_price.getText().toString().trim(),edt_date.getText().toString().trim() , edt_month.getText().toString().trim(), edt_year.getText().toString().trim(), edt_type_invoice.getText().toString().trim() , edt_status.getText().toString().trim() , edt_payment.getText().toString().trim()))
-                    {
+                    if (CheckFormValidation(edt_staff_id.getText().toString().trim(), edt_price.getText().toString().trim(), edt_date.getText().toString().trim(), edt_month.getText().toString().trim(), edt_year.getText().toString().trim(), edt_type_invoice.getText().toString().trim(), edt_status.getText().toString().trim(), edt_payment.getText().toString().trim())) {
                         ArrayList<String> arrayListOtherInvoice = new ArrayList<>();
                         arrayListOtherInvoice.add(edt_staff_id.getText().toString().trim()); //0
                         arrayListOtherInvoice.add(edt_price.getText().toString().trim());//1

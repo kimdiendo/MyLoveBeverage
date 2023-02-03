@@ -44,16 +44,16 @@ public class OtherExpenseAdapter extends BaseAdapter {
         if(view == null)
         {
             //viewproduct= View.inflate(viewGroup.getContext() , R.layout.actionn jj njn , null);
-            viewproduct = View.inflate(viewGroup.getContext(), R.layout.expense_invoice_cell, null );
+            viewproduct = View.inflate(viewGroup.getContext(), R.layout.expense_invoice_cell, null);
             viewHolder = new OtherExpenseAdapter.ViewHolder();
-            viewHolder.edt1 =(TextView)viewproduct.findViewById(R.id.edit1);
-            viewHolder.edt2 =(TextView)viewproduct.findViewById(R.id.edit2);
-            viewHolder.edt3 =(TextView)viewproduct.findViewById(R.id.edit3);
-            viewHolder.img = (ImageView)viewproduct.findViewById(R.id.img_icon);
-            viewHolder.txt_date_invoice = (TextView) viewproduct.findViewById(R.id.datetime_of_invoice);
-            viewHolder.txt_invoice_ID = (TextView) viewproduct.findViewById(R.id.ID);
-            viewHolder.txt_invoice_price = (TextView) viewproduct.findViewById(R.id.salary);
-            viewHolder.txt_invoice_status = (TextView) viewproduct.findViewById(R.id.Status);
+            viewHolder.edt1 = viewproduct.findViewById(R.id.edit1);
+            viewHolder.edt2 = viewproduct.findViewById(R.id.edit2);
+            viewHolder.edt3 = viewproduct.findViewById(R.id.edit3);
+            viewHolder.img = viewproduct.findViewById(R.id.img_icon);
+            viewHolder.txt_date_invoice = viewproduct.findViewById(R.id.datetime_of_invoice);
+            viewHolder.txt_invoice_ID = viewproduct.findViewById(R.id.ID);
+            viewHolder.txt_invoice_price = viewproduct.findViewById(R.id.salary);
+            viewHolder.txt_invoice_status = viewproduct.findViewById(R.id.Status);
             viewproduct.setTag(viewHolder); // Tạo tag để nắm viewholder mà lưu trữ các thông tin ánh xạ để dùng cho lần sau.
 
         }else

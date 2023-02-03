@@ -46,8 +46,8 @@ public class ManageWareHouse extends AppCompatActivity {
         connection_supplier = connecting_mssql.Connecting();
         connecting_mssql = new Connecting_MSSQL(connection_warehouse);
         connection_warehouse = connecting_mssql.Connecting();
-        FloatingActionButton addWHBtn = (FloatingActionButton) findViewById(R.id.addWarehouse);
-        supSpinner = (Spinner) findViewById(R.id.supplierSpinner);
+        FloatingActionButton addWHBtn = findViewById(R.id.addWarehouse);
+        supSpinner = findViewById(R.id.supplierSpinner);
         getAllSuppliers();
         ArrayAdapter supplierAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, suppliersList);
         supplierAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -71,7 +71,7 @@ public class ManageWareHouse extends AppCompatActivity {
         setUpList();
         setUpOnClickListener();
         FloatingActionButton addProductBtn = findViewById(R.id.addWarehouse);
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,7 +132,7 @@ public class ManageWareHouse extends AppCompatActivity {
     }
     private void setUpList() {
 
-        listView = (ListView) findViewById(R.id.warehouseListView);
+        listView = findViewById(R.id.warehouseListView);
         WarehouseAdapter adapter = new WarehouseAdapter(getApplicationContext(), 0, warehousesList);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

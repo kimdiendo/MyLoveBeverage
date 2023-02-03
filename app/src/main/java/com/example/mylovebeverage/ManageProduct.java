@@ -47,7 +47,7 @@ public class ManageProduct extends AppCompatActivity {
         setUpList();
         setUpOnClickListener();
         FloatingActionButton addProductBtn = findViewById(R.id.addProduct);
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +90,7 @@ public class ManageProduct extends AppCompatActivity {
     }
 
     private void setUpList() {
-        listView = (ListView) findViewById(R.id.productsListView);
+        listView = findViewById(R.id.productsListView);
         ProductAdapter adapter = new ProductAdapter(getApplicationContext(), 0, productList);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -132,13 +132,13 @@ public class ManageProduct extends AppCompatActivity {
     }
 
     private void setBackGroundButton(String status) {
-        Button btn1 = (Button) findViewById(R.id.allCategoryBtn);
-        Button btn2 = (Button) findViewById(R.id.coffeeBtn);
-        Button btn3 = (Button) findViewById(R.id.milkteaBtn);
-        Button btn4 = (Button) findViewById(R.id.teaBtn);
-        Button btn5 = (Button) findViewById(R.id.freezeBtn);
-        Button btn6 = (Button) findViewById(R.id.othersBtn);
-        Button btn7 = (Button) findViewById(R.id.cakeBtn);
+        Button btn1 = findViewById(R.id.allCategoryBtn);
+        Button btn2 = findViewById(R.id.coffeeBtn);
+        Button btn3 = findViewById(R.id.milkteaBtn);
+        Button btn4 = findViewById(R.id.teaBtn);
+        Button btn5 = findViewById(R.id.freezeBtn);
+        Button btn6 = findViewById(R.id.othersBtn);
+        Button btn7 = findViewById(R.id.cakeBtn);
         btn1.setBackgroundResource(R.drawable.login_rbcircle_4);
         btn2.setBackgroundResource(R.drawable.login_rbcircle_4);
         btn3.setBackgroundResource(R.drawable.login_rbcircle_4);
@@ -146,8 +146,8 @@ public class ManageProduct extends AppCompatActivity {
         btn5.setBackgroundResource(R.drawable.login_rbcircle_4);
         btn6.setBackgroundResource(R.drawable.login_rbcircle_4);
         btn7.setBackgroundResource(R.drawable.login_rbcircle_4);
-        switch ( status ) {
-            case  "CT1":
+        switch (status) {
+            case "CT1":
                 btn2.setBackgroundResource(R.drawable.login_rbcircle_1);
                 break;
 

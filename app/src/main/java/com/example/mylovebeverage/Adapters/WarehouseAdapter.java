@@ -25,11 +25,11 @@ public class WarehouseAdapter extends ArrayAdapter<Warehouse>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Warehouse warehouse = getItem(position);
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_warehouse_cell, parent, false);
         }
-        TextView tv1 = (TextView) convertView.findViewById(R.id.warehouse_WarehouseIDItem);
-        TextView tv2 = (TextView) convertView.findViewById(R.id.warehouse_WarehouseDateItem);
+        TextView tv1 = convertView.findViewById(R.id.warehouse_WarehouseIDItem);
+        TextView tv2 = convertView.findViewById(R.id.warehouse_WarehouseDateItem);
 
         tv1.setText(warehouse.getWarehouse_ID());
         tv2.setText(String.valueOf(warehouse.getDateTime()));

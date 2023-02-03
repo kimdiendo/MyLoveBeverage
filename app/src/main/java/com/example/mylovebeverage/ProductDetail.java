@@ -42,20 +42,20 @@ public class ProductDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-        tv1 = (EditText) findViewById(R.id.product_productName);
-        tv2 = (EditText) findViewById(R.id.product_categoryName);
-        tv3 = (EditText) findViewById(R.id.product_productBrand);
-        tv4 = (EditText) findViewById(R.id.product_productPrice);
-        tv6 = (EditText) findViewById(R.id.product_productUnit);
-        tv8 = (EditText) findViewById(R.id.product_productQuantity);
+        tv1 = findViewById(R.id.product_productName);
+        tv2 = findViewById(R.id.product_categoryName);
+        tv3 = findViewById(R.id.product_productBrand);
+        tv4 = findViewById(R.id.product_productPrice);
+        tv6 = findViewById(R.id.product_productUnit);
+        tv8 = findViewById(R.id.product_productQuantity);
         getSelectedProduct();
         setValues();
 
-        btn1 = (Button) findViewById(R.id.deleteProduct);
-        btn2 = (Button) findViewById(R.id.updateProduct);
-        btn3 = (Button) findViewById(R.id.saveChangeProduct);
-        btn4 = (Button) findViewById(R.id.cancelChangeProduct);
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        btn1 = findViewById(R.id.deleteProduct);
+        btn2 = findViewById(R.id.updateProduct);
+        btn3 = findViewById(R.id.saveChangeProduct);
+        btn4 = findViewById(R.id.cancelChangeProduct);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,9 +67,9 @@ public class ProductDetail extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(ProductDetail.this);
                 dialog.setContentView(R.layout.activity_custom_dialog);
-                Button btnYes = (Button) dialog.findViewById(R.id.btnCustomDialogYes);
-                Button btnNo = (Button) dialog.findViewById(R.id.btnCustomDialogNo);
-                TextView msgDialog  = (TextView) dialog.findViewById(R.id.txtCustomDialogMessage);
+                Button btnYes = dialog.findViewById(R.id.btnCustomDialogYes);
+                Button btnNo = dialog.findViewById(R.id.btnCustomDialogNo);
+                TextView msgDialog = dialog.findViewById(R.id.txtCustomDialogMessage);
                 msgDialog.setText("Do you want to completely delete this product?");
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -77,8 +77,7 @@ public class ProductDetail extends AppCompatActivity {
                         connecting_mssql = new Connecting_MSSQL(connection_deleteProduct);
                         connection_deleteProduct = connecting_mssql.Connecting();
 
-                        if (connection_deleteProduct!=null)
-                        {
+                        if (connection_deleteProduct != null) {
                             try {
                                 Statement statement = connection_deleteProduct.createStatement();
                                 ResultSet resultSet = statement.executeQuery("update [dbo].[PRODUCT]\n" +
@@ -200,7 +199,7 @@ public class ProductDetail extends AppCompatActivity {
     private void setValues() {
 
 
-        ImageView iv = (ImageView) findViewById(R.id.product_productImg);
+        ImageView iv = findViewById(R.id.product_productImg);
         tv1.setText(selectedProduct.getName_of_Product());
         tv2.setText(selectedProduct.getCategory_ID());
         tv3.setText(selectedProduct.getBranding());

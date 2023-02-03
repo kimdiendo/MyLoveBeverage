@@ -67,10 +67,10 @@ public class AddNewWarehouse extends AppCompatActivity {
         connection_supplier_2 = connecting_mssql.Connecting();
 
         setContentView(R.layout.activity_add_new_warehouse);
-        supSpinner = (Spinner) findViewById(R.id.warehouse_addNewWH_supplier);
+        supSpinner = findViewById(R.id.warehouse_addNewWH_supplier);
         getAllProductName();
         setUpList();
-        totalWh = (TextView) findViewById(R.id.TotalWh);
+        totalWh = findViewById(R.id.TotalWh);
         ArrayAdapter supplierAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, ManageWareHouse.suppliersList);
         supplierAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
 
@@ -88,14 +88,14 @@ public class AddNewWarehouse extends AppCompatActivity {
 
             }
         });
-        arrback = (ImageView) findViewById(R.id.arrow_back);
+        arrback = findViewById(R.id.arrow_back);
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-        Button cancelBtn = (Button) findViewById(R.id.cancelNewWH);
+        Button cancelBtn = findViewById(R.id.cancelNewWH);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +103,7 @@ public class AddNewWarehouse extends AppCompatActivity {
 
             }
         });
-        Button addWhBtn = (Button) findViewById(R.id.addNewWH);
+        Button addWhBtn = findViewById(R.id.addNewWH);
         addWhBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,7 +228,7 @@ public class AddNewWarehouse extends AppCompatActivity {
         productHoldersList.add(data3);
         productHoldersList.add(data4);
         productHoldersList.add(data5);
-        listView = (ListView) findViewById(R.id.warehouse_addDetailWH);
+        listView = findViewById(R.id.warehouse_addDetailWH);
         adapter = new AddWarehouseAdapter(this, R.layout.activity_add_new_warehouse_cell, productHoldersList);
         listView.setAdapter(adapter);
     }

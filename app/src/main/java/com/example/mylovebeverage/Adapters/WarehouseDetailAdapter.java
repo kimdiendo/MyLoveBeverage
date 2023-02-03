@@ -28,15 +28,15 @@ public class WarehouseDetailAdapter extends ArrayAdapter<DetailOfWarehouse>{
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_warehouse_detail_cell, parent, false);
         }
-        TextView tv1 = (TextView) convertView.findViewById(R.id.wh_detail_cell_ProductName);
-        TextView tv2 = (TextView) convertView.findViewById(R.id.wh_detail_cell_ProductAmount);
-        TextView tv3 = (TextView) convertView.findViewById(R.id.wh_detail_cell_ProductInprice);
-        TextView tv4 = (TextView) convertView.findViewById(R.id.wh_detail_cell_ProductProfit);
+        TextView tv1 = convertView.findViewById(R.id.wh_detail_cell_ProductName);
+        TextView tv2 = convertView.findViewById(R.id.wh_detail_cell_ProductAmount);
+        TextView tv3 = convertView.findViewById(R.id.wh_detail_cell_ProductInprice);
+        TextView tv4 = convertView.findViewById(R.id.wh_detail_cell_ProductProfit);
 
         tv1.setText(whDetail.getProduct_Name());
         tv2.setText(String.valueOf(whDetail.getQuantity()));
         tv3.setText(whDetail.getIncomeCustom());
-        tv4.setText(whDetail.getProfit() +"%");
+        tv4.setText(whDetail.getProfit() + "%");
         return convertView;
     }
 }

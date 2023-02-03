@@ -27,13 +27,13 @@ public class ProductAdapter extends ArrayAdapter<Product>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Product product = getItem(position);
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_product_cell, parent, false);
         }
-        TextView tv1 = (TextView) convertView.findViewById(R.id.product_productNameItem);
-        TextView tv2 = (TextView) convertView.findViewById(R.id.product_productPrice);
+        TextView tv1 = convertView.findViewById(R.id.product_productNameItem);
+        TextView tv2 = convertView.findViewById(R.id.product_productPrice);
 
-        ImageView iv = (ImageView) convertView.findViewById(R.id.product_productImage);
+        ImageView iv = convertView.findViewById(R.id.product_productImage);
 
 
         tv1.setText(product.getName_of_Product());

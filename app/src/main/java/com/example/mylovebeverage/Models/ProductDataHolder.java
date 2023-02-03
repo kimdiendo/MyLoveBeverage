@@ -8,7 +8,7 @@ import com.example.mylovebeverage.ManageProduct;
 
 public class ProductDataHolder {
     private int selected;
-    private ArrayAdapter<CharSequence> adapter;
+    private final ArrayAdapter<CharSequence> adapter;
     private WarehouseDetailModel warehouseDetailModel;
     private String Warehouse_ID ="";
     private String Product_ID ="";

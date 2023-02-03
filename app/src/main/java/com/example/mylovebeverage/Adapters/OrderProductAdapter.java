@@ -117,10 +117,10 @@ public class OrderProductAdapter extends BaseAdapter
         if (flag == true){
             Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.activity_custom_dialog_2);
-            TextView txtMessage = (TextView) dialog.findViewById(R.id.txtCustomDialog2Message);
+            TextView txtMessage = dialog.findViewById(R.id.txtCustomDialog2Message);
             txtMessage.setText("This product has already been added in the current order!");
             dialog.show();
-            Button btnOk = (Button) dialog.findViewById(R.id.btnCustomDialog2Ok);
+            Button btnOk = dialog.findViewById(R.id.btnCustomDialog2Ok);
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -45,14 +45,14 @@ public class AddNewSupplier extends AppCompatActivity {
                 finish();
             }
         });
-        edt1 = (EditText) findViewById(R.id.supplier_addSupplierName);
-        edt2 = (EditText) findViewById(R.id.supplier_addSupplierLogo);
-        edt3 = (EditText) findViewById(R.id.supplier_addSupplierAddress);
-        edt4 = (EditText) findViewById(R.id.supplier_addSupplierEmail);
-        edt5 = (EditText) findViewById(R.id.supplier_addSupplierPhone);
+        edt1 = findViewById(R.id.supplier_addSupplierName);
+        edt2 = findViewById(R.id.supplier_addSupplierLogo);
+        edt3 = findViewById(R.id.supplier_addSupplierAddress);
+        edt4 = findViewById(R.id.supplier_addSupplierEmail);
+        edt5 = findViewById(R.id.supplier_addSupplierPhone);
 
-        btn1 = (Button) findViewById(R.id.addNewSupplier);
-        btn2 = (Button) findViewById(R.id.cancelNewSupplier);
+        btn1 = findViewById(R.id.addNewSupplier);
+        btn2 = findViewById(R.id.cancelNewSupplier);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
