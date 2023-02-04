@@ -1,11 +1,19 @@
 package com.example.mylovebeverage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.view.textclassifier.ConversationAction;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,14 +36,18 @@ public class StaffInformation extends AppCompatActivity {
     Detail_Human_Resource selectedItem;
     InformationAdapter informationAdapter;
     private ArrayList<Detail_Profile> arrayList;
+    private static final int PERMISSION_REQUEST_CODE_CALL = 123;
+    private static final int PERMISSION_REQUEST_CODE_CHAT = 110;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityStaffInformationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
-        selectedItem = new Detail_Human_Resource(intent.getStringExtra("ID"), intent.getStringExtra("Name"), intent.getStringExtra("Position"), intent.getStringExtra("Gender"),intent.getStringExtra("PhoneNumber"),intent.getIntExtra("Salary" , 0) , intent.getStringExtra("Image"), intent.getStringExtra("Email"), intent.getStringExtra("Status"));
+        selectedItem = new Detail_Human_Resource(intent.getStringExtra("ID"), intent.getStringExtra("Name"), intent.getStringExtra("Position"), intent.getStringExtra("Gender"), intent.getStringExtra("PhoneNumber"), intent.getIntExtra("Salary", 0), intent.getStringExtra("Image"), intent.getStringExtra("Email"), intent.getStringExtra("Status"));
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -43,6 +55,7 @@ public class StaffInformation extends AppCompatActivity {
         CheckAccount();
         Back_previous_activity();
         ShowItem();
+        Calling();
         Chatting();
         Delete();
         Edit();
@@ -218,27 +231,92 @@ public class StaffInformation extends AppCompatActivity {
         }
         if(password.isEmpty()||password.length()>10)
         {
-            Toast.makeText(getApplicationContext(), "Password is error." , Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Password is error.", Toast.LENGTH_LONG).show();
             return false;
         }
-        if(role.isEmpty()||role.length()>10)
-        {
-            Toast.makeText(getApplicationContext(), "Position is error." , Toast.LENGTH_LONG).show();
+        if (role.isEmpty() || role.length() > 10) {
+            Toast.makeText(getApplicationContext(), "Position is error.", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
     }
-    private void Chatting()
-    {
-        binding.chat.setOnClickListener(view -> {
+
+    private void requestCallPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.CALL_PHONE)) {
+                //provide explannation to user that s' why they must provide permission
+            }
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CALL_PHONE}, PERMISSION_REQUEST_CODE_CALL);
+        } else {
+            // Permission has already been granted
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE_CALL) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCalling();
+            } else {
+                Toast.makeText(this, "Calling Permission has denied", Toast.LENGTH_LONG).show();
+            }
+        } else if (requestCode == PERMISSION_REQUEST_CODE_CHAT) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openChatting();
+            } else {
+                Toast.makeText(this, "Chatting Permission has denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private void openCalling() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent_call = new Intent();
             intent_call.setAction(Intent.ACTION_CALL);
-            intent_call.setData(Uri.parse("tel: "+selectedItem.getPhoneNumber()));
+            intent_call.setData(Uri.parse("tel: " + selectedItem.getPhoneNumber()));
             startActivity(intent_call);
+        } else {
+            // Permission has not been granted, request it
+            requestCallPermission();
+        }
+    }
+
+    private void Calling() {
+        binding.call.setOnClickListener(view -> {
+            openCalling();
         });
     }
-    private void Delete()
-    {
+
+    private void requestChatPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
+                //provide explanation for user that s' why they need to chat
+            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PERMISSION_REQUEST_CODE_CHAT);
+        } else {
+            //Permission has been granted
+        }
+    }
+
+    private void openChatting() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("smsto:" + selectedItem.getPhoneNumber()));
+            intent.putExtra("sms_body", "Hello " + selectedItem.getName());
+            startActivity(intent);
+        } else {
+            requestChatPermission();
+        }
+    }
+
+    private void Chatting() {
+        binding.chat.setOnClickListener(view -> {
+            openChatting();
+        });
+    }
+
+    private void Delete() {
         binding.delete.setOnClickListener(view -> {
             Dialog dialog = new Dialog(StaffInformation.this);
             dialog.setContentView(R.layout.activity_staff_delete_dialog);
