@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -16,12 +19,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Fragments.HomeFragment;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
 import com.google.android.material.navigation.NavigationView;
 
@@ -35,8 +40,8 @@ public class Manager extends AppCompatActivity {
     private static Connection connection_manager;
     private String username ="";
     private String password = "";
+    Bundle bundle;
     private static final int PERMISSION_REQUEST_CODE_CALL = 123;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,29 @@ public class Manager extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
         password = intent.getStringExtra("password");
+        if (connection_manager != null) {
+            bundle = new Bundle();
+            try {
+                Statement statement = connection_manager.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT Staff_ID , Name_of_staff ,Position , Gender , PhoneNumber , Email , ProvivedImage\n" +
+                        "FROM STAFF\n" +
+                        "WHERE Staff_ID =" + "'" + username + "'" + ";");
+                while (resultSet.next()) {
+                    bundle.putString("AccountName", resultSet.getString(1).trim());
+                    bundle.putString("Password", password);
+                    bundle.putString("Name", resultSet.getString(2).trim());
+                    bundle.putString("Position", resultSet.getString(3).trim());
+                    bundle.putString("Gender", resultSet.getString(4).trim());
+                    bundle.putString("PhoneNumber", resultSet.getString(5).trim());
+                    bundle.putString("Email", resultSet.getString(6).trim());
+                    bundle.putString("Image", resultSet.getString(7).trim());
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private void requestCallPermission() {
@@ -105,29 +133,6 @@ public class Manager extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Bundle bundle = new Bundle();
-        if (connection_manager != null)
-        {
-            try {
-                Statement statement = connection_manager.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT Staff_ID , Name_of_staff ,Position , Gender , PhoneNumber , Email , ProvivedImage\n" +
-                        "FROM STAFF\n" +
-                        "WHERE Staff_ID ="+"'"+username+"'"+";");
-                while (resultSet.next())
-                {
-                    bundle.putString("AccountName", resultSet.getString(1).trim());
-                    bundle.putString("Password", password);
-                    bundle.putString("Name", resultSet.getString(2).trim());
-                    bundle.putString("Position", resultSet.getString(3).trim());
-                    bundle.putString("Gender", resultSet.getString(4).trim());
-                    bundle.putString("PhoneNumber", resultSet.getString(5).trim());
-                    bundle.putString("Email", resultSet.getString(6).trim());
-                    bundle.putString("Image", resultSet.getString(7).trim());
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
         binding.imageslidebar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -150,7 +155,7 @@ public class Manager extends AppCompatActivity {
                 if (item.getTitle().toString().trim().equals("Profile")) {
                     navController.navigate(R.id.profile, bundle);
                 }else if (item.getTitle().toString().trim().equals("Home")) {
-                    navController.navigate(R.id.home);
+                    navController.navigate(R.id.home, bundle);
                 } else if (item.getTitle().toString().trim().equals("Hotline")) {
                     Dialog dialog = new Dialog(Manager.this);
                     dialog.setContentView(R.layout.activity_hotline);

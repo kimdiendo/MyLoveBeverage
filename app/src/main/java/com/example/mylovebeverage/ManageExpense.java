@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,6 +34,7 @@ public class ManageExpense extends AppCompatActivity {
     private ActivityManageExpenseBinding binding;
     private String type_expense_invoice = "";
     private Connection connection_manage_expense = null;
+    private static String Staff_ID = "";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,6 +44,7 @@ public class ManageExpense extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this , R.array.other_expense ,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(adapter);
+        Staff_ID = getIntent().getStringExtra("Staff_ID").toString().trim();
 
     }
     @Override
@@ -270,7 +273,7 @@ public class ManageExpense extends AppCompatActivity {
             }
         });//đóng màn hình thêm lương nhân viên
         EditText edt_staff_id = dialog.findViewById(R.id.staff_id);//staff ID
-        //edt_staff_id.setText(staff_i);// set staff ID
+        edt_staff_id.setText(Staff_ID);// set staff ID
         EditText edt_sum_salary = dialog.findViewById(R.id.salary_sum);//lương nhân viên
         EditText edt_date = dialog.findViewById(R.id.date);//ngày nhập hoá đơn
         ImageButton img_calendar = dialog.findViewById(R.id.calendar);//calendar , img
@@ -344,6 +347,7 @@ public class ManageExpense extends AppCompatActivity {
             }
         }); //xử lý đóng khối lệnh
         EditText edt_staff_id = dialog.findViewById(R.id.staff_id);//staff ID
+        edt_staff_id.setText(Staff_ID); //set staff ID
         EditText edt_month = dialog.findViewById(R.id.month);//nhập month
         EditText edt_year = dialog.findViewById(R.id.year);//nhập year
         EditText edt_price = dialog.findViewById(R.id.salary_sum);//tổng tiền hoá đơn

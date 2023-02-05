@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
     private ImageButton img_supplier;
     private ImageButton img_warehouse;
 
-    //private String staff_id="";
+    private String staff_id = "";
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -72,25 +72,35 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        super.onCreateView(inflater, container  ,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        img_staff =  view.findViewById(R.id.button_staff); // anh xa đặc tính
-        img_expense = view.findViewById(R.id.button_expense);
-        img_product = view.findViewById(R.id.button_product);
-        img_invoice = view.findViewById(R.id.button_invoice);
-        img_supplier = view.findViewById(R.id.button_supplier);
-        img_warehouse = view.findViewById(R.id.button_warehouse);
-        //staff_id = getArguments().getString("AccountName").trim();
+    private void Show() {
+
         Manage_Staff();
         Manage_Expense();
         Manage_Product();
         Manage_Invoice();
         Manage_Supplier();
         Manage_Warehouse();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        img_staff = view.findViewById(R.id.button_staff); // anh xa đặc tính
+        img_expense = view.findViewById(R.id.button_expense);
+        img_product = view.findViewById(R.id.button_product);
+        img_invoice = view.findViewById(R.id.button_invoice);
+        img_supplier = view.findViewById(R.id.button_supplier);
+        img_warehouse = view.findViewById(R.id.button_warehouse);
+        if (getArguments() == null) {
+            staff_id = "B01";
+            Show();
+        } else {
+            staff_id = getArguments().getString("AccountName").trim();
+            Show();
+        }
         return view;
     }
     protected void Manage_Warehouse()
@@ -144,7 +154,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext() , ManageExpense.class);
-                //intent.putExtra("Staff_ID" , staff_id);
+                intent.putExtra("Staff_ID", staff_id);
                 startActivity(intent);
             }
         });
