@@ -227,13 +227,11 @@
         android:id="@+id/supplier_supplierImg"
         android:layout_width="227dp"
         android:layout_height="217dp"
-
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="336dp"
-        android:layout_marginBottom="916dp"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="913dp"
         app:srcCompat="@drawable/ic_launcher_foreground" />
-
     <Button
         android:id="@+id/updateSupplier"
         android:layout_width="80dp"
@@ -275,6 +273,30 @@
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="42dp"
         android:background="@drawable/delete_product" />
+
+    <ImageButton
+        android:id="@+id/call"
+        android:layout_width="79dp"
+        android:layout_height="81dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="920dp"
+        android:background="@drawable/call" />
+
+    <ImageButton
+        android:id="@+id/chat"
+        android:layout_width="79dp"
+        android:layout_height="81dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="1044dp"
+        android:background="@drawable/chatting" />
 
 
 </RelativeLayout>

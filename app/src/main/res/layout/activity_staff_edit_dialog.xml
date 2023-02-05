@@ -41,21 +41,23 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RelativeLayout
                 android:id="@+id/scrollView"
                 android:layout_width="802dp"
                 android:layout_height="857dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="695dp"
-                    android:layout_marginBottom="637dp"
+                    android:layout_marginEnd="688dp"
+                    android:layout_marginBottom="634dp"
                     android:text="ID:"
                     android:textColor="@color/black"
                     android:textSize="40dp"
@@ -63,16 +65,17 @@
 
                 <EditText
                     android:id="@+id/ID"
-                    android:textColor="@color/black"
-                    android:textSize="40dp"
                     android:layout_width="376dp"
                     android:layout_height="60dp"
-                    android:drawableLeft="@drawable/accountname"
-                    android:drawablePadding="20dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="274dp"
-                    android:layout_marginBottom="634dp" />
+                    android:layout_marginEnd="181dp"
+                    android:layout_marginBottom="634dp"
+                    android:background="@color/pink_plus"
+                    android:drawableLeft="@drawable/accountname"
+                    android:drawablePadding="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
 
                 <TextView
                     android:layout_width="153dp"
@@ -86,18 +89,38 @@
                     android:textSize="40dp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/status"
-                    android:layout_width="376dp"
-                    android:layout_height="60dp"
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="204dp"
-                    android:layout_marginBottom="728dp"
-                    android:drawableLeft="@drawable/status_quo"
-                    android:drawablePadding="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="40dp" />
+                    android:layout_marginEnd="237dp"
+                    android:layout_marginBottom="736dp"
+                    android:background="@color/pink_plus"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/img_position"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/role"></Spinner>
+
+                    <EditText
+                        android:id="@+id/position"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@color/pink_plus"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="40dp"></EditText>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="134dp"
@@ -117,8 +140,9 @@
                     android:layout_height="60dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="206dp"
-                    android:layout_marginBottom="537dp"
+                    android:layout_marginEnd="179dp"
+                    android:layout_marginBottom="535dp"
+                    android:background="@color/pink_plus"
                     android:drawableLeft="@drawable/accountname"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
@@ -129,50 +153,90 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="581dp"
-                    android:layout_marginBottom="449dp"
-                    android:text="Position:"
-                    android:textColor="@color/black"
-                    android:textSize="40dp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/position"
-                    android:layout_width="376dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="177dp"
-                    android:layout_marginBottom="449dp"
-                    android:drawableLeft="@drawable/role"
-                    android:drawablePadding="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="40dp" />
-
-                <TextView
-                    android:layout_width="144dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="600dp"
-                    android:layout_marginBottom="730dp"
+                    android:layout_marginEnd="614dp"
+                    android:layout_marginBottom="446dp"
                     android:text="Status:"
                     android:textColor="@color/black"
                     android:textSize="40dp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/gender"
-                    android:layout_width="376dp"
-                    android:layout_height="60dp"
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="178dp"
-                    android:layout_marginBottom="357dp"
-                    android:drawableLeft="@drawable/gender"
-                    android:drawablePadding="20dp"
+                    android:layout_marginEnd="236dp"
+                    android:layout_marginBottom="446dp"
+                    android:background="@color/pink_plus"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/img_status"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/status_quo"></Spinner>
+
+                    <EditText
+                        android:id="@+id/status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@color/pink_plus"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="40dp"></EditText>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="571dp"
+                    android:layout_marginBottom="735dp"
+                    android:text="Position:"
                     android:textColor="@color/black"
-                    android:textSize="40dp" />
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="239dp"
+                    android:layout_marginBottom="355dp"
+                    android:background="@color/pink_plus"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/img_gender"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/gender"></Spinner>
+
+                    <EditText
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@color/pink_plus"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="40dp"></EditText>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="290dp"
@@ -194,6 +258,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="88dp"
                     android:layout_marginBottom="256dp"
+                    android:background="@color/pink_plus"
                     android:drawableLeft="@drawable/phonenumber"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
@@ -213,12 +278,13 @@
 
                 <EditText
                     android:id="@+id/Salary"
-                    android:layout_width="376dp"
-                    android:layout_height="60dp"
+                    android:layout_width="364dp"
+                    android:layout_height="67dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="204dp"
-                    android:layout_marginBottom="166dp"
+                    android:layout_marginEnd="193dp"
+                    android:layout_marginBottom="158dp"
+                    android:background="@color/pink_plus"
                     android:drawableLeft="@drawable/salary"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
@@ -238,12 +304,13 @@
 
                 <EditText
                     android:id="@+id/image"
-                    android:layout_width="552dp"
-                    android:layout_height="89dp"
+                    android:layout_width="535dp"
+                    android:layout_height="66dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="29dp"
-                    android:layout_marginBottom="78dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginBottom="76dp"
+                    android:background="@color/pink_plus"
                     android:drawableLeft="@drawable/accountname"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
@@ -263,12 +330,13 @@
 
                 <EditText
                     android:id="@+id/email"
-                    android:layout_width="554dp"
-                    android:layout_height="61dp"
+                    android:layout_width="535dp"
+                    android:layout_height="68dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="27dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_marginEnd="21dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/pink_plus"
                     android:drawableLeft="@drawable/email"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"

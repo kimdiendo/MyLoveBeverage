@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mylovebeverage.R;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Detail_Human_Resource;
 import com.example.mylovebeverage.Adapters.HumanResourceAdapter;
@@ -89,8 +92,7 @@ public class ManageStaff extends AppCompatActivity {
         }
 
     }
-    private void Filter()
-    {
+    private void Filter() {
         setBackGroundButton("All");
         HumanResourceAdapter humanResourceAdapter = new HumanResourceAdapter(arrayList);
         humanResourceAdapter.notifyDataSetChanged();
@@ -108,8 +110,8 @@ public class ManageStaff extends AppCompatActivity {
         binding.ManagerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   setBackGroundButton("Manager");
-                   filterProductList("Manager");
+                setBackGroundButton("Manager");
+                filterProductList("Manager");
             }
         });
         binding.OrderBtn.setOnClickListener(new View.OnClickListener() {
@@ -123,16 +125,16 @@ public class ManageStaff extends AppCompatActivity {
         binding.SecurityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   setBackGroundButton("Security");
-                   filterProductList("Security");
+                setBackGroundButton("Security");
+                filterProductList("Security");
 
             }
         });
         binding.WaitressBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   setBackGroundButton("Waitress");
-                   filterProductList("Waitress");
+                setBackGroundButton("Waitress");
+                filterProductList("Waitress");
             }
         });
         binding.Bartendertn.setOnClickListener(new View.OnClickListener() {
@@ -143,26 +145,58 @@ public class ManageStaff extends AppCompatActivity {
             }
         });
     }
-    private void Adding()
-    {
+
+    private void Handling_Selection_Events(Spinner spinner, EditText txt) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                txt.setText(adapterView.getAdapter().getItem(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void Adding() {
         binding.floatingactionbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(ManageStaff.this);
                 dialog.setContentView(R.layout.activity_staff_edit_dialog);
+                //create spinner position
+                ArrayAdapter<CharSequence> adapter_position = ArrayAdapter.createFromResource(ManageStaff.this, R.array.type_position, android.R.layout.simple_spinner_item);
+                adapter_position.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                /// create spinner gender
+                ArrayAdapter<CharSequence> adapter_gender = ArrayAdapter.createFromResource(ManageStaff.this, R.array.type_gender, android.R.layout.simple_spinner_item);
+                adapter_gender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                // create spinner status
+                ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(ManageStaff.this, R.array.type_status_working, android.R.layout.simple_spinner_item);
+                adapter_status.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                Spinner spinner_position = dialog.findViewById(R.id.img_position);
+                Spinner spinner_gender = dialog.findViewById(R.id.img_gender);
+                Spinner spinner_status_working = dialog.findViewById(R.id.img_status);
+                spinner_position.setAdapter(adapter_position);
+                spinner_gender.setAdapter(adapter_gender);
+                spinner_status_working.setAdapter(adapter_status);
                 TextView title = dialog.findViewById(R.id.textfunction);
                 ImageView btnClose = dialog.findViewById(R.id.close);
                 Button btnSave = dialog.findViewById(R.id.save);
                 EditText txt_ID = dialog.findViewById(R.id.ID);
                 EditText txt_name = dialog.findViewById(R.id.Name);
-                EditText txt_status = dialog.findViewById(R.id.status);
-                EditText txt_position = dialog.findViewById(R.id.position);
-                EditText txt_gender = dialog.findViewById(R.id.gender);
+                EditText txt_status = dialog.findViewById(R.id.status); //thêm spinner
+                EditText txt_position = dialog.findViewById(R.id.position); // thêm spinner
+                EditText txt_gender = dialog.findViewById(R.id.gender); //thêm spinner
                 EditText txt_phonenumber = dialog.findViewById(R.id.PhoneNumber);
                 EditText txt_email = dialog.findViewById(R.id.email);
                 EditText txt_salary = dialog.findViewById(R.id.Salary);
                 EditText txt_image = dialog.findViewById(R.id.image);
                 title.setText("Fill Staff Information");
+                Handling_Selection_Events(spinner_position, txt_position);
+                Handling_Selection_Events(spinner_gender, txt_gender);
+                Handling_Selection_Events(spinner_status_working, txt_status);
                 dialog.setCanceledOnTouchOutside(false);
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override

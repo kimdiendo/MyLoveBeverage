@@ -11,13 +11,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
-import android.view.textclassifier.ConversationAction;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Detail_Human_Resource;
 import com.example.mylovebeverage.Adapters.InformationAdapter;
@@ -29,7 +31,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 public class StaffInformation extends AppCompatActivity {
     private ActivityStaffInformationBinding binding;
     Connection connection_staff_information;
@@ -229,8 +230,7 @@ public class StaffInformation extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "ID is error." , Toast.LENGTH_LONG).show();
             return false;
         }
-        if(password.isEmpty()||password.length()>10)
-        {
+        if(password.isEmpty()||password.length()>10) {
             Toast.makeText(getApplicationContext(), "Password is error.", Toast.LENGTH_LONG).show();
             return false;
         }
@@ -241,7 +241,7 @@ public class StaffInformation extends AppCompatActivity {
         return true;
     }
 
-    private void requestCallPermission() {
+    public void requestCallPermission() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.CALL_PHONE)) {
                 //provide explannation to user that s' why they must provide permission
@@ -252,25 +252,36 @@ public class StaffInformation extends AppCompatActivity {
         }
     }
 
+    public void requestChatPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.SEND_SMS)) {
+                //provide explanation for user that s' why they need to chat
+            }
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.SEND_SMS}, PERMISSION_REQUEST_CODE_CHAT);
+        } else {
+            //Permission has been granted
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE_CALL) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openCalling();
+                //calling
             } else {
                 Toast.makeText(this, "Calling Permission has denied", Toast.LENGTH_LONG).show();
             }
         } else if (requestCode == PERMISSION_REQUEST_CODE_CHAT) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openChatting();
+                //chatting
             } else {
                 Toast.makeText(this, "Chatting Permission has denied", Toast.LENGTH_LONG).show();
             }
         }
     }
-
     private void openCalling() {
+
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent_call = new Intent();
             intent_call.setAction(Intent.ACTION_CALL);
@@ -287,18 +298,6 @@ public class StaffInformation extends AppCompatActivity {
             openCalling();
         });
     }
-
-    private void requestChatPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
-                //provide explanation for user that s' why they need to chat
-            }
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PERMISSION_REQUEST_CODE_CHAT);
-        } else {
-            //Permission has been granted
-        }
-    }
-
     private void openChatting() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -309,7 +308,6 @@ public class StaffInformation extends AppCompatActivity {
             requestChatPermission();
         }
     }
-
     private void Chatting() {
         binding.chat.setOnClickListener(view -> {
             openChatting();
@@ -334,19 +332,16 @@ public class StaffInformation extends AppCompatActivity {
                         if (check) {
                             Toast.makeText(getApplicationContext(), "Delete unsuccessfully" , Toast.LENGTH_LONG).show();
                             dialog.dismiss();
-                        }else
-                        {
+                        }else {
                             dialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Delete successfully" , Toast.LENGTH_LONG).show();
                             finish();
                         }
-                    }catch (SQLException e)
-                    {
+                    }catch (SQLException e) {
                         e.printStackTrace();
                     }
-                }else
-                {
-                    Toast.makeText(getApplicationContext(), "Connect to StaffDB makes error." , Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Connect to StaffDB makes error.", Toast.LENGTH_LONG).show();
                     dialog.dismiss();
                 }
 
@@ -355,13 +350,47 @@ public class StaffInformation extends AppCompatActivity {
         });
 
     }
-    private void Edit()
-    {
+
+    private void Handling_Selection_Events(Spinner spinner, EditText txt) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                txt.setText(adapterView.getAdapter().getItem(position).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+    }
+
+    private void Edit() {
         binding.edit.setOnClickListener(view -> {
             Dialog dialog = new Dialog(StaffInformation.this);
             dialog.setContentView(R.layout.activity_staff_edit_dialog);
-            dialog.show();
-            dialog.setCanceledOnTouchOutside(false);
+            //create spinner position
+            ArrayAdapter<CharSequence> adapter_position = ArrayAdapter.createFromResource(StaffInformation.this, R.array.type_position, android.R.layout.simple_spinner_item);
+            adapter_position.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            /// create spinner gender
+            ArrayAdapter<CharSequence> adapter_gender = ArrayAdapter.createFromResource(StaffInformation.this, R.array.type_gender, android.R.layout.simple_spinner_item);
+            adapter_gender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            // create spinner status
+            ArrayAdapter<CharSequence> adapter_status = ArrayAdapter.createFromResource(StaffInformation.this, R.array.type_status_working, android.R.layout.simple_spinner_item);
+            adapter_status.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            //Spinner
+            Spinner spinner_position = dialog.findViewById(R.id.img_position);
+            Spinner spinner_gender = dialog.findViewById(R.id.img_gender);
+            Spinner spinner_status_working = dialog.findViewById(R.id.img_status);
+            spinner_position.setAdapter(adapter_position);
+            spinner_gender.setAdapter(adapter_gender);
+            spinner_status_working.setAdapter(adapter_status);
+            spinner_position.setSelection(0, false);
+            //spinner_position.setSelection(-1);
+            //spinner_gender.setSelection(-1);
+            spinner_gender.setSelection(0, false);
+            //spinner_status_working.setSelection(-1);
+            spinner_status_working.setSelection(0, false);
+            //
             ImageView btnClose = dialog.findViewById(R.id.close);
             Button btnSave = dialog.findViewById(R.id.save);
             EditText txt_ID = dialog.findViewById(R.id.ID);
@@ -382,16 +411,19 @@ public class StaffInformation extends AppCompatActivity {
             txt_email.setText(selectedItem.getEmail());
             txt_salary.setText(String.valueOf(selectedItem.getSalary()));
             txt_image.setText(selectedItem.getImageview());
+            dialog.show();
+            dialog.setCanceledOnTouchOutside(false);
+            //Xử lý sự lựa chọn sự kiện
+            Handling_Selection_Events(spinner_position, txt_position);
+            Handling_Selection_Events(spinner_gender, txt_gender);
+            Handling_Selection_Events(spinner_status_working, txt_status);
             btnClose.setOnClickListener(view1 -> dialog.dismiss());
             btnSave.setOnClickListener(view12 -> {
-                    if (CheckFormValidation(txt_ID.getText().toString().trim(),txt_name.getText().toString().trim() ,txt_status.getText().toString().trim(),txt_position.getText().toString().trim() , txt_gender.getText().toString().trim(),txt_phonenumber.getText().toString().trim(), txt_email.getText().toString().trim() , txt_salary.getText().toString().trim(),txt_image.getText().toString().trim()))
-                    {
-                        if (connection_staff_information!= null)
-                        {
-                            try
-                            {
-                                Statement statement = connection_staff_information.createStatement();
-                                boolean check = statement.execute("UPDATE STAFF\n" +
+                if (CheckFormValidation(txt_ID.getText().toString().trim(), txt_name.getText().toString().trim(), txt_status.getText().toString().trim(), txt_position.getText().toString().trim(), txt_gender.getText().toString().trim(), txt_phonenumber.getText().toString().trim(), txt_email.getText().toString().trim(), txt_salary.getText().toString().trim(), txt_image.getText().toString().trim())) {
+                    if (connection_staff_information != null) {
+                        try {
+                            Statement statement = connection_staff_information.createStatement();
+                            boolean check = statement.execute("UPDATE STAFF\n" +
                                         "SET Name_of_staff ="+"'"+txt_name.getText().toString().trim()+"'"+","+"Position ="+"'"+txt_position.getText().toString().trim()+"'"+","+"Gender ="+"'"+txt_gender.getText().toString().trim()+"'"+","+"PhoneNumber="+"'"+txt_phonenumber.getText().toString().trim()+"'"+","+"Salary_of_staff="+"'"+txt_salary.getText().toString().trim()+"'"+","+"ProvivedImage="+"'"+txt_image.getText().toString().trim()+"'"+","+"Email="+"'"+txt_email.getText().toString().trim()+"'"+","+"Status="+"'"+txt_status.getText().toString().trim()+"'"+"\n"+
                                         "WHERE Staff_ID ="+"'"+selectedItem.getID()+"';");
                                 if(check==false)
