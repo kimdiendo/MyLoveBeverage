@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Fragments.OthersExpenseFragment;
 import com.example.mylovebeverage.Fragments.SalaryStaffFragment;
+import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManageExpenseBinding;
 
 import java.sql.Connection;
@@ -36,15 +37,15 @@ public class ManageExpense extends AppCompatActivity {
     private Connection connection_manage_expense = null;
     private static String Staff_ID = "";
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityManageExpenseBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this , R.array.other_expense ,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.other_expense, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(adapter);
-        Staff_ID = getIntent().getStringExtra("Staff_ID").toString().trim();
+        Staff_ID = MySingleton.getInstance().getVariable();
+
 
     }
     @Override

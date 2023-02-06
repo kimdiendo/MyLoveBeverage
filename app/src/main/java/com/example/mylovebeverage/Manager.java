@@ -6,30 +6,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
-import com.example.mylovebeverage.Fragments.HomeFragment;
+import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
 import com.google.android.material.navigation.NavigationView;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,6 +45,7 @@ public class Manager extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
         password = intent.getStringExtra("password");
+        MySingleton.getInstance().setVariable(username);
         if (connection_manager != null) {
             bundle = new Bundle();
             try {
@@ -73,9 +68,7 @@ public class Manager extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
     }
-
     private void requestCallPermission() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.CALL_PHONE)) {
@@ -155,7 +148,7 @@ public class Manager extends AppCompatActivity {
                 if (item.getTitle().toString().trim().equals("Profile")) {
                     navController.navigate(R.id.profile, bundle);
                 }else if (item.getTitle().toString().trim().equals("Home")) {
-                    navController.navigate(R.id.home, bundle);
+                    navController.navigate(R.id.home);
                 } else if (item.getTitle().toString().trim().equals("Hotline")) {
                     Dialog dialog = new Dialog(Manager.this);
                     dialog.setContentView(R.layout.activity_hotline);

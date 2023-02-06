@@ -10,11 +10,6 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/aboutus"
-        android:name="com.example.mylovebeverage.Fragments.AboutUsFragment"
-        android:label="About Us"
-        tools:layout="@layout/fragment_about_us" />
-    <fragment
         android:id="@+id/profile"
         android:name="com.example.mylovebeverage.Fragments.ProfileFragment"
         android:label="Profile"

@@ -1,6 +1,8 @@
 package com.example.mylovebeverage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Fragments.HomeFragment;
 import com.example.mylovebeverage.Models.Account;
 import com.example.mylovebeverage.databinding.ActivityLoginBinding;
 
