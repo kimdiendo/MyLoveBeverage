@@ -20,6 +20,7 @@ import com.example.mylovebeverage.Adapters.OrderProductAdapter;
 import com.example.mylovebeverage.Adapters.OrderDetailAdapter;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Product;
+import com.example.mylovebeverage.SharedPreferences.MyPreferences;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -40,7 +41,6 @@ public class Order extends AppCompatActivity {
     private static Connection connection_invoice = null;
     private static Connection connection_invoice_detail = null;
     private static Connection connection_staff = null;
-
     GridView gridView;
     public static ListView listView;
     public static OrderDetailAdapter orderDetailAdapter;
@@ -58,13 +58,13 @@ public class Order extends AppCompatActivity {
     public static Integer totalOrderBill = 0;
     String getStaffId = "";
     //Logout
-    Button img_logout ;
-
+    Button img_logout;
+    MyPreferences myPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-
+        myPreferences = new MyPreferences(getApplicationContext());
         connecting_mssql = new Connecting_MSSQL(connection_product);
         connection_product = connecting_mssql.Connecting();
 
@@ -384,10 +384,14 @@ public class Order extends AppCompatActivity {
                                 Statement statement = connection_staff.createStatement();
                                 statement.execute("UPDATE ACCOUNT\n" +
                                         "SET Status ='inactive'\n" +
-                                        "WHERE Account_name ="+"'"+getStaffId+"'");
+                                        "WHERE Account_name =" + "'" + getStaffId + "'");
                                 dialog.dismiss();
                                 finish();
-                                startActivity(new Intent(getApplicationContext() , Login.class));
+                                myPreferences.saveKeyCheck(false);
+                                myPreferences.saveUsername("");
+                                myPreferences.savePassword("");
+                                myPreferences.savePosition("");
+                                startActivity(new Intent(getApplicationContext(), Login.class));
                             }catch (SQLException e)
                             {
                                 e.printStackTrace();

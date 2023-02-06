@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,7 +21,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.SharedPreferences.MyPreferences;
 import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -35,12 +38,14 @@ public class Manager extends AppCompatActivity {
     private String username ="";
     private String password = "";
     Bundle bundle;
+    MyPreferences myPreferences;
     private static final int PERMISSION_REQUEST_CODE_CALL = 123;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityManagerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        myPreferences = new MyPreferences(getApplicationContext());
         connection_manager = new Connecting_MSSQL(connection_manager).Connecting();
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -194,6 +199,10 @@ public class Manager extends AppCompatActivity {
                                         "WHERE Account_name =" + "'" + username + "'");
                                 dialog.dismiss();
                                 finish();
+                                myPreferences.saveKeyCheck(false);
+                                myPreferences.saveUsername("");
+                                myPreferences.savePassword("");
+                                myPreferences.savePosition("");
                                 startActivity(new Intent(getApplicationContext(), Login.class));
                             } catch (SQLException e) {
                                 e.printStackTrace();
