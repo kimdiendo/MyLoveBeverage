@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginLeft="5dp"
                 android:text="To:"
                 android:textColor="@color/black"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="1dp"
                 android:text="Type:"
                 android:textColor="@color/black"
@@ -118,7 +118,7 @@
                 <Spinner
                     android:id="@+id/spinner"
                     android:spinnerMode="dropdown"
-                    android:layout_width="180dp"
+                    android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:background="@color/pink_plus"></Spinner>

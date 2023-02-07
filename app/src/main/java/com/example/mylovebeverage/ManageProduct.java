@@ -57,7 +57,6 @@ public class ManageProduct extends AppCompatActivity {
         addProductBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Add product" , Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), AddNewProduct.class);
 //                startActivity(intent);
                 startActivityForResult(intent, 1);

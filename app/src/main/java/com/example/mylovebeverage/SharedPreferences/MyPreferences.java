@@ -52,7 +52,6 @@ public class MyPreferences {
         editor.putBoolean("CheckSignedIn", CheckSignedIn);
         editor.apply();
     }
-
     public Boolean getKeyCheck() {
         return sharedPreferences.getBoolean("CheckSignedIn", CheckSignedIn);
     }
