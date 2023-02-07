@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Supplier;
+import com.example.mylovebeverage.Singleton.MySingleton;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Connection;
@@ -121,7 +122,6 @@ public class SupplierDetail extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
             }
         });

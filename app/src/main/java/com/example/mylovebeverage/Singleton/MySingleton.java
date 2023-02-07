@@ -16,7 +16,6 @@ public class MySingleton {
     public String getVariable() {
         return variable;
     }
-
     public void setVariable(String variable) {
         this.variable = variable;
     }

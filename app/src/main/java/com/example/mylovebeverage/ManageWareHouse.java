@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.mylovebeverage.Adapters.WarehouseAdapter;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Warehouse;
+import com.example.mylovebeverage.Singleton.MySingleton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
@@ -36,6 +37,9 @@ public class ManageWareHouse extends AppCompatActivity {
     public static ArrayList<String> suppliersList = new ArrayList<String>();
     ImageView arrback;
     Warehouse warehouse;
+    Boolean signal_adding = false;
+    FloatingActionButton addWHBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +48,21 @@ public class ManageWareHouse extends AppCompatActivity {
         connection_supplier = connecting_mssql.Connecting();
         connecting_mssql = new Connecting_MSSQL(connection_warehouse);//kết nối với csdl supplier
         connection_warehouse = connecting_mssql.Connecting();
-        FloatingActionButton addWHBtn = findViewById(R.id.addWarehouse);
+        addWHBtn = findViewById(R.id.addWarehouse);
         supSpinner = findViewById(R.id.supplierSpinner);
         getAllSuppliers();
         ArrayAdapter supplierAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, suppliersList);
         supplierAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         supSpinner.setAdapter(supplierAdapter);
-        getAllWarehouse();
-        setUpList();
-        setUpOnClickListener();
         arrback = findViewById(R.id.arrow_back);
+        listView = findViewById(R.id.warehouseListView);
+        getAllWarehouse();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         arrback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,14 +72,17 @@ public class ManageWareHouse extends AppCompatActivity {
         addWHBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                signal_adding = true;
                 Intent intent = new Intent(getApplicationContext(), AddNewWarehouse.class);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
+                getAllWarehouse();
             }
         });
+        getAllWarehouse();
         ShowInvoicebySupplier();
+        setUpOnClickListener();
 
     }
-
     private String Search(String nameofsupplier) {
         String Supplier_ID = "";
         if (connection_supplier != null) {
@@ -91,6 +103,42 @@ public class ManageWareHouse extends AppCompatActivity {
         return Supplier_ID;
     }
 
+    private Integer Counting_total_money(String Supplier_ID) {
+        Integer total_money = 0;
+        if (connection_warehouse != null) {
+            try {
+                Statement statement = connection_warehouse.createStatement();
+                ResultSet resultSet = statement.executeQuery("select SUM(Price_of_WarehouseInvoice) as TotalMoney\n" +
+                        "from WAREHOUSEINVOICE\n" +
+                        "WHERE Supplier_ID =" + "'" + Supplier_ID + "'" + "\n" +
+                        "GROUP BY Supplier_ID");
+                while (resultSet.next()) {
+                    total_money = resultSet.getInt(1);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Connect to Warehouse makes error.", Toast.LENGTH_SHORT).show();
+        }
+        return total_money;
+    }
+
+    private void Update_TotalBill_TotalMoney(String SupplierID, Integer totalbill, Integer totalmoney) {
+        if (connection_supplier != null) {
+            try {
+                Statement statement = connection_supplier.createStatement();
+                Boolean resultSet = statement.execute("UPDATE SUPPLIER\n" +
+                        "SET TotalBill=" + totalbill + "," + "TotalMoney=" + totalmoney + "\n" +
+                        "WHERE Supplier_ID =" + "'" + SupplierID + "'");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Connect to Supplier makes error.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void ShowInvoicebySupplier() {
         supSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -104,9 +152,14 @@ public class ManageWareHouse extends AppCompatActivity {
                         warehouselist_eachSupplier.add(warehousesList.get(j));
                     }
                 }
+
                 WarehouseAdapter adapter = new WarehouseAdapter(getApplicationContext(), 0, warehouselist_eachSupplier);
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+                if (signal_adding) {
+                    Update_TotalBill_TotalMoney(Supplier_ID, warehouselist_eachSupplier.size(), Counting_total_money(Supplier_ID));
+                }
+
             }
 
             @Override
@@ -125,7 +178,6 @@ public class ManageWareHouse extends AppCompatActivity {
                 while (resultSet.next()) {
                     suppliersList.add(resultSet.getString(2).trim());
                 }
-
             }catch (SQLException e)
             {
                 e.printStackTrace();
@@ -155,21 +207,13 @@ public class ManageWareHouse extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Connect to Warehouse makes error." , Toast.LENGTH_SHORT).show();
         }
     }
-    private void setUpList() {
-
-        listView = findViewById(R.id.warehouseListView);
-        WarehouseAdapter adapter = new WarehouseAdapter(getApplicationContext(), 0, warehousesList);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-    }
 
     private void setUpOnClickListener() {
-
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             Warehouse selectWarehouse = (Warehouse) (listView.getItemAtPosition(i));
             Intent showDetail = new Intent(getApplicationContext(), WarehouseDetail.class);
-            showDetail.putExtra("id",selectWarehouse.getWarehouse_ID());
-            startActivityForResult(showDetail, 1);
+            showDetail.putExtra("id", selectWarehouse.getWarehouse_ID());
+            startActivity(showDetail);
         });
 
     }

@@ -98,7 +98,6 @@ public class InvoiceDetail extends AppCompatActivity {
         CheckStaffofInvoice();
 
     }
-
     private void getInvoiceDetails() {
         if (connection_invoiceDetail != null) {
             try {
