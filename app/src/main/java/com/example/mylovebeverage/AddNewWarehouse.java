@@ -177,12 +177,8 @@ public class AddNewWarehouse extends AppCompatActivity {
                         }
                         Statement statement1 = connection_supplier_2.createStatement();
                         ResultSet resultSet1 = statement1.executeQuery("update [dbo].[SUPPLIER]\n" +
-                                "set TotalBill = "+TotalBill+"\n" +
-                                "where Supplier_ID = '"+supID+"'");
-                        Statement statement2 = connection_warehouse.createStatement();
-                        ResultSet resultSet2 = statement2.executeQuery("update [dbo].[SUPPLIER]\n" +
-                                "set TotalMoney = "+TotalMoney+"\n" +
-                                "where Supplier_ID = '"+supID+"'");
+                                "set TotalBill = "+TotalBill+"\n" +", TotalMoney= "+TotalMoney+
+                                " where Supplier_ID = '"+supID+"'");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
