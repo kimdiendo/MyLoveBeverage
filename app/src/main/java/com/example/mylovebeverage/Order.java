@@ -557,7 +557,6 @@ public class Order extends AppCompatActivity {
         }
 
     }
-
     public void setUpList() {
         listView = findViewById(R.id.orderDetailListView);
         listView.setAdapter(orderDetailAdapter);

@@ -48,7 +48,6 @@ public class StaffInformation extends AppCompatActivity {
         Intent intent = getIntent();
         selectedItem = new Detail_Human_Resource(intent.getStringExtra("ID"), intent.getStringExtra("Name"), intent.getStringExtra("Position"), intent.getStringExtra("Gender"), intent.getStringExtra("PhoneNumber"), intent.getIntExtra("Salary", 0), intent.getStringExtra("Image"), intent.getStringExtra("Email"), intent.getStringExtra("Status"));
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -276,6 +275,7 @@ public class StaffInformation extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //chatting
             } else {
+
                 Toast.makeText(this, "Chatting Permission has denied", Toast.LENGTH_LONG).show();
             }
         }

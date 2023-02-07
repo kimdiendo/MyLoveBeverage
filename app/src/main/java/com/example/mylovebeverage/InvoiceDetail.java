@@ -23,22 +23,27 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class InvoiceDetail extends AppCompatActivity {
-    public  static ArrayList<DetailOfInvoice> invoiceDetailList = new ArrayList<DetailOfInvoice>();
+    public static ArrayList<DetailOfInvoice> invoiceDetailList = new ArrayList<DetailOfInvoice>();
     public ListView listView;
     Connecting_MSSQL connecting_mssql;
     private static Connection connection_invoiceDetail = null;
     Invoice selectedInvoice;
     DetailOfInvoice detailOfInvoice;
     ImageView arrback;
+    TextView tv1, tv2, tv3, tv4, tv5, tv6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invoice_detail);
-
+        tv1 = findViewById(R.id.txtDisplayInvoiceCode);
+        tv2 = findViewById(R.id.txtDisplayStaffCode);
+        tv3 = findViewById(R.id.txtDisplayInvoiceDate);
+        tv4 = findViewById(R.id.txtDisplayTotalPrice);
+        tv5 = findViewById(R.id.txtDisplayMoneyReceived);
+        tv6 = findViewById(R.id.txtDisplayMoneyReturned);
         connecting_mssql = new Connecting_MSSQL(connection_invoiceDetail);
         connection_invoiceDetail = connecting_mssql.Connecting();
-
         getSelectedInvoice();
         setValue();
 
@@ -52,11 +57,50 @@ public class InvoiceDetail extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    private void CheckStaffofInvoice() {
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (connection_invoiceDetail != null) {
+                    Intent intent = new Intent(getApplicationContext(), StaffInformation.class);
+                    try {
+                        Statement statement = connection_invoiceDetail.createStatement();
+                        ResultSet resultSet = statement.executeQuery("\n" +
+                                "select * from STAFF WHERE Staff_ID =" + "'" + tv2.getText().toString().trim() + "'");
+                        while (resultSet.next()) {
+                            intent.putExtra("ID", resultSet.getString(1).trim());
+                            intent.putExtra("Name", resultSet.getString(2).trim());
+                            intent.putExtra("Position", resultSet.getString(3).trim());
+                            intent.putExtra("Gender", resultSet.getString(4).trim());
+                            intent.putExtra("PhoneNumber", resultSet.getString(5).trim());
+                            intent.putExtra("Salary", resultSet.getInt(6));
+                            intent.putExtra("Image", resultSet.getString(7).trim());
+                            intent.putExtra("Email", resultSet.getString(8).trim());
+                            intent.putExtra("Status", resultSet.getString(9).trim());
+                        }
+                        startActivity(intent);
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        CheckStaffofInvoice();
+
     }
 
     private void getInvoiceDetails() {
-        if (connection_invoiceDetail!=null)
-        {
+        if (connection_invoiceDetail != null) {
             try {
                 Statement statement = connection_invoiceDetail.createStatement();
                 Statement statement2 = connection_invoiceDetail.createStatement();
@@ -97,13 +141,6 @@ public class InvoiceDetail extends AppCompatActivity {
     }
 
     private void setValue() {
-        TextView tv1 = findViewById(R.id.txtDisplayInvoiceCode);
-        TextView tv2 = findViewById(R.id.txtDisplayStaffCode);
-        TextView tv3 = findViewById(R.id.txtDisplayInvoiceDate);
-        TextView tv4 = findViewById(R.id.txtDisplayTotalPrice);
-        TextView tv5 = findViewById(R.id.txtDisplayMoneyReceived);
-        TextView tv6 = findViewById(R.id.txtDisplayMoneyReturned);
-
         tv1.setText(selectedInvoice.getInvoice_ID());
         tv2.setText(selectedInvoice.getStaff_ID());
         tv3.setText(selectedInvoice.getDateTime_Invoice());
@@ -111,4 +148,5 @@ public class InvoiceDetail extends AppCompatActivity {
         tv5.setText(selectedInvoice.getMoneyReceivedCustom() + " VND");
         tv6.setText(selectedInvoice.getMoneyReturnedCustom() + " VND");
     }
+
 }

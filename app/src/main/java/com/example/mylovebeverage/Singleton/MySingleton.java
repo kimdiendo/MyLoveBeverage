@@ -13,7 +13,6 @@ public class MySingleton {
         }
         return instance;
     }
-
     public String getVariable() {
         return variable;
     }
