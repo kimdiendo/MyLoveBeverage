@@ -59,7 +59,8 @@
         android:textColorHint="@color/black"
         android:textSize="35dp"
         android:textStyle="normal"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:backgroundTint="@color/black"/>
 
     <EditText
         android:id="@+id/login_password"
@@ -78,7 +79,8 @@
         android:textColorHint="@color/black"
         android:textSize="35dp"
         android:textStyle="normal"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:backgroundTint="@color/black"/>
 
     <Button
         android:id="@+id/button_login"
