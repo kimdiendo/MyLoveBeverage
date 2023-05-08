@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pink_plus">#f08080</color>
-    <color name="pink_plus2">#AC6C6C</color>
-    <color name="pink_light">#f4978e</color>
-    <color name="pink_lighter">#f8ad9d</color>
-    <color name="pink_slight">#fbc4ab</color>
-    <color name="pink_slighter">#ffdab9</color>
+    <color name="pink_plus">#1974d2</color>
+    <color name="pink_plus2">#1974d2</color>
+    <color name="pink_light">#1974d2</color>
+    <color name="pink_lighter">#ececec</color>
+    <color name="pink_slight">#ffffff</color>
+    <color name="pink_slighter">#ffffff</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#555555</color>
     <color name="red">#FF0000</color>
-    <color name="green">#49AD30</color>
+    <color name="green">#3ab700</color>
+
 </resources>
