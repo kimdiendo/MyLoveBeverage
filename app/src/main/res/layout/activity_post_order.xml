@@ -267,7 +267,7 @@
         android:text="Complete The Order"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="34sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/invoicePostOrderDetailListView"
         app:layout_constraintTop_toBottomOf="@+id/txtPostOrderDisplayInvoiceDate" />
@@ -283,7 +283,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:textSize="34sp"
+        android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/invoicePostOrderDetailListView"
         app:layout_constraintTop_toBottomOf="@+id/btnPostOrderComplete" />
 

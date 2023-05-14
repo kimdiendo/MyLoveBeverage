@@ -198,22 +198,27 @@
 
     <Button
         android:id="@+id/addNewSupplier"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="199dp"
+        android:layout_marginEnd="300dp"
         android:layout_marginBottom="39dp"
-        android:background="@drawable/yes_button" />
+        android:background="@drawable/button_yes"
+        android:text="Confirm"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/cancelNewSupplier"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="39dp"
-        android:background="@drawable/no_button" />
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@drawable/button_no" />
 
 </RelativeLayout>

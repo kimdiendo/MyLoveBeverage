@@ -36,7 +36,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@color/red"/>
+        android:background="@color/orange" />
 
     <Button
         android:id="@+id/btnCustomDialogYes"
@@ -48,6 +48,6 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#49AD30"/>
+        android:background="@color/green" />
 
 </RelativeLayout>

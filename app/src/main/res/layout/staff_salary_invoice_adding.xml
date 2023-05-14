@@ -46,7 +46,7 @@
             <TableRow
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:background="@color/pink_lighter"
+                android:background="@color/white"
                 android:layout_height="wrap_content">
                 <TextView
                     android:text="Staff ID:"
@@ -56,8 +56,9 @@
                 <EditText
                     android:id="@+id/staff_id"
                     android:layout_width="328dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawableLeft="@drawable/accountname"
                     android:drawablePadding="20dp"
                     android:inputType="text"
@@ -73,8 +74,9 @@
                 <EditText
                     android:id="@+id/salary_sum"
                     android:layout_width="328dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawableLeft="@drawable/salary"
                     android:drawablePadding="20dp"
                     android:inputType="number"
@@ -86,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="20dp"
-                android:background="@color/pink_lighter">
+                android:background="@color/white">
 
                 <TextView
                     android:text="Invoice Date:"
@@ -97,7 +99,7 @@
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:orientation="horizontal">
 
                     <ImageButton
@@ -113,9 +115,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_margin="5dp"
+                        android:layout_margin="8dp"
                         android:layout_marginStart="20dp"
-                        android:background="@color/pink_plus"
+                        android:background="@color/white"
                         android:drawablePadding="10dp"
                         android:inputType="date"
                         android:paddingLeft="10dp"
@@ -132,7 +134,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:orientation="horizontal">
                     <EditText
                         android:id="@+id/status_invoice"
@@ -140,9 +142,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_margin="5dp"
+                        android:layout_margin="8dp"
                         android:layout_marginStart="20dp"
-                        android:background="@color/pink_plus"
+                        android:background="@color/white"
                         android:inputType="text"
                         android:textColor="@color/black"
                         android:textSize="30dp"></EditText>
@@ -158,7 +160,7 @@
             <TableRow
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:background="@color/pink_lighter"
+                android:background="@color/white"
                 android:layout_height="wrap_content">
                 <TextView
                     android:text="Link Excel:"
@@ -168,8 +170,9 @@
                     android:inputType="text"
                     android:id="@+id/link_excel"
                     android:layout_width="328dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawableLeft="@drawable/xls"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
@@ -184,7 +187,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:orientation="horizontal">
 
                     <EditText
@@ -193,9 +196,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_margin="5dp"
+                        android:layout_margin="8dp"
                         android:layout_marginStart="20dp"
-                        android:background="@color/pink_plus"
+                        android:background="@color/white"
                         android:inputType="text"
                         android:textColor="@color/black"
                         android:textSize="30dp"></EditText>
@@ -211,7 +214,7 @@
             <TableRow
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:background="@color/pink_lighter"
+                android:background="@color/white"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -223,8 +226,9 @@
                     android:inputType="number"
                     android:id="@+id/month"
                     android:layout_width="328dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
                     android:textSize="35dp" />
@@ -238,8 +242,9 @@
                     android:inputType="text"
                     android:id="@+id/year"
                     android:layout_width="328dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawablePadding="20dp"
                     android:textColor="@color/black"
                     android:textSize="35dp" />
@@ -255,10 +260,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="522dp"
-            android:layout_marginTop="369dp"
+            android:layout_marginTop="380dp"
             android:layout_marginEnd="540dp"
-            android:layout_marginBottom="26dp"
-            android:background="#49AD30"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_positive_button"
             android:text="Save"
             android:textColor="@color/black"
             android:textSize="20dp"></Button>

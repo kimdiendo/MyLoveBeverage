@@ -139,7 +139,7 @@
                 android:layout_width="128dp"
                 android:layout_height="41dp"
                 android:layout_marginTop="28dp"
-                android:background="#49AD30"
+                android:background="@drawable/custom_positive_button"
                 android:text="Save"
                 android:textColor="@color/black"
                 android:textSize="20dp"
