@@ -57,18 +57,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabIndicator="@drawable/tab_layout_expense"
-            app:tabIndicatorColor="@color/black"
+            app:tabIndicatorColor="@color/blue"
             app:tabIndicatorGravity="stretch"
             app:tabMaxWidth="500dp"
             app:tabMinWidth="150dp"
             app:tabPadding="10dp"
-            app:tabSelectedTextColor="@color/white"
+            app:tabSelectedTextColor="@color/black"
             app:tabTextColor="@color/black">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Salary" />
+                android:text="Salary"
+                />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
@@ -101,7 +102,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/pink_plus"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -119,7 +120,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_margin="5dp"
                     android:layout_marginStart="20dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawablePadding="10dp"
                     android:inputType="date"
                     android:paddingLeft="10dp"
@@ -141,7 +142,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/pink_plus"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -159,7 +160,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_margin="5dp"
                     android:layout_marginStart="20dp"
-                    android:background="@color/pink_plus"
+                    android:background="@drawable/text_rbcircle_white"
                     android:drawablePadding="10dp"
                     android:inputType="date"
                     android:paddingLeft="10dp"
@@ -181,7 +182,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/pink_plus"
+                android:background="@color/white"
                 android:orientation="horizontal">
                 <Spinner
                     android:id="@+id/spinner"
@@ -189,7 +190,7 @@
                     android:layout_width="110dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@color/pink_plus"></Spinner>
+                    android:background="@drawable/text_rbcircle_white"></Spinner>
             </LinearLayout>
         </LinearLayout>
 
@@ -213,7 +214,7 @@
                 android:layout_width="140dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="970dp"
-                android:background="@color/green"
+                android:background="@color/orange"
                 android:text="Clear"
                 android:textSize="20dp"
                 android:textColor="@color/black"></Button>

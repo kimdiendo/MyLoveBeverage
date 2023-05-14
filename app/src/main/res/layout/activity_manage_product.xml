@@ -63,7 +63,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/login_rbcircle_1"
+            android:background="@drawable/button_choice"
             android:onClick="showAllProducts"
             android:text="All"
             android:textAllCaps="false"

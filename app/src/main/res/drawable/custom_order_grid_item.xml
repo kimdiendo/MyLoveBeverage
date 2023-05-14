@@ -14,7 +14,7 @@
         android:width="3dp">
     </stroke>
     <solid
-        android:color="@color/pink_plus">
+        android:color="#9AAFF8">
     </solid>
 
 </shape>

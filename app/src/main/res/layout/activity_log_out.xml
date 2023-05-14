@@ -3,7 +3,7 @@
     android:layout_width="600dp"
     android:layout_height="300dp"
     android:layout_gravity="center"
-    android:background="@drawable/customborder">
+    android:background="@drawable/custom_border">
 
     <TextView
         android:id="@+id/txtCustomDialogTitle"
@@ -38,7 +38,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@color/red"/>
+        android:background="@color/orange"/>
 
     <Button
         android:id="@+id/btnCustomDialogYes"
@@ -50,6 +50,6 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#49AD30"/>
+        android:background="@color/green"/>
 
 </RelativeLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pink_plus">#1974d2</color>
-    <color name="pink_plus2">#1974d2</color>
+    <color name="pink_plus">#B30000FF</color>
+    <color name="blue_plus2">#0A7DA1</color>
     <color name="pink_light">#1974d2</color>
     <color name="pink_lighter">#ececec</color>
     <color name="pink_slight">#ffffff</color>
@@ -11,5 +11,8 @@
     <color name="grey">#555555</color>
     <color name="red">#FF0000</color>
     <color name="green">#3ab700</color>
+    <color name="orange">#F55800</color>
+    <color name="blue">#8018C8FF</color>
+
 
 </resources>
