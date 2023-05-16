@@ -27,6 +27,8 @@ import com.example.mylovebeverage.SharedPreferences.MyPreferences;
 import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -199,6 +201,8 @@ public class Manager extends AppCompatActivity {
                                         "WHERE Account_name =" + "'" + username + "'");
                                 dialog.dismiss();
                                 finish();
+                                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                                mAuth.signOut();
                                 myPreferences.saveKeyCheck(false);
                                 myPreferences.saveUsername("");
                                 myPreferences.savePassword("");
@@ -214,6 +218,8 @@ public class Manager extends AppCompatActivity {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
                     startActivity(i);
+                } else if (item.getTitle().toString().trim().equals("Attendance DashBoard")) {
+                    navController.navigate(R.id.attendancedashboard);
                 }
                 return true;
             }

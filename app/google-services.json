@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "678595048351",
+    "project_id": "check-attendance-e80df",
+    "storage_bucket": "check-attendance-e80df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678595048351:android:efc32cc4c8da32f03503aa",
+        "android_client_info": {
+          "package_name": "com.example.checkattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678595048351-ghv5ddjhmdiq7rsuji9moenfjdvcp4kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_z49V8pVBM3Qfk7o9GsBg7Erapu2JpnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678595048351-ghv5ddjhmdiq7rsuji9moenfjdvcp4kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678595048351:android:9f9b476a087e9e0e3503aa",
+        "android_client_info": {
+          "package_name": "com.example.mylovebeverage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678595048351-ghv5ddjhmdiq7rsuji9moenfjdvcp4kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_z49V8pVBM3Qfk7o9GsBg7Erapu2JpnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678595048351-ghv5ddjhmdiq7rsuji9moenfjdvcp4kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -31,10 +31,11 @@
 
             <TextView
                 android:id="@+id/textApp"
-                android:layout_width="290dp"
+                android:layout_width="550dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="25dp"
                 android:text="Home"
+                android:gravity="left|center"
                 android:textColor="@color/black"
                 android:textSize="40dp"
                 android:textStyle="bold" />
@@ -55,15 +56,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationview"
-        android:layout_width="wrap_content"
+        android:layout_width="450dp"
         android:layout_height="match_parent"
         android:background="@color/pink_slight"
         app:menu="@menu/navigation_menu_manager"
         app:headerLayout="@layout/activity_layout_navigation_header"
         app:itemTextColor="@color/black"
-        app:itemVerticalPadding="55dp"
+        app:itemVerticalPadding="50dp"
         app:itemTextAppearance="@style/menu_text_style"
-        app:itemIconSize="50dp"
+        app:itemIconSize="45dp"
         app:drawerLayoutCornerSize="40dp"
         android:layout_gravity="start">
 

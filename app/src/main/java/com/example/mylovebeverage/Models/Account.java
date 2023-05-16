@@ -20,9 +20,10 @@ public class Account {
                 {
                     return 3;//user va pass hop le , boss dang nhap chuyen den man hinh cua boss.
 
-                }else if (this.position.equals("ORDER"))
-                {
+                }else if (this.position.equals("ORDER")) {
                     return 4;//user va paa hop le , staff_order dang nhap chuyen den man hinh order.
+                } else {
+                    return 5; // các staff khác không phải order sẽ không được quyền vào app này.
                 }
             }else
             {

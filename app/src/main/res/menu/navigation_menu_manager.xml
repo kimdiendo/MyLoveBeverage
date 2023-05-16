@@ -2,22 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/home"
+    <item
+        android:id="@+id/home"
         android:icon="@drawable/house"
-        android:title="@string/home"/>
-    <item android:id="@+id/profile"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/profile"
         android:icon="@drawable/profile"
         android:title="@string/profile" />
-    <item android:id="@+id/statistic"
-          android:icon="@drawable/statistic"
-          android:title="@string/statistic"/>
-    <item android:id="@+id/hotline"
-          android:title="@string/hotline"
-          android:icon="@drawable/hotline" />
-    <item android:title="@string/aboutus"
-          android:id="@+id/aboutus"
-          android:icon="@drawable/about_us"/>
-    <item android:id="@+id/logout"
-          android:title="@string/logout"
-          android:icon="@drawable/checkout"/>
+    <item
+        android:id="@+id/statistic"
+        android:icon="@drawable/statistic"
+        android:title="@string/statistic" />
+    <item
+        android:id="@+id/attendancedashboard"
+        android:title="Attendance DashBoard"
+        android:icon="@drawable/immigration" />
+    <item
+        android:id="@+id/hotline"
+        android:title="@string/hotline"
+        android:icon="@drawable/hotline" />
+    <item
+        android:title="@string/aboutus"
+        android:id="@+id/aboutus"
+        android:icon="@drawable/about_us" />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        android:icon="@drawable/checkout" />
 </menu>

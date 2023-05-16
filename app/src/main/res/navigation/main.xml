@@ -19,6 +19,11 @@
         android:name="com.example.mylovebeverage.Fragments.StatisticFragment"
         android:label="Statistic"
         tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/attendancedashboard"
+        android:name="com.example.mylovebeverage.Fragments.AttendanceDashBoardFragment"
+        android:label="Attendance DashBoard"
+        tools:layout="@layout/fragment_attendance_dash_board" />
 
 
 </navigation>
