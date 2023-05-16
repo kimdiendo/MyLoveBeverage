@@ -30,7 +30,7 @@
             android:layout_marginEnd="542dp"
             android:layout_marginBottom="767dp"
             android:text="@string/warehouse"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
             android:layout_marginEnd="127dp"
             android:layout_marginBottom="763dp"
             android:text="@string/Supplier"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -92,7 +92,7 @@
             android:layout_marginEnd="132dp"
             android:layout_marginBottom="140dp"
             android:text="@string/Staff"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -114,7 +114,7 @@
             android:layout_marginEnd="562dp"
             android:layout_marginBottom="145dp"
             android:text="@string/product"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -136,7 +136,7 @@
             android:layout_marginEnd="132dp"
             android:layout_marginBottom="446dp"
             android:text="@string/Invoice"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -158,7 +158,7 @@
             android:layout_marginEnd="555dp"
             android:layout_marginBottom="449dp"
             android:text="@string/Expense"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 

@@ -137,7 +137,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/orderProductContainer"
-        android:layout_width="876dp"
+        android:layout_width="870dp"
         android:layout_height="647dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
@@ -162,7 +162,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/orderDetailContainer"
-        android:layout_width="374dp"
+        android:layout_width="378dp"
         android:layout_height="647dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
@@ -176,7 +176,6 @@
             android:layout_height="320dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/button_no"
             android:transcriptMode="alwaysScroll"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtOrderDate" />

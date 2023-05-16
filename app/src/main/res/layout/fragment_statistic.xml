@@ -45,7 +45,7 @@
 
                 <EditText
                     android:id="@+id/from_time"
-                    android:layout_width="179dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
@@ -85,7 +85,7 @@
 
                 <EditText
                     android:id="@+id/to_time"
-                    android:layout_width="179dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"

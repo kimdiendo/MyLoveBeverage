@@ -1,69 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="354dp"
-    android:layout_height="100dp"
-    android:background="@color/pink_slight">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/txtOrderDetailProductName"
-        android:layout_width="118dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Name"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+   >
 
-    <Button
-        android:id="@+id/btnOrderDetailDecreaseAmount"
-        android:layout_width="39dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="118dp"
-        android:background="@color/black"
-        android:text="-"
-        android:textSize="28sp"
-        android:textColor="@color/white"/>
+    <RelativeLayout
 
-    <EditText
-        android:id="@+id/editTextOrderDetailProductAmount"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="157dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:inputType="number"
-        android:background="@color/white"
-        android:text="1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="28sp" />
+        android:layout_width="354dp"
+        android:layout_height="100dp"
+        android:background="@color/pink_slight"
+        >
 
-    <Button
-        android:id="@+id/btnOrderDetailIncreaseAmount"
-        android:layout_width="39dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="197dp"
-        android:background="@color/black"
-        android:text="+"
-        android:textSize="28sp"
-        android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/txtOrderDetailProductName"
+            android:layout_width="118dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtOrderDetailProductTotalPrice"
-        android:layout_width="118dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="236dp"
-        android:layout_marginTop="0dp"
-        android:gravity="center"
-        android:text="Total Price"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="italic" />
+        <Button
+            android:id="@+id/btnOrderDetailDecreaseAmount"
+            android:layout_width="39dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="118dp"
+            android:background="@color/black"
+            android:text="-"
+            android:textSize="28sp"
+            android:textColor="@color/white"/>
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/editTextOrderDetailProductAmount"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="157dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="number"
+            android:background="@color/white"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+        <Button
+            android:id="@+id/btnOrderDetailIncreaseAmount"
+            android:layout_width="39dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="197dp"
+            android:background="@color/black"
+            android:text="+"
+            android:textSize="28sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/txtOrderDetailProductTotalPrice"
+            android:layout_width="118dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="236dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="Total Price"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
