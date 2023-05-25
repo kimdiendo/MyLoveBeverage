@@ -69,7 +69,7 @@
 
                     <TextView
                         android:layout_width="160dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="68dp"
                         android:gravity="center"
                         android:text="Staff ID"
                         android:textColor="@color/white"
@@ -98,7 +98,28 @@
                 </TableRow>
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/view_warn"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/warn" />
+
+            <TextView
+                android:id="@+id/text_warn"
+                android:text="Error connection!"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ListView
+                android:visibility="visible"
                 android:id="@+id/listviewattendance"
                 android:layout_width="838dp"
                 android:layout_height="710dp"
@@ -122,19 +143,21 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/amount_of_staff"
                     android:layout_width="118dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="3/6"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/status"
                     android:layout_width="513dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Chưa đủ"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold" />

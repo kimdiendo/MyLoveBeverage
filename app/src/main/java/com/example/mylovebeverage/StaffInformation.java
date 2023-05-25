@@ -77,7 +77,7 @@ public class StaffInformation extends AppCompatActivity {
             ResultSet resultSet = statement.executeQuery("SELECT Status FROM ACCOUNT WHERE Account_name ="+"'"+selectedItem.getID()+"';");
             while(resultSet.next())
             {
-                status = resultSet.getString(1).trim();
+                status = resultSet.getString(1).toString().trim();
             }
             if(status.equals("active"))
             {
