@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
@@ -25,7 +26,13 @@ import com.example.mylovebeverage.Models.Detail_Human_Resource;
 import com.example.mylovebeverage.Adapters.InformationAdapter;
 import com.example.mylovebeverage.Models.Detail_Profile;
 import com.example.mylovebeverage.databinding.ActivityStaffInformationBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +46,7 @@ public class StaffInformation extends AppCompatActivity {
     private ArrayList<Detail_Profile> arrayList;
     private static final int PERMISSION_REQUEST_CODE_CALL = 123;
     private static final int PERMISSION_REQUEST_CODE_CHAT = 110;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,7 @@ public class StaffInformation extends AppCompatActivity {
         binding = ActivityStaffInformationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
+        auth = FirebaseAuth.getInstance();
         selectedItem = new Detail_Human_Resource(intent.getStringExtra("ID"), intent.getStringExtra("Name"), intent.getStringExtra("Position"), intent.getStringExtra("Gender"), intent.getStringExtra("PhoneNumber"), intent.getIntExtra("Salary", 0), intent.getStringExtra("Image"), intent.getStringExtra("Email"), intent.getStringExtra("Status"));
     }
     @Override
@@ -57,6 +66,7 @@ public class StaffInformation extends AppCompatActivity {
         ShowItem();
         Calling();
         Chatting();
+        Register_FirebaseAuth();
         Delete();
         Edit();
     }
@@ -65,18 +75,64 @@ public class StaffInformation extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
     }
-    private void CheckAccountStatus()
-    {
-        String status ="";
+
+    private void Register_FirebaseAuth() {
+        binding.registerFirebaseAuth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(StaffInformation.this);
+                dialog.setContentView(R.layout.activity_firebaseauth_dialog);
+                EditText editText_mail = dialog.findViewById(R.id.ID);
+                EditText editText_password = dialog.findViewById(R.id.pass);
+                editText_mail.setText(selectedItem.getEmail().trim());
+                Button btn_register = dialog.findViewById(R.id.Register);
+                ImageView btn_close = dialog.findViewById(R.id.close);
+                dialog.show();
+                btn_register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        auth.createUserWithEmailAndPassword(editText_mail.getText().toString().trim(), editText_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    dialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication successfully", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication Failed", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Toast.makeText(getApplicationContext(), "Cannot connect App with Firebase Authentication", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                });
+                btn_close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+            }
+        });
+    }
+
+    private void CheckAccountStatus() {
+        String status = "";
         try {
             Statement statement = connection_staff_information.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT Status FROM ACCOUNT WHERE Account_name ="+"'"+selectedItem.getID()+"';");
-            while(resultSet.next())
-            {
+            ResultSet resultSet = statement.executeQuery("SELECT Status FROM ACCOUNT WHERE Account_name =" + "'" + selectedItem.getID() + "';");
+            while (resultSet.next()) {
                 status = resultSet.getString(1).toString().trim();
             }
             if(status.equals("active"))

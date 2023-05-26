@@ -51,8 +51,8 @@
                 android:layout_height="464dp"
                 android:background="@drawable/background_for_profile"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="-16dp"
-                tools:layout_editor_absoluteY="0dp" />
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="2dp" />
 
             <ImageButton
                 android:id="@+id/chat"
@@ -76,7 +76,18 @@
                 app:layout_constraintBottom_toBottomOf="@+id/roundedImageViewpersonal"
                 app:layout_constraintStart_toEndOf="@+id/roundedImageViewpersonal"
                 app:layout_constraintTop_toTopOf="@+id/imageviewpersonal"
-                app:layout_constraintVertical_bias="1.0"></ImageButton>
+                app:layout_constraintVertical_bias="0.866"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/register_firebaseAuth"
+                android:layout_width="79dp"
+                android:layout_height="81dp"
+                android:layout_marginTop="308dp"
+                android:background="@drawable/register_firebase_authenticate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.764"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="parent"></ImageButton>
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/roundedImageViewpersonal"
@@ -101,9 +112,9 @@
                 android:checked="true"
                 android:paddingLeft="20dp"
                 android:text="Active"
-                android:visibility="invisible"
                 android:textColor="@color/white"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="@+id/roundedImageViewpersonal"
                 app:layout_constraintStart_toStartOf="@+id/roundedImageViewpersonal" />
@@ -116,9 +127,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="44dp"
                 android:text="Andrew Nguyen"
+                android:textColor="@color/black"
                 android:textSize="35dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.485"
                 app:layout_constraintStart_toStartOf="@+id/imageviewpersonal"
@@ -166,36 +177,35 @@
                 android:id="@+id/delete"
                 android:layout_width="66dp"
                 android:layout_height="62dp"
-                android:visibility="visible"
                 android:background="@drawable/delete"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.912"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.571">
-            </ImageView>
+                app:layout_constraintVertical_bias="0.571"></ImageView>
 
             <ImageView
                 android:id="@+id/edit"
                 android:layout_width="68dp"
-            android:visibility="visible"
-            android:layout_height="66dp"
-            android:background="@drawable/edit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.718"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"></ImageView>
+                android:layout_height="66dp"
+                android:background="@drawable/edit"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.718"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"></ImageView>
 
             <Button
                 android:id="@+id/account_adding"
-                android:text="Adding Account"
-                android:visibility="invisible"
-                android:textColor="@color/black"
-                android:background="@drawable/background_grid_view_item_humanresource"
                 android:layout_width="183dp"
                 android:layout_height="57dp"
+                android:background="@drawable/background_grid_view_item_humanresource"
+                android:text="Adding Account"
+                android:textColor="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
