@@ -27,6 +27,10 @@
         android:id="@+id/aboutus"
         android:icon="@drawable/about_us" />
     <item
+        android:id="@+id/notification"
+        android:title="Notification"
+        android:icon="@drawable/bell" />
+    <item
         android:id="@+id/logout"
         android:title="@string/logout"
         android:icon="@drawable/checkout" />

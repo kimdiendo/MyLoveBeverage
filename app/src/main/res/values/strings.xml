@@ -43,6 +43,13 @@
         <item>Security</item>
         <item>Order</item>
     </string-array>
+    <string-array name="type_notification_position">
+        <item>All</item>
+        <item>Bartender</item>
+        <item>Waitress</item>
+        <item>Security</item>
+        <item>Order</item>
+    </string-array>
     <string-array name="type_status_working">
         <item>active</item>
         <item>inactive</item>

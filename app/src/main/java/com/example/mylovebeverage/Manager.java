@@ -11,6 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,10 +20,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Observer.BartenderSubscriber;
+import com.example.mylovebeverage.Observer.Notifier;
+import com.example.mylovebeverage.Observer.OrderSubscriber;
+import com.example.mylovebeverage.Observer.SecuritySubscriber;
+import com.example.mylovebeverage.Observer.WaitressSubscriber;
 import com.example.mylovebeverage.SharedPreferences.MyPreferences;
 import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
@@ -109,6 +120,20 @@ public class Manager extends AppCompatActivity {
             // Permission has not been granted, request it
             requestCallPermission();
         }
+    }
+
+    private void Handling_text_spinner(Spinner spinner, EditText edt) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                edt.setText(parent.getAdapter().getItem(position).toString().trim());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     @Override
@@ -220,6 +245,46 @@ public class Manager extends AppCompatActivity {
                     startActivity(i);
                 } else if (item.getTitle().toString().trim().equals("Attendance DashBoard")) {
                     navController.navigate(R.id.attendancedashboard);
+                } else if (item.getTitle().toString().equals("Notification")) {
+                    //set up subscriber for publisher
+                    BartenderSubscriber bartenderSubscriber = new BartenderSubscriber();
+                    OrderSubscriber orderSubscriber = new OrderSubscriber();
+                    SecuritySubscriber securitySubscriber = new SecuritySubscriber();
+                    WaitressSubscriber waitressSubscriber = new WaitressSubscriber();
+                    Notifier notifier = new Notifier();
+                    // subscribe
+                    notifier.subscribe(bartenderSubscriber);
+                    notifier.subscribe(waitressSubscriber);
+                    notifier.subscribe(securitySubscriber);
+                    notifier.subscribe(orderSubscriber);
+                    //done
+                    Dialog dialog = new Dialog(Manager.this);
+                    dialog.setContentView(R.layout.activity_create_notification);
+                    ImageView btn_close = dialog.findViewById(R.id.close);
+                    Button btn_send = dialog.findViewById(R.id.button);
+                    EditText edt_message = dialog.findViewById(R.id.editText);
+                    EditText edt_type_position = dialog.findViewById(R.id.position);
+                    ArrayAdapter<CharSequence> array_type_notification = ArrayAdapter.createFromResource(Manager.this, R.array.type_notification_position, android.R.layout.simple_spinner_item);
+                    array_type_notification.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    Spinner spinner_type_notification_position = dialog.findViewById(R.id.img_position);
+                    spinner_type_notification_position.setAdapter(array_type_notification);
+                    Handling_text_spinner(spinner_type_notification_position, edt_type_position);
+                    dialog.show();
+                    btn_close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    btn_send.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            notifier.setMessgae(edt_message.getText().toString().trim());
+                            notifier.setType_position(edt_type_position.getText().toString().trim());
+                            notifier.Notify();
+                            dialog.dismiss();
+                        }
+                    });
                 }
                 return true;
             }
