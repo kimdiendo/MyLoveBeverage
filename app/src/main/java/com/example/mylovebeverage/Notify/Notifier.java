@@ -1,6 +1,5 @@
-package com.example.mylovebeverage.Observer;
+package com.example.mylovebeverage.Notify;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Notifier {
@@ -22,11 +21,11 @@ public class Notifier {
         subscribers.remove(subscriber);
     }
 
-    public String getMessgae() {
+    public String getMessage() {
         return messgae;
     }
 
-    public void setMessgae(String messgae) {
+    public void setMessage(String messgae) {
         this.messgae = messgae;
     }
 

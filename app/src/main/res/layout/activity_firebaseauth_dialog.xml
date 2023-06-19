@@ -49,6 +49,24 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/checked"
+                android:layout_width="504dp"
+                android:layout_height="118dp"
+                android:gravity="center"
+                android:text="Registered Firebase Authentication"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.484">
+
+            </TextView>
+
+            <TextView
+                android:visibility="invisible"
                 android:id="@+id/textView3"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
@@ -64,6 +82,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
+                android:visibility="invisible"
                 android:id="@+id/ID"
                 android:layout_width="295dp"
                 android:layout_height="56dp"
@@ -81,6 +100,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
+                android:visibility="invisible"
                 android:id="@+id/textView"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
@@ -97,6 +117,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ID" />
 
             <EditText
+                android:visibility="invisible"
                 android:id="@+id/pass"
                 android:layout_width="295dp"
                 android:layout_height="56dp"
@@ -113,8 +134,8 @@
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
             <Button
+                android:visibility="invisible"
                 android:id="@+id/Register"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
@@ -134,7 +155,7 @@
                 android:layout_height="31dp"
                 android:text="*Password must be at least 6 characters*"
                 android:textColor="@color/black"
-
+                android:visibility="invisible"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

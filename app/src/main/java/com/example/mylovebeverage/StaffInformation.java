@@ -31,6 +31,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Connection;
@@ -81,38 +82,69 @@ public class StaffInformation extends AppCompatActivity {
         super.onResume();
     }
 
+
     private void Register_FirebaseAuth() {
         binding.registerFirebaseAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Dialog dialog = new Dialog(StaffInformation.this);
                 dialog.setContentView(R.layout.activity_firebaseauth_dialog);
-                EditText editText_mail = dialog.findViewById(R.id.ID);
-                EditText editText_password = dialog.findViewById(R.id.pass);
-                editText_mail.setText(selectedItem.getEmail().trim());
-                Button btn_register = dialog.findViewById(R.id.Register);
                 ImageView btn_close = dialog.findViewById(R.id.close);
                 dialog.show();
-                btn_register.setOnClickListener(new View.OnClickListener() {
+                auth.fetchSignInMethodsForEmail(selectedItem.getEmail().trim()).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     @Override
-                    public void onClick(View v) {
-                        auth.createUserWithEmailAndPassword(editText_mail.getText().toString().trim(), editText_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    dialog.dismiss();
-                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication successfully", Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication Failed", Toast.LENGTH_LONG).show();
-                                }
+                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                        if (task.isSuccessful()) {
+                            SignInMethodQueryResult result = task.getResult();
+                            boolean account_exist = result != null && result.getSignInMethods() != null
+                                    && !result.getSignInMethods().isEmpty();
+                            if (account_exist) {
+                                //đã có tài khoản trong firebase authenticate
+                                TextView txt_checked = dialog.findViewById(R.id.checked);
+                                txt_checked.setVisibility(View.VISIBLE);
+                            } else {
+                                //chưa có tài khoản
+                                TextView txt_email = dialog.findViewById(R.id.textView3);
+                                txt_email.setVisibility(View.VISIBLE);
+                                TextView txt_password = dialog.findViewById(R.id.textView);
+                                txt_password.setVisibility(View.VISIBLE);
+                                TextView txt_note = dialog.findViewById(R.id.textView7);
+                                txt_note.setVisibility(View.VISIBLE);
+                                EditText editText_mail = dialog.findViewById(R.id.ID);
+                                editText_mail.setVisibility(View.VISIBLE);
+                                EditText editText_password = dialog.findViewById(R.id.pass);
+                                editText_password.setVisibility(View.VISIBLE);
+                                editText_mail.setText(selectedItem.getEmail().trim());
+                                Button btn_register = dialog.findViewById(R.id.Register);
+                                btn_register.setVisibility(View.VISIBLE);
+                                btn_register.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        auth.createUserWithEmailAndPassword(editText_mail.getText().toString().trim(), editText_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    dialog.dismiss();
+                                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication successfully", Toast.LENGTH_LONG).show();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "Register Firebase Authentication Failed", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(getApplicationContext(), "Cannot connect App with Firebase Authentication", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                    }
+                                });
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-
-                                Toast.makeText(getApplicationContext(), "Cannot connect App with Firebase Authentication", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Cannot connect App with Firebase Authentication", Toast.LENGTH_LONG).show();
                     }
                 });
                 btn_close.setOnClickListener(new View.OnClickListener() {
@@ -121,12 +153,9 @@ public class StaffInformation extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
-
             }
         });
     }
-
     private void CheckAccountStatus() {
         String status = "";
         try {

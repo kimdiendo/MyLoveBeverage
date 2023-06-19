@@ -14,7 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,11 +28,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
-import com.example.mylovebeverage.Observer.BartenderSubscriber;
-import com.example.mylovebeverage.Observer.Notifier;
-import com.example.mylovebeverage.Observer.OrderSubscriber;
-import com.example.mylovebeverage.Observer.SecuritySubscriber;
-import com.example.mylovebeverage.Observer.WaitressSubscriber;
+import com.example.mylovebeverage.Notify.BartenderSubscriber;
+import com.example.mylovebeverage.Notify.Notifier;
+import com.example.mylovebeverage.Notify.OrderSubscriber;
+import com.example.mylovebeverage.Notify.SecuritySubscriber;
+import com.example.mylovebeverage.Notify.WaitressSubscriber;
 import com.example.mylovebeverage.SharedPreferences.MyPreferences;
 import com.example.mylovebeverage.Singleton.MySingleton;
 import com.example.mylovebeverage.databinding.ActivityManagerBinding;
@@ -253,10 +252,10 @@ public class Manager extends AppCompatActivity {
                     WaitressSubscriber waitressSubscriber = new WaitressSubscriber();
                     Notifier notifier = new Notifier();
                     // subscribe
-                    notifier.subscribe(bartenderSubscriber);
-                    notifier.subscribe(waitressSubscriber);
-                    notifier.subscribe(securitySubscriber);
-                    notifier.subscribe(orderSubscriber);
+                    notifier.subscribe(bartenderSubscriber); //0
+                    notifier.subscribe(waitressSubscriber);  //1
+                    notifier.subscribe(securitySubscriber);  //2
+                    notifier.subscribe(orderSubscriber);  //3
                     //done
                     Dialog dialog = new Dialog(Manager.this);
                     dialog.setContentView(R.layout.activity_create_notification);
@@ -279,7 +278,7 @@ public class Manager extends AppCompatActivity {
                     btn_send.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            notifier.setMessgae(edt_message.getText().toString().trim());
+                            notifier.setMessage(edt_message.getText().toString().trim());
                             notifier.setType_position(edt_type_position.getText().toString().trim());
                             notifier.Notify();
                             dialog.dismiss();

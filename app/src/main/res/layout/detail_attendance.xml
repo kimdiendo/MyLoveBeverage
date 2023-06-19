@@ -35,7 +35,6 @@
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
-
             <ImageView
                 android:id="@+id/checkview"
                 android:layout_width="wrap_content"
@@ -43,8 +42,6 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="205dp"
                 android:src="@drawable/green_tick" />
-
-
         </TableRow>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
