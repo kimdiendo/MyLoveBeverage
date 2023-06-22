@@ -11,10 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mylovebeverage.Adapters.AttendanceDashBoardAdapter;
 import com.example.mylovebeverage.Data.Connecting_MSSQL;
@@ -55,6 +57,7 @@ public class AttendanceDashBoardFragment extends Fragment {
     private ListView listView;
     private ImageView imageView;
     private TextView txt, txt1, txt2;
+    private Button btn_settimer, btn_sendinvoice, btn_exportinvoice;
     private ArrayList<Detail_Attendance> attendanceArrayList = new ArrayList<>();
 
     public AttendanceDashBoardFragment() {
@@ -141,6 +144,42 @@ public class AttendanceDashBoardFragment extends Fragment {
         }
     }
 
+    private void Set_timer() {
+
+    }
+
+    private int check_day_of_month(String month) {
+        int last_day = 0;
+        if (month.equals("1") || month.equals("3") || month.equals("5") || month.equals("7") || month.equals("8") || month.equals("10") || month.equals("12"))
+            last_day = 31;
+        else if (month.equals("4") || month.equals("6") || month.equals("9") || month.equals("11")) {
+            last_day = 30;
+        } else if (month.equals("2")) {
+            last_day = 28; // năm không nhuận
+        }
+        return last_day;
+    }
+
+    private void Send_Invoice() {
+        String date = setDate();
+        int day = Integer.valueOf(date.toString().split("/")[0]);
+        String month = date.toString().split("/")[1];
+        int last_day_month = check_day_of_month(month);
+        if (day < last_day_month) {
+            Toast.makeText(getContext(), "Sending invoice is available on the last day of month !!!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void Export_Invoice() {
+        String date = setDate();
+        int day = Integer.valueOf(date.toString().split("/")[0]);
+        String month = date.toString().split("/")[1];
+        int last_day_month = check_day_of_month(month);
+        if (day < last_day_month) {
+            Toast.makeText(getContext(), "Exporting invoice is available on the last day of month !!!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -152,6 +191,24 @@ public class AttendanceDashBoardFragment extends Fragment {
         txt = view.findViewById(R.id.text_warn);
         txt1 = view.findViewById(R.id.amount_of_staff);
         txt2 = view.findViewById(R.id.status);
+        //set các nút
+//        btn_settimer =view.findViewById(R.id.button_timer);
+        btn_sendinvoice = view.findViewById(R.id.button_sendvoice);
+        btn_exportinvoice = view.findViewById(R.id.button_exportvoice);
+        //set các hàm
+        Set_timer();
+        btn_sendinvoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Send_Invoice();
+            }
+        });
+        btn_exportinvoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Export_Invoice();
+            }
+        });
         editText.setText(setDate());
         attendanceArrayList.clear();
         RetriveDataFromCloudFireStore();

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/custom_border">
+
+    <TextView
+        android:id="@+id/txtCustomDialogTitle"
+        android:layout_width="600dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Set Timer"
+        android:drawableLeft="@drawable/clock"
+        android:paddingRight="100dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+
+    <Button
+        android:id="@+id/btnCustomDialogYes"
+        android:layout_width="107dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="245dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="238dp"
+        android:layout_marginBottom="27dp"
+        android:background="@color/green"
+        android:text="SET"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -119,11 +119,11 @@
                 android:layout_height="wrap_content" />
 
             <ListView
-                android:visibility="visible"
                 android:id="@+id/listviewattendance"
                 android:layout_width="838dp"
                 android:layout_height="710dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:visibility="visible">
 
             </ListView>
 
@@ -168,17 +168,17 @@
 
         </FrameLayout>
 
-        <Button
-            android:id="@+id/button_timer"
-            android:layout_width="123dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/login_rbcircle_2"
-            android:text="Set Timer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.892"
-            app:layout_constraintStart_toEndOf="@+id/editText2"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!--        <Button-->
+        <!--            android:id="@+id/button_timer"-->
+        <!--            android:layout_width="123dp"-->
+        <!--            android:layout_height="46dp"-->
+        <!--            android:layout_marginTop="40dp"-->
+        <!--            android:background="@drawable/login_rbcircle_2"-->
+        <!--            android:text="Set Timer"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.892"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/editText2"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <Button
             android:id="@+id/button_exportvoice"
