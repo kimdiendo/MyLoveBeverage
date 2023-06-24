@@ -122,7 +122,7 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/text_rbcircle_white"></Spinner>
+                    android:background="@drawable/login_rbcircle_1"></Spinner>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

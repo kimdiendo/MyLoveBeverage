@@ -144,17 +144,17 @@ public class AttendanceDashBoardFragment extends Fragment {
         }
     }
 
-    private void Set_timer() {
-
-    }
+//    private void Set_timer() {
+//
+//    }
 
     private int check_day_of_month(String month) {
         int last_day = 0;
-        if (month.equals("1") || month.equals("3") || month.equals("5") || month.equals("7") || month.equals("8") || month.equals("10") || month.equals("12"))
+        if (month.equals("01") || month.equals("03") || month.equals("05") || month.equals("07") || month.equals("08") || month.equals("10") || month.equals("12"))
             last_day = 31;
-        else if (month.equals("4") || month.equals("6") || month.equals("9") || month.equals("11")) {
+        else if (month.equals("04") || month.equals("06") || month.equals("09") || month.equals("11")) {
             last_day = 30;
-        } else if (month.equals("2")) {
+        } else if (month.equals("02")) {
             last_day = 28; // năm không nhuận
         }
         return last_day;
@@ -196,7 +196,7 @@ public class AttendanceDashBoardFragment extends Fragment {
         btn_sendinvoice = view.findViewById(R.id.button_sendvoice);
         btn_exportinvoice = view.findViewById(R.id.button_exportvoice);
         //set các hàm
-        Set_timer();
+//        Set_timer();
         btn_sendinvoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
