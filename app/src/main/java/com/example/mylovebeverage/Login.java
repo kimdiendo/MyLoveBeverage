@@ -103,11 +103,10 @@ public class Login extends AppCompatActivity {
                         {
                             account = new Account(resultSet.getString(1).trim() ,resultSet.getString(2).trim(), resultSet.getString(3).trim());
                             check_key = account.AuthenticateLogin(username , password);
-                            if(check_key ==2)
-                            {
-                                Toast.makeText(getApplicationContext() , "Wrong password" , Toast.LENGTH_SHORT).show();
+                            if (check_key == 2) {
+                                Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
                                 break;
-                            }else if(check_key == 3) {
+                            } else if (check_key == 3) {
                                 Statement statement1 = connection.createStatement();
                                 statement1.execute("UPDATE ACCOUNT\n" +
                                         "SET Status ='active'\n" +
